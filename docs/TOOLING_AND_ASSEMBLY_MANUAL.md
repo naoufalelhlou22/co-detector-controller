@@ -51,3 +51,4 @@ flowchart TD
 | **Terminal J1 Cutout** | 12V DC Power Screw Terminal | Left Wall $(Y = 38.00)$ | $12.0 \times 10.5\text{ mm}$ split opening |
 | **Terminal J2 Cutout** | External Relay Alarm Terminal | Left Wall $(Y = 12.00)$ | $12.0 \times 10.5\text{ mm}$ split opening |
 | **Reset SW3 Pinhole** | Hardware Master Reset Switch | Left Wall $(Y = 20.20)$ | $\varnothing 2.5\text{ mm}$ recessed access |
+

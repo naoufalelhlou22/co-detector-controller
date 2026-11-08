@@ -336,3 +336,4 @@ if __name__ == '__main__':
 
     w_mesh = build_wall_bracket_mesh()
     w_mesh.write_binary_stl('cad/stl/CO_Enclosure_Wall_Bracket.stl')
+

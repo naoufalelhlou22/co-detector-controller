@@ -65,3 +65,4 @@ target_refs = [
 for d in data:
     if d["ref"] in target_refs:
         print(f"Ref: {d['ref']:5} | Val: {d['val'][:15]:15} | Pos: ({d['x']:6.2f}, {d['y']:6.2f}) | Rot: {d['rot']:5.1f} | Layer: {d['layer']} | 3D: {d['models']}")
+

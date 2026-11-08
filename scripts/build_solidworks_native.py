@@ -246,3 +246,4 @@ def run_solidworks_builder():
 
 if __name__ == '__main__':
     run_solidworks_builder()
+
