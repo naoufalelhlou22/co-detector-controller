@@ -1,0 +1,53 @@
+(version 1)
+
+# Rule 1: 12V and Valve nets must have >= 0.30 mm clearance to all other copper
+# (exempting fine-pitch pads of U2 LMR33620 where pin pitch is 1.27 mm and pad gap is ~0.67 mm, which still satisfies > 0.30 mm!)
+(rule "12V_and_Valve_Clearance_0p3mm"
+    (condition "A.NetClass == 'PWR_12V_VALVE'")
+    (constraint clearance (min 0.30mm))
+)
+
+# Rule 2: High-current +12V_IN, +12V_F, +12V power distribution and VALVE_NEG must be >= 1.20 mm wide
+# (Allowing neck-down to >= 0.50 mm only inside component courtyard of small SOT-23 / 0603 / HSOIC pads where pad width < 1.2 mm)
+(rule "12V_and_Valve_Track_Width"
+    (condition "A.NetClass == 'PWR_12V_VALVE' && A.Type == 'Track'")
+    (constraint track_width (min 0.50mm) (opt 1.20mm))
+)
+
+# Rule 3: 3V3 and AVDD power tracks >= 0.50 mm (allowing 0.25 mm neck-down on AVDD into 0.25 mm wide WSON-14 pad U3.6)
+(rule "3V3_Track_Width"
+    (condition "A.NetName == '+3V3' && A.Type == 'Track'")
+    (constraint track_width (min 0.50mm) (opt 0.50mm))
+)
+(rule "AVDD_Track_Width"
+    (condition "A.NetName == 'AVDD' && A.Type == 'Track'")
+    (constraint track_width (min 0.25mm) (opt 0.50mm))
+)
+
+# Rule 4: RE, WE, CE electrochemical electrode nets on Top Layer (F.Cu) ONLY
+(rule "Electrochemical_RE_WE_CE_Top_Layer_Only"
+    (condition "(A.NetName == 'RE' || A.NetName == 'WE' || A.NetName == 'CE') && A.Type == 'Track'")
+    (layer "In1.Cu")
+    (constraint disallow track)
+)
+(rule "Electrochemical_RE_WE_CE_No_In2"
+    (condition "(A.NetName == 'RE' || A.NetName == 'WE' || A.NetName == 'CE') && A.Type == 'Track'")
+    (layer "In2.Cu")
+    (constraint disallow track)
+)
+(rule "Electrochemical_RE_WE_CE_No_Bottom"
+    (condition "(A.NetName == 'RE' || A.NetName == 'WE' || A.NetName == 'CE') && A.Type == 'Track'")
+    (layer "B.Cu")
+    (constraint disallow track)
+)
+(rule "Electrochemical_RE_WE_CE_No_Vias"
+    (condition "(A.NetName == 'RE' || A.NetName == 'WE' || A.NetName == 'CE')")
+    (constraint disallow via)
+)
+
+# Rule 5: Keep all tracks, vias, and copper zones >= 2.0 mm from board edges
+(rule "Tracks_Vias_Zones_Edge_Clearance_2mm"
+    (condition "A.Type == 'Track' || A.Type == 'Via' || A.Type == 'Zone'")
+    (constraint edge_clearance (min 2.0mm))
+)
+

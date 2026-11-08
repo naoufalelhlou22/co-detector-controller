@@ -1,0 +1,14 @@
+* SIM4B TEST_N recovery after GPIO10 releases (LED D8 lit -> Hi-Z). R26 10k, C27 100nF, R30 330R, D8 yellow.
+VDD v33 0 3.315
+R26 v33 tn 10k
+C27 tn 0 100n IC=0.05
+R30 v33 ya 330
+D8 ya tn DLED
+.model DLED D(Is=1e-19 N=1.8 Rs=8)
+* GPIO10 sinks until t=1ms then Hi-Z
+BG tn 0 I = (time<1m) ? V(tn)/25 : 0
+.control
+tran 1u 8m uic
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s4b.txt V(tn)
+.endc
+.end

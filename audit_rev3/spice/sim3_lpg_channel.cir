@@ -1,0 +1,28 @@
+* SIM 3: LPG Catalytic/Semiconductor Channel (Figaro TGS2610-C00)
+* 3A. Heater Power Comparison (As-Designed +3V3 & R27=22R vs Datasheet 5.0V Direct)
+V_3V3 v3v3 0 DC 3.320
+R_R27 v3v3 htr_as 22
+* At low power (~80mW), SnO2 bead only warms slightly: R_H ~ 68 Ohm (between 59R cold and 89.3R at 5V)
+R_HTR_AS htr_as 0 68.0
+* Also test with R_H = 89.3 Ohm nominal hot resistance
+R_R27_HOT v3v3 htr_as_hot 22
+R_HTR_AS_HOT htr_as_hot 0 89.3
+
+* Datasheet 5.0V heater supply
+V_5V0 v5v0 0 DC 5.000
+R_HTR_DS v5v0 0 89.29
+
+* 3B. Sensing Resistance Divider Sweep (Rs = 0.5k to 100k)
+* V_DIV = V_3V3 * R28 / (Rs + R28) where R28 = 4.7k
+V_RS_CTRL rs_val 0 DC 10k
+B_SENS v3v3 lpg_div I = V(v3v3, lpg_div) / max(1.0, V(rs_val))
+R_R28 lpg_div 0 4.7k
+R_R29 lpg_div lpg_adc 1k
+C_C28 lpg_adc 0 100n
+R_ADC_IN lpg_adc 0 10Meg
+
+.control
+dc V_RS_CTRL 100 100000 200
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/sim3_dc.txt V(rs_val) V(lpg_div) V(lpg_adc) V(htr_as) V(htr_as_hot)
+.endc
+.end

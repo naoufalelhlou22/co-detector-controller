@@ -1,0 +1,28 @@
+stdout Note: No compatibility mode selected!
+stdout Circuit: * sim2 co afe (behavioural lmp91000 tia: vout = vzero + iwe*rtia, clamped to rails)
+stdout Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+stdout Using SPARSE 1.3 as Direct Linear Solver
+stderr Note: Starting dynamic gmin stepping
+stderr Note: Dynamic gmin stepping completed
+ Reference value :  0.00000e+00
+stdout No. of Data Rows : 361
+stdout Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+stdout Using SPARSE 1.3 as Direct Linear Solver
+stderr Note: Starting dynamic gmin stepping
+stderr Note: Dynamic gmin stepping completed
+stdout Initial Transient Solution
+stdout --------------------------
+stdout Node                                   Voltage
+stdout ----                                   -------
+stdout avdd                                     3.315
+stdout vz                                         0.5
+stdout we                                         0.5
+stdout tia                                        0.5
+stdout etia_int1                                  0.5
+stdout vout                                  0.499998
+stdout vadc                                  0.499948
+stdout betia#branch                                 0
+stdout etia#branch                       -4.99948e-08
+stdout vz#branch                                    0
+stdout vavdd#branch                                 0
+stdout No. of Data Rows : 2024

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "CO_Detector")(type "KiCad")(uri "${KIPRJMOD}/co_detector_symbols.kicad_sym")(options "")(descr "CO Detector Controller Symbols"))
+)

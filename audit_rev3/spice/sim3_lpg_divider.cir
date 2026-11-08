@@ -1,0 +1,17 @@
+* SIM3 LPG divider, R6 DNP vs R6=10k populated; heater power (DC)
+VCC v33 0 3.315
+VRS rsv 0 DC 10k
+BRS v33 sns I = V(v33,sns)/max(10,V(rsv))
+R28 sns 0 4.7k
+R29 sns adc 1k
+RADC adc 0 10Meg
+BRS2 v33 sns2 I = V(v33,sns2)/max(10,V(rsv))
+R28b sns2 0 4.7k
+R29b sns2 adc2 1k
+R6 v33 adc2 10k
+RADC2 adc2 0 10Meg
+.control
+dc VRS 100 1e7 100
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s3.txt V(adc) V(adc2)
+.endc
+.end

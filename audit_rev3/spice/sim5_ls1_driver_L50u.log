@@ -1,0 +1,23 @@
+stdout Note: No compatibility mode selected!
+stdout Circuit: * sim5 ls1 driver, lcoil=50uh, 2.7 khz 50% pwm
+stdout Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+stdout Using SPARSE 1.3 as Direct Linear Solver
+stdout Initial Transient Solution
+stdout --------------------------
+stdout Node                                   Voltage
+stdout ----                                   -------
+stdout v12                                         12
+stdout g0                                           0
+stdout m1                                          12
+stdout k1                                          12
+stdout g1                                           0
+stdout a1                                          12
+stdout m2                                          12
+stdout k2                                          12
+stdout k3                                          12
+stdout llsa#branch                        1.20106e-11
+stdout lls#branch                         1.02633e-11
+stdout vg#branch                                    0
+stdout v12#branch                        -3.60308e-11
+ Reference value :  4.07928e-04
+stdout No. of Data Rows : 6098

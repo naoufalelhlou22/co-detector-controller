@@ -1,0 +1,23 @@
+* SIM4A U5 latch, WPU=45000
+* MODEL LIMIT: 74LVC1G08 behavioural (VIL 0.8V / VIH 2.0V hysteresis-free threshold at 1.4V shown separately);
+* ESP32 pin = ideal source + 100 ohm when driving, Hi-Z otherwise; WPU active only during boot windows.
+VDD v33 0 3.315
+* phase A (0-50ms): MCU drives HIGH (alarm). 50-350ms: NRST low (Hi-Z, no pull). 350-650 ms: boot (Hi-Z + WPU)
+* 650-700 ms: firmware drives LOW (alarm cleared). 700-1000 ms: reset again + boot with WPU -> must stay OFF
+BDRV mcu en I = ((time<50m) ? (3.315-V(en))/100 : 0) + ((time>=650m && time<700m) ? (0-V(en))/100 : 0)
+VMCU mcu 0 0
+BWPU v33 en I = (((time>=350m && time<650m) || (time>=900m)) ? V(v33,en)/45000 : 0)
+BU5 y 0 V = (V(en) > 1.40) ? 3.315 : 0.0
+R13 y en 10k
+CPIN en 0 5p
+R14 y gate 100
+R15 gate 0 100k
+M_Q2 neg gate 0 0 NM
+.model NM NMOS(LEVEL=1 VTO=0.8 KP=20)
+RJ2 v12 neg 120
+V12 v12 0 12
+.control
+tran 0.1m 1000m
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s4_45.txt V(en) V(y) V(neg)
+.endc
+.end

@@ -1,0 +1,32 @@
+* SIM 2: CO Electrochemical AFE Channel (Winsen ME3-CO + LMP91000 + REF3325)
+V_AVDD avdd 0 DC 3.320
+V_REF vref 0 DC 2.500
+V_ZERO vzero 0 DC 0.500
+
+* Sensor current source I_sensor: during CO oxidation at WE (CO + H2O -> CO2 + 2H+ + 2e-),
+* electrons enter WE and flow into LMP91000 WE pin, so conventional current flows OUT of we_node:
+* V_C2 = V_ZERO + I_sensor * R_TIA (with INT_Z = 20% Vref = 0.500V, R_TIA = 35 kOhm)
+I_SENS we_node 0 DC 0 PULSE(0 19.5u 5m 0.5m 0.5m 600m 1000m) AC 1u
+
+* LMP91000 high-gain TIA op-amp behavioral macromodel
+E_TIA c2_int 0 VALUE = { min(V(avdd)-0.02, max(0.01, V(vzero) + 1e5*(V(vzero) - V(we_node)))) }
+R_TIA we_node c2_int 35k
+C_C21 we_node c2_int 1u
+R_ROUT c2_int vout_lmp 40
+
+* Output RC Anti-Aliasing Filter (R11 = 1k, C17 = 100nF) + ESP32-C3 ADC input impedance
+R_R11 vout_lmp vout_adc 1k
+C_C17 vout_adc 0 100n
+R_ADC vout_adc 0 10Meg
+
+.control
+dc I_SENS -5u 80u 0.5u
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/sim2_dc.txt V(we_node) V(vout_lmp) V(vout_adc)
+
+tran 0.1m 80m
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/sim2_tr.txt V(we_node) V(vout_lmp) V(vout_adc)
+
+ac dec 50 0.01 100k
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/sim2_ac.txt vm(vout_lmp) vm(vout_adc) vp(vout_adc)
+.endc
+.end

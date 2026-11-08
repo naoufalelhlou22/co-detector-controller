@@ -1,0 +1,27 @@
+* SIM1B buck power stage, open loop, duty fixed at Vout/Vin (0.2762); L1/Cout/FB1 from netlist
+* MODEL LIMIT: no LMR33620 control loop (no vendor model) -> ripple & filter attenuation only, NOT load-step/stability.
+* FB1 BLM18PG221SN1D modelled as 0.10 ohm + 0.7 uH (approximation of the impedance curve below 10 MHz).
+VIN vin 0 DC 12.0
+SHS vin sw ctl 0 SWM
+SLS sw 0 ctln 0 SWM
+.model SWM SW(Ron=0.08 Roff=1e7 Vt=0.5 Vh=0.01)
+VCTL ctl 0 PULSE(0 1 0 1n 1n 7.113437e-07 2.500000e-06)
+BCTLN ctln 0 V=1-V(ctl)
+L1 sw l1o 6.8u IC=0.4
+RL1 l1o v33 0.040
+COUT v33 cesr 8.8e-05 IC=3.315
+RESR cesr 0 0.0008
+C12 v33 0 100n IC=3.315
+RLOAD v33 0 8.2875
+RFB1 v33 fbm 0.10
+LFB1 fbm avdd 0.7u
+C13 avdd c13e 10u IC=3.315
+RC13 c13e 0 0.005
+C14 avdd 0 300n IC=3.315
+IAVDD avdd 0 DC 0.2m
+.control
+tran 20n 4m 0 20n uic
+linearize V(v33) V(avdd)
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s1b_nom.txt V(v33) V(avdd)
+.endc
+.end

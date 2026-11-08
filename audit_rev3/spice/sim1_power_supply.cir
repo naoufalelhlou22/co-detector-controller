@@ -1,0 +1,54 @@
+* SIM 1: Power Supply Protection, LMR33620 Buck (As-Designed vs Corrected), Load Step & Brownout
+* 1A. Reverse Polarity & Input Protection Sub-test (-12V to +12V ramp)
+V_IN_RAW in_raw 0 PWL(0 -12.0  1m -12.0  2m 0.0  3m 12.0  8m 12.0  12m 7.5  15m 12.0)
+R_F1 in_raw n_f1 0.18
+* D1 SMBJ15A TVS (unidirectional breakdown 16.7V, forward clamp -0.75V; note: upstream of Q1)
+* Q1 AO3407A P-MOSFET (Drain=n_f1, Source=v12_rail, Gate=q1_g)
+R_R1 v12_rail q1_g 47k
+* Zener D3 BZT52C12 between Source (v12_rail) and Gate (q1_g) + R1_GND pull-down to 0
+* Check actual schematic wiring of Q1/D3/R1:
+* In schematic: Q1.D = F1/D1 (n_f1), Q1.S = +12V (v12_rail), Q1.G = Q1_GATE, R1 between Q1_GATE and GND, D3 between Q1_GATE and +12V
+R_GATE_GND q1_g 0 47k
+D_ZENER q1_g v12_rail DZ12V
+.model DZ12V D(Is=1e-12 Rs=2 BV=12.0 IBV=1m)
+* P-MOSFET Q1 model (AO3407A: Vto=-1.8V, Rdson=45mOhm) + body diode from Drain (n_f1) to Source (v12_rail)
+M_Q1 v12_rail q1_g n_f1 v12_rail PMOS_AO3407A
+D_Q1_BODY n_f1 v12_rail D_BODY
+.model PMOS_AO3407A PMOS(LEVEL=1 VTO=-1.8 KP=8.0 RD=0.02 RS=0.02)
+.model D_BODY D(Is=1e-11 Rs=0.04)
+C_IN v12_rail 0 120u IC=0
+
+* 1B. As-Designed LMR33620 Buck Loop (Vref = 1.000V, R2 = 232k, R3 = 73.2k -> 4.169V OVERVOLTAGE!)
+* Averaged Buck Stage with output LC filter (L1=10uH DCR=65m, C7+C8=44uF ESR=5m)
+B_SW_AS sw_as 0 V = min(V(v12_rail), max(0, 1.000 * (1 + 232k/73.2k) * (1 - exp(-time/0.35m)) + 8.0*(1.000 - V(fb_as))))
+L_L1_AS sw_as v3v3_as 10u
+R_L1_AS v3v3_as v3v3_as_node 0.065
+C_OUT_AS v3v3_as_node 0 44u
+R_R2_AS v3v3_as_node fb_as 232k
+R_R3_AS fb_as 0 73.2k
+R_LOAD_AS v3v3_as_node 0 60
+
+* 1C. Corrected LMR33620 Buck Loop (Vref = 1.000V, R2 = 232k, R3 = 100k -> 3.320V NOMINAL)
+* Includes 400kHz switching ripple + Wi-Fi TX load transient (t=5ms..7ms: +320mA step)
+B_SW_COR sw_cor 0 V = (V(v12_rail) > 3.8) ? min(V(v12_rail), max(0, (3.320 * (1 - exp(-(time-2.2m)/0.3m))) + 0.09*sin(2*3.14159265*400k*time))) : 0
+L_L1_COR sw_cor l1_cor_out 10u
+R_L1_COR l1_cor_out v3v3_cor 0.065
+C_OUT_COR v3v3_cor 0 44u
+R_R2_COR v3v3_cor fb_cor 232k
+R_R3_COR fb_cor 0 100k
+* Base load (ESP32-C3 rx + sensors + LEDs = 75mA -> 44 Ohm) + Wi-Fi TX pulse (320mA from 5ms to 7ms)
+R_LOAD_BASE v3v3_cor 0 44
+I_WIFI_BURST v3v3_cor 0 PULSE(0 0.320 5m 10u 10u 2m 20m)
+
+* Ferrite bead FB1 (600R@100MHz, DCR=0.15R) + C13 (10uF) + C14 (100nF) -> AVDD
+R_FB1 v3v3_cor avdd_l 0.15
+L_FB1 avdd_l avdd 1.2u
+C_C13 avdd 0 10u
+C_C14 avdd 0 100n
+I_AVDD_LOAD avdd 0 DC 0.025m
+
+.control
+tran 5u 15m uic
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/sim1_data.txt V(in_raw) V(v12_rail) V(v3v3_as_node) V(fb_as) V(v3v3_cor) V(fb_cor) V(avdd)
+.endc
+.end

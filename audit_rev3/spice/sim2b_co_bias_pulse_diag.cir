@@ -1,0 +1,28 @@
+* SIM2B sensor-presence diagnostic using an LMP91000 bias step (BIAS register, +1% of 2.5V = 25 mV)
+* MODEL LIMIT: cell modelled as Randles network with ASSUMED Rs=50 ohm, Cdl=10 mF, Rct=200k (not Winsen data).
+VZ vz 0 0.500
+VB bias 0 PULSE(0 0.025 50m 1u 1u 100m 1)
+* potentiostat forces V(we)-V(re)=bias via CE; equivalent: step source across cell
+XCELL we bias CELL
+.subckt CELL a b
+Rs a n1 50
+Cdl n1 b 10m
+Rct n1 b 200k
+.ends
+* open cell = no connection -> no current
+ETIA tia 0 VALUE={ max(0.02, min(3.265, V(vz) + 1e5*(V(vz)-V(we)))) }
+RTIA we tia 35k
+C21 we tia 1u
+R11 tia vadc 1k
+C17 vadc 0 100n
+ETIA2 tia2 0 VALUE={ max(0.02, min(3.265, V(vz) + 1e5*(V(vz)-V(we2)))) }
+RTIA2 we2 tia2 35k
+C212 we2 tia2 1u
+R112 tia2 vadc2 1k
+C172 vadc2 0 100n
+RLEAK we2 0 1G
+.control
+tran 0.1m 300m
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s2b.txt V(vadc) V(vadc2)
+.endc
+.end

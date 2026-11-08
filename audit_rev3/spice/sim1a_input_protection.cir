@@ -1,0 +1,20 @@
+* SIM1A input protection — real topology (Q1.D=+12V_F, Q1.S=+12V, Q1.G=Q1_G, R1 Q1_G->GND, D3 K=+12V A=Q1_G)
+* MODEL LIMIT: generic level-1 PMOS (Vto=-1.8V) and generic diodes, not vendor models.
+VSRC src 0 DC 12
+RSRC src j1p 0.5
+RF1 j1p v12f 0.12
+D1 0 v12f DTVS
+.model DTVS D(Is=1e-12 Rs=0.05 BV=16.7 IBV=1m N=1.5)
+M_Q1 v12f q1g v12 v12 PM
+.model PM PMOS(LEVEL=1 VTO=-1.8 KP=6 LAMBDA=0.01)
+D_Q1BODY v12f v12 DB
+.model DB D(Is=1e-11 Rs=0.05)
+R1 q1g 0 10k
+D3 q1g v12 DZ15
+.model DZ15 D(Is=1e-12 Rs=5 BV=15 IBV=5m)
+RLOAD v12 0 40
+.control
+dc VSRC -15 15 0.05
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s1a.txt V(v12) V(v12f) I(VSRC)
+.endc
+.end

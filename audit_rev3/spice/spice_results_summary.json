@@ -1,0 +1,223 @@
+{
+  "model_limits": {
+    "sim1a": "Generic PMOS/diode models. PTC F1 modelled as fixed 0.12 ohm (no trip dynamics). Reverse current depends on supply source resistance (0.5 ohm assumed).",
+    "sim1b": "Open-loop switching stage only. Start-up soft-start, load transient and loop stability NOT simulated (LMR33620 vendor model not available to this engine).",
+    "sim2": "Electrical transfer only. No gas-to-current conversion is simulated; ppm axes use Winsen datasheet sensitivity 0.070+/-0.015 uA/ppm.",
+    "sim2b": "Cell parameters assumed for illustration; real response amplitude must be characterised on hardware.",
+    "sim3": "Rs is an ideal resistor sweep; TGS2610 Rs-vs-ppm and heater temperature dynamics are not modelled. Heater RH values per Figaro datasheet (RH 59 ohm room temp).",
+    "sim4": "NRST/boot windows are stimuli from datasheet timing; U5 threshold modelled at 1.4V; ESP32 WPU swept because Espressif does not specify a tight value.",
+    "sim5": "Coil inductance unknown (swept). CDM-12008 voice-coil inductance and AO3400A avalanche energy must be confirmed from datasheets."
+  },
+  "errors": {
+    "s1a": [],
+    "s1b_nom": [],
+    "s1b_derated": [],
+    "s2": [],
+    "s2b": [],
+    "s3": [],
+    "s4_30k": [],
+    "s4_45k": [],
+    "s4_70k": [],
+    "s4b": [],
+    "s5_50u": [],
+    "s5_200u": []
+  },
+  "sim1a_input_protection": {
+    "V_+12V_rail_at_Vin_+12V": 11.8119997,
+    "drop_Vin_to_rail_at_+12V_300mA_V": 0.18800030000000056,
+    "V_+12V_rail_at_Vin_-12V": -5.5939147e-10,
+    "source_current_at_Vin_-12V_A (D1 forward crowbar, until F1 trips)": -16.1493416,
+    "source_current_at_Vin_+15V_A": 0.36915987
+  },
+  "sim1b_buck_ripple": {
+    "nom": {
+      "Cout_F": 8.8e-05,
+      "V3V3_mean_V(open-loop, informative)": 3.370705297736,
+      "V3V3_ripple_mVpp": 4.239000000000104,
+      "AVDD_ripple_mVpp": 1.0982500000000783,
+      "inductor_ripple_A_pp_analytic": 0.8820703125
+    },
+    "derated": {
+      "Cout_F": 4.8e-05,
+      "V3V3_mean_V(open-loop, informative)": 3.3707124939871997,
+      "V3V3_ripple_mVpp": 6.986659999999922,
+      "AVDD_ripple_mVpp": 1.2599900000003217,
+      "inductor_ripple_A_pp_analytic": 0.8820703125
+    },
+    "FB_divider_Vout_analytic_V (R4=100k, R5=43.2k, Vref=1.000V)": 3.314814814814815
+  },
+  "sim2_co_afe": {
+    "VOUT_ADC_V_vs_ppm (sensitivity min/typ/max)": {
+      "0ppm": {
+        "min": 0.499947506,
+        "typ": 0.499947506,
+        "max": 0.499947506
+      },
+      "30ppm": {
+        "min": 0.5576908654,
+        "typ": 0.5734390536,
+        "max": 0.5891872428
+      },
+      "50ppm": {
+        "min": 0.596186438,
+        "typ": 0.62243342,
+        "max": 0.648680401
+      },
+      "100ppm": {
+        "min": 0.69242537,
+        "typ": 0.744919333,
+        "max": 0.797413297
+      },
+      "300ppm": {
+        "min": 1.0773811,
+        "typ": 1.2348629900000003,
+        "max": 1.3923448799999998
+      },
+      "500ppm": {
+        "min": 1.46233683,
+        "typ": 1.7248066500000003,
+        "max": 1.9872764599999997
+      },
+      "1000ppm": {
+        "min": 2.42472615,
+        "typ": 2.9496657900000005,
+        "max": 3.26465721
+      }
+    },
+    "ppm_at_2.50V_ADC_ceiling (min/typ/max sens)": {
+      "min": 1038.9610389610389,
+      "typ": 816.3265306122448,
+      "max": 672.2689075630252
+    },
+    "TIA_time_constant_measured_ms (RTIA*C21 = 35 ms expected)": 35.1790227,
+    "open_sensor_VOUT_ADC_V (I=0)": 0.499947506,
+    "NOTE": "Open (disconnected) sensor gives the SAME output as 0 ppm clean air -> DC reading cannot detect a missing/dead cell."
+  },
+  "sim2b_bias_pulse_diag": {
+    "connected_cell_peak_deviation_mV": 480.0,
+    "open_cell_peak_deviation_mV": 0.017500000000003624
+  },
+  "sim3_lpg": {
+    "V_LPG_ADC_R6_DNP": {
+      "Rs=680R": 2.894445008,
+      "Rs=1k": 2.73195324,
+      "Rs=2k": 2.32433314,
+      "Rs=4k7": 1.65675106,
+      "Rs=6k8": 1.35420936,
+      "Rs=10k": 1.05940339,
+      "Rs=47k": 0.301203688,
+      "Rs=1M(cold)": 0.0154988138,
+      "Rs=10M(open)": 0.00155643124
+    },
+    "V_LPG_ADC_R6_10k": {
+      "Rs=680R": 2.951977506,
+      "Rs=4k7": 2.07276582,
+      "Rs=47k": 1.34132209,
+      "Rs=1M(cold)": 1.21002702,
+      "Rs=10M(open)": 1.20379317
+    },
+    "GPIO2_strap_VIH_min_V (0.75*VDD)": 2.48625,
+    "GPIO2_reads_HIGH_at_reset_with_cold_sensor_R6_DNP": false,
+    "GPIO2_reads_HIGH_at_reset_with_cold_sensor_R6_10k": false,
+    "R6_max_value_to_guarantee_strap_high_ohm (analytic, Rs=open)": 1900.0,
+    "heater_analysis": {
+      "RH=59R (room temp)": {
+        "I_mA": 40.92592592592593,
+        "VH_V": 2.41462962962963,
+        "PH_mW": 98.82095336076819,
+        "P_R27_mW": 36.84849108367627
+      },
+      "RH=89.3R (at 5V operating)": {
+        "I_mA": 29.78436657681941,
+        "VH_V": 2.659743935309973,
+        "PH_mW": 79.21878836974449,
+        "P_R27_mW": 19.516386832411854
+      },
+      "datasheet_requirement": {
+        "VH_V": "5.0 +/- 0.2",
+        "IH_mA": 56,
+        "PH_mW": 280
+      }
+    }
+  },
+  "sim4a_valve_latch": {
+    "WPU=30k": {
+      "J2_ON_through_NRST_low (VALVE_NEG<0.5V)": true,
+      "J2_ON_through_boot_with_WPU": true,
+      "J2_OFF_held_through_boot_with_WPU": true,
+      "VALVE_EN_V_in_OFF_state_with_WPU": 0.828750399510544,
+      "LVC_VIL_max_V": 0.8
+    },
+    "WPU=45k": {
+      "J2_ON_through_NRST_low (VALVE_NEG<0.5V)": true,
+      "J2_ON_through_boot_with_WPU": true,
+      "J2_OFF_held_through_boot_with_WPU": true,
+      "VALVE_EN_V_in_OFF_state_with_WPU": 0.6027275856492785,
+      "LVC_VIL_max_V": 0.8
+    },
+    "WPU=70k": {
+      "J2_ON_through_NRST_low (VALVE_NEG<0.5V)": true,
+      "J2_ON_through_boot_with_WPU": true,
+      "J2_OFF_held_through_boot_with_WPU": true,
+      "VALVE_EN_V_in_OFF_state_with_WPU": 0.41437523255715875,
+      "LVC_VIL_max_V": 0.8
+    }
+  },
+  "sim4b_test_n_recovery": {
+    "VIH_V": 2.48625,
+    "time_to_VIH_after_release_ms": 0.7829600000000001,
+    "V_TEST_N_50us_after_release_V": 1.2998904279999997,
+    "conclusion": "A 50 us sampling window reads LOW (false SW1 press). Window must be >= ~2 ms (or sample only while D8 is off)."
+  },
+  "sim5_ls1_driver": {
+    "L=50uH": {
+      "as_built_coil_peak_A (Q5 on)": 1.49929644759,
+      "as_built_coil_avg_power_W_at_50pct": 8.991559351023973,
+      "as_built_R25_power_while_on_W": 3.0609563748166715,
+      "as_built_Q5_drain_peak_V (no clamp, D7 DNP)": 81.6069145,
+      "fixA_coil_peak_A": 0.2925298333333333,
+      "fixA_coil_avg_power_W": 0.3422948135601111,
+      "fixA_R_series_avg_power_W": 1.4119661059354582,
+      "fixA_Q5_drain_peak_V": 13.0221953,
+      "fixB_piezo_Q5_drain_peak_V": 11.9558173,
+      "fixB_R25_2k2_power_while_on_mW": 65.45454545454545
+    },
+    "L=200uH": {
+      "as_built_coil_peak_A (Q5 on)": 1.49931081635625,
+      "as_built_coil_avg_power_W_at_50pct": 8.99173169617138,
+      "as_built_R25_power_while_on_W": 3.0610150455051506,
+      "as_built_Q5_drain_peak_V (no clamp, D7 DNP)": 82.066769,
+      "fixA_coil_peak_A": 0.2925298333333333,
+      "fixA_coil_avg_power_W": 0.3422948135601111,
+      "fixA_R_series_avg_power_W": 1.4119661059354582,
+      "fixA_Q5_drain_peak_V": 13.0210871,
+      "fixB_piezo_Q5_drain_peak_V": 11.9558173,
+      "fixB_R25_2k2_power_while_on_mW": 65.45454545454545
+    }
+  },
+  "power_budget": {
+    "3V3_loads_mA": {
+      "ESP32-C3 Wi-Fi TX peak (datasheet class ~335-350 mA)": 350.0,
+      "SSD1306 OLED 0.96in (typ 10-25 mA)": 20.0,
+      "S2 heater as-built (3V3/(22+59))": 40.92592592592593,
+      "D4 red (R19 270R)": 4.87037037037037,
+      "D5 green always-on (R20 330R)": 3.6818181818181817,
+      "D8 yellow (R30 330R)": 3.9848484848484844,
+      "LPG divider + pull-ups + LMP91000 + REF3325 + TPS3823": 1.5
+    },
+    "3V3_peak_total_mA": 424.962962962963,
+    "LMR33620_rating_mA": 2000,
+    "3V3_headroom_pct": 78.75185185185185,
+    "12V_loads_mA": {
+      "Buck input at 3V3 peak (eta 85% assumed)": 138.112962962963,
+      "D6 blue via R21 2.2k": 4.090909090909091,
+      "LS1 as-built, 50% PWM average (coil 1.5A + R25 0.255A while on)": 877.6595744680851,
+      "J2 external sounder (user load, example 500 mA)": 500.0
+    },
+    "12V_total_alarm_mA": 1519.8634465219573,
+    "F1_hold_mA": 1500,
+    "F1_trip_mA": 3000,
+    "with_fixA_speaker_12V_total_mA": 788.5453354685063,
+    "if_heater_fixed_to_5V_rail_extra_mW": 280
+  }
+}

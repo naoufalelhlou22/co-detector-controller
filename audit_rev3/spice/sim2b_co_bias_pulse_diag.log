@@ -1,0 +1,28 @@
+stdout Note: No compatibility mode selected!
+stdout Circuit: * sim2b sensor-presence diagnostic using an lmp91000 bias step (bias register, +1% of 2.5v = 25 mv)
+stdout Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+stdout Using SPARSE 1.3 as Direct Linear Solver
+stderr Note: Starting dynamic gmin stepping
+stderr Note: Dynamic gmin stepping completed
+stdout Initial Transient Solution
+stdout --------------------------
+stdout Node                                   Voltage
+stdout ----                                   -------
+stdout vz                                         0.5
+stdout bias                                         0
+stdout we                                    0.499999
+stdout xcell.n1                              0.499874
+stdout tia                                   0.587477
+stdout etia_int1                             0.587477
+stdout vadc                                  0.587477
+stdout tia2                                  0.500017
+stdout etia2_int1                            0.500017
+stdout we2                                        0.5
+stdout vadc2                                 0.500017
+stdout betia2#branch                                0
+stdout betia#branch                                 0
+stdout etia2#branch                            -5e-10
+stdout etia#branch                       -2.49937e-06
+stdout vb#branch                          2.49937e-06
+stdout vz#branch                                    0
+stdout No. of Data Rows : 3050

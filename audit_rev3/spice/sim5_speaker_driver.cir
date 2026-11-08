@@ -1,0 +1,28 @@
+* SIM 5: LS1 (CDM-12008 8-Ohm Speaker) Driver Audit — As-Designed vs Corrected (2.7 kHz PWM)
+V_12V v12v 0 DC 12.00
+V_PWM buz_pwm 0 PULSE(0 3.32 20u 0.2u 0.2u 185u 370u)
+
+* 5A. As-Designed Circuit (LS1=8R+120uH on +12V, R25=47R 0603, D7=DNP)
+R_LS1_AS v12v ls1_mid_as 8.0
+L_LS1_AS ls1_mid_as buz_k_as 120u
+R_R25_AS v12v buz_k_as 47.0
+R_R21_AS buz_pwm q5_g_as 100
+R_R23_AS q5_g_as 0 100k
+M_Q5_AS buz_k_as q5_g_as 0 0 NMOS_AO3400A
+.model NMOS_AO3400A NMOS(LEVEL=1 VTO=1.1 KP=12.0 RD=0.015 RS=0.015)
+
+* 5B. Corrected Circuit (R_SER=33R, LS1=8R+120uH, R25=DNP, D7=1N4148W flyback diode)
+R_SER_COR v12v ls1_top_cor 33.0
+R_LS1_COR ls1_top_cor ls1_mid_cor 8.0
+L_LS1_COR ls1_mid_cor buz_k_cor 120u
+D_D7_COR buz_k_cor v12v D1N4148W
+.model D1N4148W D(Is=2.5e-9 Rs=0.8 N=1.75)
+R_R21_COR buz_pwm q5_g_cor 100
+R_R23_COR q5_g_cor 0 100k
+M_Q5_COR buz_k_cor q5_g_cor 0 0 NMOS_AO3400A
+
+.control
+tran 0.5u 750u
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/sim5_data.txt V(buz_pwm) V(buz_k_as) V(ls1_mid_as) V(buz_k_cor) V(ls1_top_cor)
+.endc
+.end

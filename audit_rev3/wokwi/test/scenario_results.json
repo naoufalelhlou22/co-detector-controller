@@ -1,0 +1,74 @@
+{
+  "S01_NormalStartup": {
+    "pass": true,
+    "detail": "t=1s state=WARMUP yellow=True; t=181s state=NORMAL"
+  },
+  "S02_ElevatedCO_50ppm": {
+    "pass": true,
+    "detail": "74min state=ALARM_CO; 76min state=ALARM_CO red=True j2=True buz=True"
+  },
+  "S03_HighCO_300ppm": {
+    "pass": true,
+    "detail": "61s state=ALARM_CO buz=True j2=True"
+  },
+  "S04_ElevatedLPG": {
+    "pass": true,
+    "detail": "6s state=ALARM_LPG j2=True buz=True"
+  },
+  "S05_DualAlarm_NoHush": {
+    "pass": true,
+    "detail": "dual_state=ALARM_DUAL hush_rejected=True buz=True"
+  },
+  "S06_CO_Disconnected": {
+    "pass": true,
+    "detail": "state=FAULT faults=0x01 yellow=True"
+  },
+  "S07_LPG_Disconnected": {
+    "pass": true,
+    "detail": "state=FAULT faults=0x02"
+  },
+  "S08_CO_Saturation": {
+    "pass": true,
+    "detail": "state=ALARM_CO j2=True"
+  },
+  "S09_LPG_Clipping": {
+    "pass": true,
+    "detail": "state=ALARM_LPG"
+  },
+  "S10_OLED_I2C_Fail": {
+    "pass": true,
+    "detail": "state=NORMAL faults=0x04 yellow=True buz=False"
+  },
+  "S11_SelfTest": {
+    "pass": true,
+    "detail": "test_state=SELF_TEST norm_state=NORMAL"
+  },
+  "S12_Hush_and_Expiration": {
+    "pass": true,
+    "detail": "hush_state=HUSHED buz=False j2=True; expired_state=ALARM_CO buz=True"
+  },
+  "S13_SW3_Reset_AlarmLatch": {
+    "pass": true,
+    "detail": "boot_state=RESTORED_ALARM j2=True; cleared_state=NORMAL j2=False"
+  },
+  "S14_MCU_Reboot_CleanAir": {
+    "pass": true,
+    "detail": "state=WARMUP j2=False"
+  },
+  "S15_Brownout_Recovery": {
+    "pass": true,
+    "detail": "state=WARMUP j2=False (no false alarm)"
+  },
+  "S16_Alarm_Recovery_CleanAir": {
+    "pass": true,
+    "detail": "final_state=NORMAL j2=False buz=False"
+  },
+  "S17_GPIO10_SharedPin": {
+    "pass": true,
+    "detail": "High-Z sampling window (3ms) > 0.78ms RC recovery time; debounce (30ms) across 50ms periods validated"
+  },
+  "S18_WDI_Kicker": {
+    "pass": true,
+    "detail": "Kicker toggles every 500ms when healthy; halts on sensor/loop freeze -> TPS3823 resets MCU within 1.6s"
+  }
+}

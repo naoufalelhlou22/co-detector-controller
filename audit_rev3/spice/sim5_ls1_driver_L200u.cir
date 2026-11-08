@@ -1,0 +1,29 @@
+* SIM5 LS1 driver, Lcoil=200uH, 2.7 kHz 50% PWM
+* MODEL LIMIT: generic level-1 NMOS without avalanche model -> drain voltage shown is the UNCLAMPED stress the
+* real AO3400A (Vds max 30 V) would be forced into avalanche by.
+V12 v12 0 12
+VG g0 0 PULSE(0 3.3 50u 50n 50n 185u 370u)
+* As-built
+RLS v12 m1 8
+LLS m1 k1 0.0002
+R25 v12 k1 47
+R23 g0 g1 100
+R24 g1 0 10k
+M5 k1 g1 0 0 NM
+.model NM NMOS(LEVEL=1 VTO=1.4 KP=25)
+* Fix A
+RSER v12 a1 33
+RLSa a1 m2 8
+LLSa m2 k2 0.0002
+D7 k2 v12 D4148
+.model D4148 D(Is=2.5n N=1.75 Rs=0.6)
+M5a k2 g1 0 0 NM
+* Fix B: piezo
+R25b v12 k3 2.2k
+CPZ v12 k3 15n
+M5b k3 g1 0 0 NM
+.control
+tran 0.2u 1.2m
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s5_200.txt V(k1) I(V12) V(a1) V(k2) V(k3)
+.endc
+.end

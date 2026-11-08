@@ -1,0 +1,41 @@
+* SIM 4: SW3 Master Reset + TPS3823-33 200ms Delay + U5 74LVC1G08 Alarm Bus-Hold Latch
+V_3V3 v3v3 0 DC 3.320
+V_12V v12v 0 DC 12.00
+
+* SW3 (MR_N) with R32=10k pullup and C31=100nF debounce capacitor (tau = 1ms)
+* Pressed from t=50ms to t=150ms with contact bounce at 50ms..53ms
+R_R32 v3v3 mr_n 10k
+C_C31 mr_n 0 100n IC=3.320
+I_SW3 mr_n 0 PWL(0 0  49.9m 0  50m 3.3m  50.5m 0  51m 3.3m  51.5m 0  52m 3.3m  150m 3.3m  150.1m 0  500m 0)
+
+* TPS3823-33 Supervisor Behavioral Model:
+* NRST is LOW whenever MR_N < 1.6V, and remains LOW for 200ms after MR_N rises above 1.6V (t=150ms -> 350ms)
+B_NRST nrst 0 V = (time >= 50m && time <= 350m) ? 0.02 : 3.320
+
+* ESP32-C3 GPIO3 (VALVE_EN) Driver:
+* - t=0..15ms: MCU drives LOW (Alarm OFF)
+* - t=15ms..50ms: MCU drives HIGH (Alarm ON, 100 Ohm CMOS output impedance)
+* - t=50ms..365ms: NRST is LOW (and 15ms boot) -> GPIO3 is High-Z (10 MOhm)!
+* - t=365ms..430ms: Firmware boots, reads sensor, re-asserts HIGH
+* - t=430ms..500ms: Firmware clears alarm -> actively drives GPIO3 LOW (100 Ohm to GND), overcoming R13 (10k)!
+B_MCU_TARGET mcu_tgt 0 V = (time < 15m) ? 0.0 : ((time < 430m) ? 3.320 : 0.0)
+B_MCU_DRIVE mcu_tgt valve_en I = (time >= 50m && time <= 365m) ? 0.0 : (V(mcu_tgt, valve_en) / 100.0)
+R_R12 valve_en 0 100k
+
+* U5 (74LVC1G08) AND Gate: Pin 1 (A) = valve_en, Pin 2 (B) = v3v3, Pin 4 (Y) = valve_drv
+B_U5 valve_drv 0 V = (V(valve_en) > 1.65 && V(v3v3) > 1.65) ? 3.320 : 0.01
+* R13 (10k) Bus-Hold Latch feedback from U5.4 (valve_drv) to U5.1 (valve_en)
+R_R13 valve_drv valve_en 10k
+
+* Q2 (AO3400A) Low-Side MOSFET driving J2 External Alarm (120 Ohm load on +12V = 100mA)
+R_R14 valve_drv q2_g 100
+R_R15 q2_g 0 100k
+M_Q2 j2_neg q2_g 0 0 NMOS_AO3400A
+.model NMOS_AO3400A NMOS(LEVEL=1 VTO=1.1 KP=12.0 RD=0.015 RS=0.015)
+R_J2_LOAD v12v j2_neg 120
+
+.control
+tran 0.2m 500m uic
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/sim4_data.txt V(mr_n) V(nrst) V(valve_en) V(valve_drv) V(j2_neg)
+.endc
+.end

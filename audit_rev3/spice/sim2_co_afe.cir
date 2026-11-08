@@ -1,0 +1,19 @@
+* SIM2 CO AFE (behavioural LMP91000 TIA: Vout = Vzero + Iwe*RTIA, clamped to rails)
+* MODEL LIMIT: LMP91000 is a behavioural ideal op-amp TIA (no vendor model); ME3-CO is an ideal current source.
+VAVDD avdd 0 3.315
+VZ vz 0 0.500
+ISENS we 0 DC 0 PULSE(0 7u 10m 1u 1u 1 2)
+ETIA tia 0 VALUE={ max(0.02, min(V(avdd)-0.05, V(vz) + 1e5*(V(vz)-V(we)))) }
+RTIA we tia 35k
+C21 we tia 1u
+RO tia vout 50
+R11 vout vadc 1k
+C17 vadc 0 100n
+RADC vadc 0 10Meg
+.control
+dc ISENS 0 90u 0.25u
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s2_dc.txt V(vadc)
+tran 0.2m 400m
+wrdata C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/audit_rev3/spice/s2_tr.txt V(vadc)
+.endc
+.end
