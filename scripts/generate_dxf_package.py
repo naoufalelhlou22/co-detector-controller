@@ -167,3 +167,4 @@ if __name__ == "__main__":
     generate_pcb_boss_pattern()
     generate_wall_bracket()
     print("All DXF templates successfully generated in cad/dxf/!")
+

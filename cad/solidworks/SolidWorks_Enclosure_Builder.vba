@@ -98,3 +98,4 @@ Sub AutoBuildEnclosureBase()
     Part.ViewZoomtofit2
     MsgBox "Smart Dual Gas Detector Base Chassis successfully generated in SolidWorks!", vbInformation, "SolidWorks Automation"
 End Sub
+
