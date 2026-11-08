@@ -1,16 +1,18 @@
 """
-SolidWorks 2026 Native Parametric CAD Automation Engine
+SolidWorks 2026 Native Parametric CAD Automation Engine - Rev 4.0
 Builds native .SLDPRT parts and .SLDASM assembly matching KiCad datum:
   1. cad/solidworks/CO_Enclosure_Chassis_Base.SLDPRT (.step)
   2. cad/solidworks/CO_Enclosure_Front_Cover.SLDPRT (.step)
   3. cad/solidworks/CO_Enclosure_Wall_Bracket.SLDPRT (.step)
   4. cad/solidworks/CO_Enclosure_Assembly.SLDASM (.step)
+Rev 4.0: Figaro TGS2610-C00 LPG Detector with 1100mAh LiPo Battery Pocket (52x36x7.5mm), Zero-Collision Apertures.
 """
 
 import os
 import math
 import time
 import win32com.client
+
 
 def run_solidworks_builder():
     print("[1/5] Connecting to SolidWorks 2026 COM API...")
@@ -46,7 +48,7 @@ def run_solidworks_builder():
         0, 0, False, False, False, False, True, True, True, 0, 0, False
     )
 
-    # Cut cavity: 81.2mm x 61.2mm x 9.6mm deep (leaves 2.4mm floor and 2.4mm walls)
+    # Cut main cavity: 81.2mm x 61.2mm x 9.6mm deep (leaves 2.4mm floor and 2.4mm walls)
     doc.SelectByID("", "FACE", 0, 0, 0.012)
     doc.SketchManager.InsertSketch(True)
     doc.SketchManager.CreateCenterRectangle(0, 0, 0, 0.0406, 0.0306, 0)
@@ -57,9 +59,18 @@ def run_solidworks_builder():
         False, 0, 0, False, False
     )
 
+    # Cut internal Battery Pocket in floor: 52mm x 36mm x 7.5mm (depth from floor)
+    doc.SelectByID("", "FACE", 0, 0, 0.0024)
+    doc.SketchManager.InsertSketch(True)
+    doc.SketchManager.CreateCenterRectangle(0, 0, 0, 0.026, 0.018, 0)
+    doc.SketchManager.InsertSketch(True)
+    doc.FeatureManager.FeatureCut4(
+        True, False, False, 0, 0, 0.0016, 0, False, False, False, False,
+        0, 0, False, False, False, False, False, True, True, True, True,
+        False, 0, 0, False, False
+    )
+
     # 4x Standoff Bosses H1, H2, H3, H4 (OD=6.0mm, H=4.5mm from floor Z=2.4mm to Z=6.9mm)
-    # PCB datum offset: PCB center is (35.0, 25.0) mm.
-    # Center relative coords: dx = (x - 35.0)/1000, dy = (y - 25.0)/1000
     doc.SelectByID("", "FACE", 0, 0, 0.0024)
     doc.SketchManager.InsertSketch(True)
     bosses = [
@@ -92,6 +103,20 @@ def run_solidworks_builder():
         False, 0, 0, False, False
     )
 
+    # Left Wall Cutout: J1 (12V IN at CAD Y=38.00 => dy = +0.013m) & SW3 (Reset at CAD Y=20.00 => dy = -0.005m)
+    doc.SelectByID("Right Plane", "PLANE", 0, 0, 0)
+    doc.SketchManager.InsertSketch(True)
+    # J1 cutout: 11.5mm x 9.5mm centered at dy = +0.013m, Z = 0.008m
+    doc.SketchManager.CreateCenterRectangle(0.013, 0.008, 0, 0.013 + 0.00575, 0.008 + 0.00475, 0)
+    # SW3 reset pinhole: dia 2.5mm at dy = -0.005m, Z = 0.008m
+    doc.SketchManager.CreateCircleByRadius(-0.005, 0.008, 0, 0.00125)
+    doc.SketchManager.InsertSketch(True)
+    doc.FeatureManager.FeatureCut4(
+        True, False, False, 0, 0, 0.050, 0, False, False, False, False,
+        0, 0, False, False, False, False, False, True, True, True, True,
+        False, 0, 0, False, False
+    )
+
     # Save Base PRT and STEP
     base_prt = os.path.join(out_dir, "CO_Enclosure_Chassis_Base.SLDPRT")
     base_stp = os.path.join(out_dir, "CO_Enclosure_Chassis_Base.step")
@@ -117,7 +142,7 @@ def run_solidworks_builder():
         0, 0, False, False, False, False, True, True, True, 0, 0, False
     )
 
-    # Internal cavity cut: 81.2mm x 61.2mm x 13.6mm deep (Z from 0 to 13.6mm, 2.4mm top face)
+    # Internal cavity cut: 81.2mm x 61.2mm x 13.6mm deep (leaves 2.4mm top face)
     doc.SelectByID("", "FACE", 0, 0, 0)
     doc.SketchManager.InsertSketch(True)
     doc.SketchManager.CreateCenterRectangle(0, 0, 0, 0.0406, 0.0306, 0)
@@ -132,44 +157,39 @@ def run_solidworks_builder():
     doc.SelectByID("", "FACE", 0, 0, 0.016)
     doc.SketchManager.InsertSketch(True)
 
-    # 1. OLED Display Bezel Window: 25.0 x 14.0 mm at CAD (48.50, 32.50)
-    oled_dx = (48.50 - 35.0) / 1000.0
-    oled_dy = (32.50 - 25.0) / 1000.0
+    # 1. OLED Display Bezel Window: 25.0 x 14.0 mm at CAD (42.00, 25.00) => dx = +0.007m, dy = 0.000m
+    oled_dx = (42.00 - 35.0) / 1000.0
+    oled_dy = (25.00 - 25.0) / 1000.0
     doc.SketchManager.CreateCenterRectangle(oled_dx, oled_dy, 0, oled_dx + 0.0125, oled_dy + 0.007, 0)
 
-    # 2. Tactile Button SW2 (HUSH) at CAD (42.00, 12.00): Dia 5.5mm
-    sw2_dx = (42.00 - 35.0) / 1000.0
-    sw2_dy = (12.00 - 25.0) / 1000.0
+    # 2. Tactile Button SW2 (HUSH) at CAD (35.00, 13.00) => dx = 0.000m, dy = -0.012m: Dia 5.5mm
+    sw2_dx = (35.00 - 35.0) / 1000.0
+    sw2_dy = (13.00 - 25.0) / 1000.0
     doc.SketchManager.CreateCircleByRadius(sw2_dx, sw2_dy, 0, 0.00275)
 
-    # 3. Tactile Button SW1 (TEST) at CAD (42.00, 6.00): Dia 5.5mm
-    sw1_dx = (42.00 - 35.0) / 1000.0
-    sw1_dy = (6.00 - 25.0) / 1000.0
+    # 3. Tactile Button SW1 (TEST) at CAD (45.00, 13.00) => dx = +0.010m, dy = -0.012m: Dia 5.5mm
+    sw1_dx = (45.00 - 35.0) / 1000.0
+    sw1_dy = (13.00 - 25.0) / 1000.0
     doc.SketchManager.CreateCircleByRadius(sw1_dx, sw1_dy, 0, 0.00275)
 
-    # 4. Buzzer Rosette LS1 at CAD (32.00, 12.00): 7 holes
-    bz_dx = (32.00 - 35.0) / 1000.0
-    bz_dy = (12.00 - 25.0) / 1000.0
-    doc.SketchManager.CreateCircleByRadius(bz_dx, bz_dy, 0, 0.00125) # center hole 2.5mm
+    # 4. Buzzer Rosette LS1 at CAD (60.00, 16.00) => dx = +0.025m, dy = -0.009m: 7 holes
+    bz_dx = (60.00 - 35.0) / 1000.0
+    bz_dy = (16.00 - 25.0) / 1000.0
+    doc.SketchManager.CreateCircleByRadius(bz_dx, bz_dy, 0, 0.00125)
     for a in range(0, 360, 60):
         rad = math.radians(a)
-        doc.SketchManager.CreateCircleByRadius(bz_dx + 0.0032*math.cos(rad), bz_dy + 0.0032*math.sin(rad), 0, 0.0010)
+        doc.SketchManager.CreateCircleByRadius(bz_dx + 0.0032*math.cos(rad), bz_dy + 0.0032*math.sin(rad), 0, 0.0009)
 
-    # 5. S1 CO Sensor Diffusion Well at CAD (56.50, 14.50): Dia 20.5mm
-    co_dx = (56.50 - 35.0) / 1000.0
-    co_dy = (14.50 - 25.0) / 1000.0
-    doc.SketchManager.CreateCircleByRadius(co_dx, co_dy, 0, 0.01025)
+    # 5. S2 Figaro TGS2610-C00 LPG Chimney Vent at CAD (60.00, 37.00) => dx = +0.025m, dy = +0.012m: Dia 11.0mm
+    lpg_dx = (60.00 - 35.0) / 1000.0
+    lpg_dy = (37.00 - 25.0) / 1000.0
+    doc.SketchManager.CreateCircleByRadius(lpg_dx, lpg_dy, 0, 0.0055)
 
-    # 6. S2 LPG Chimney Vent at CAD (59.00, 43.50): Dia 10.5mm
-    lpg_dx = (59.00 - 35.0) / 1000.0
-    lpg_dy = (43.50 - 25.0) / 1000.0
-    doc.SketchManager.CreateCircleByRadius(lpg_dx, lpg_dy, 0, 0.00525)
-
-    # 7. 4-LED Light Pipe Apertures at CAD Y = 4.00 mm
-    for lx in [26.80, 30.00, 33.20, 36.40]:
+    # 6. 4 Status LEDs at CAD Y = 4.00 mm => dy = -0.021m: X = 28, 34, 40, 46 mm
+    for lx in [28.00, 34.00, 40.00, 46.00]:
         ldx = (lx - 35.0) / 1000.0
         ldy = (4.00 - 25.0) / 1000.0
-        doc.SketchManager.CreateCircleByRadius(ldx, ldy, 0, 0.0010)
+        doc.SketchManager.CreateCircleByRadius(ldx, ldy, 0, 0.0011)
 
     doc.SketchManager.InsertSketch(True)
     doc.FeatureManager.FeatureCut4(
@@ -223,12 +243,11 @@ def run_solidworks_builder():
     print(f"  [SAVED] {bracket_stp}")
 
     # --------------------------------------------------------------------------
-    # PART 4: COMPLETE ASSEMBLY (Mated enclosure, no PCBA)
+    # PART 4: COMPLETE ASSEMBLY (Mated enclosure, pure enclosure rule)
     # --------------------------------------------------------------------------
     print("[5/5] Building CO_Enclosure_Assembly...")
     asm_doc = sw.NewDocument(asm_template, 0, 0, 0)
     if asm_doc:
-        # Add components into assembly
         comp_base = asm_doc.AddComponent5(base_prt, 0, "", False, "", 0, 0, 0)
         comp_cover = asm_doc.AddComponent5(cover_prt, 0, "", False, "", 0, 0, 0.012)
         comp_bracket = asm_doc.AddComponent5(bracket_prt, 0, "", False, "", 0, 0, -0.0035)
@@ -244,6 +263,6 @@ def run_solidworks_builder():
     print("\n[COMPLETE] SolidWorks 2026 Native Models & STEP Files Generated Successfully!")
     return True
 
+
 if __name__ == '__main__':
     run_solidworks_builder()
-

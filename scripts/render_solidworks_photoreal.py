@@ -81,3 +81,4 @@ def render_photorealistic_cad():
 
 if __name__ == '__main__':
     render_photorealistic_cad()
+

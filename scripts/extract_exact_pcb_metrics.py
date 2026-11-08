@@ -49,20 +49,22 @@ with open("reports/pcb_exact_components.json", "w") as f:
 
 print(f"\nExtracted {len(data)} footprints to reports/pcb_exact_components.json")
 
-# Print key user interface and interface components
-print("\n=== CRITICAL INTERFACE & UI COMPONENTS ===")
+# Print key user interface and interface components (Rev 4.0)
+print("\n=== CRITICAL INTERFACE & UI COMPONENTS (REV 4.0) ===")
 target_refs = [
     'H1', 'H2', 'H3', 'H4', # Mounting Holes
-    'J1', 'J2',             # Screw Terminals
-    'J3', 'J4',             # Pin Headers (J4 = OLED display header!)
+    'J1',                   # 12V Screw Terminal
+    'J_BAT',                # Battery Connector
+    'J3', 'J4',             # Pin Headers (J4 = OLED display header)
     'SW1', 'SW2', 'SW3',    # Buttons (SW1 = Test, SW2 = Hush, SW3 = Reset)
-    'D4', 'D5', 'D6', 'D8', # LEDs
-    'LS1',                  # Buzzer / Speaker
-    'S1', 'S2',             # Gas Sensors (S1 = Winsen ME3-CO, S2 = Figaro TGS2610)
+    'D4', 'D5', 'D6', 'D7', # Status LEDs
+    'LS1',                  # Acoustic Alarm Buzzer
+    'S2',                   # Figaro TGS2610 LPG Gas Sensor
     'U1'                    # ESP32-C3 MCU
 ]
 
 for d in data:
     if d["ref"] in target_refs:
-        print(f"Ref: {d['ref']:5} | Val: {d['val'][:15]:15} | Pos: ({d['x']:6.2f}, {d['y']:6.2f}) | Rot: {d['rot']:5.1f} | Layer: {d['layer']} | 3D: {d['models']}")
+        cad_y = round(50.0 - d["y"], 3)
+        print(f"Ref: {d['ref']:6} | Val: {d['val'][:15]:15} | KiCad: ({d['x']:6.2f}, {d['y']:6.2f}) | CAD: ({d['x']:6.2f}, {cad_y:6.2f}) | Rot: {d['rot']:5.1f}")
 

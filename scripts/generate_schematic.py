@@ -4,7 +4,7 @@ import subprocess
 import sys
 import uuid
 
-# Auto-relaunch under KiCad 10's bundled Python if invoked from system Python 3.14
+# Auto-relaunch under KiCad 10's bundled Python if invoked from system Python
 _kicad_py = r"C:\Program Files\KiCad\10.0\bin\python.exe"
 _kicad_sp = r"C:\Program Files\KiCad\10.0\bin\Lib\site-packages"
 if _kicad_sp not in sys.path and os.path.isdir(_kicad_sp):
@@ -36,11 +36,12 @@ root_sch_uuid = det_uuid("root_schematic")
 # Initialize KiCad footprint IO plugin
 _ = pcbnew.FootprintLoad(os.path.join(std_fp_dir, "Resistor_SMD.pretty"), "R_0603_1608Metric")
 
-# Pin function names for multi-pin ICs and specialized parts
+# Pin function names for multi-pin ICs and specialized parts (Rev 4.0)
 PIN_LABELS = {
     "U1": {
         "1": "GND",
-        "3": "3V3",
+        "2": "GND",
+        "3": "+3V3",
         "4": "NC_4",
         "5": "IO2_LPG_ADC",
         "6": "IO3_BUZZER",
@@ -48,81 +49,75 @@ PIN_LABELS = {
         "8": "EN_NRST",
         "9": "NC_9",
         "10": "NC_10",
-        "12": "IO0_VOUT_ADC",
-        "13": "IO1_VALVE_SNS",
+        "11": "GND",
+        "12": "IO0_VBAT_ADC",
+        "13": "IO1_LED_OK",
+        "14": "GND",
         "15": "NC_15",
         "16": "IO10_TEST_N",
         "17": "NC_17",
         "18": "IO4_SDA",
         "19": "IO5_SCL",
-        "20": "IO6_VALVE_EN",
+        "20": "IO6_LED_ALM",
         "21": "IO7_WDI",
         "22": "IO8_HUSH_N",
-        "23": "IO9_BOOT_N",
+        "23": "IO9_LED_WIFI",
         "24": "NC_24",
-        "25": "NC_25",
-        "26": "IO18_LED_RED",
-        "27": "IO19_LED_BLU",
+        "25": "IO19_RXD0",
+        "26": "IO18_TXD0",
+        "27": "NC_27",
         "28": "NC_28",
         "29": "NC_29",
-        "30": "RXD0",
-        "31": "TXD0",
+        "30": "NC_30",
+        "31": "NC_31",
         "32": "NC_32",
-        "33": "NC_33",
+        "33": "GND",
         "34": "NC_34",
         "35": "NC_35",
     },
     "U2": {
-        "1": "PGND",
+        "1": "GND",
         "2": "VIN",
         "3": "EN",
-        "4": "PG",
+        "4": "NC",
         "5": "FB",
         "6": "VCC",
         "7": "BOOT",
         "8": "SW",
         "9": "EP",
     },
-    "U3": {
-        "1": "DGND",
-        "2": "MENB",
-        "3": "SCL",
-        "4": "SDA",
-        "5": "NC",
-        "6": "VDD",
-        "7": "AGND",
-        "8": "VOUT",
-        "9": "C2",
-        "10": "C1",
-        "11": "VREF",
-        "12": "WE",
-        "13": "RE",
-        "14": "CE",
-        "15": "EP",
-    },
-    "U4": {
-        "1": "IN",
-        "2": "OUT",
-        "3": "GND",
-    },
     "U5": {
-        "1": "A",
-        "2": "B",
-        "3": "GND",
-        "4": "Y",
-        "5": "VCC",
-    },
-    "U6": {
-        "1": "~{RESET}",
+        "1": "~{MR}",
         "2": "GND",
-        "3": "~{MR}",
-        "4": "WDI",
-        "5": "VDD",
+        "3": "WDI",
+        "4": "VDD",
+        "5": "~{RESET}",
     },
-    "S1": {
-        "1": "WE",
-        "2": "RE",
-        "3": "CE",
+    "U7": {
+        "1": "TEMP",
+        "2": "PROG",
+        "3": "GND",
+        "4": "VCC",
+        "5": "BAT",
+        "6": "STDBY",
+        "7": "CHRG",
+        "8": "CE",
+        "9": "EP",
+    },
+    "U8": {
+        "1": "OD",
+        "2": "CS",
+        "3": "OC",
+        "4": "TD",
+        "5": "VCC",
+        "6": "GND",
+    },
+    "U9": {
+        "1": "VIN",
+        "2": "GND",
+        "3": "EN",
+        "4": "NC",
+        "5": "VOUT",
     },
     "S2": {
         "1": "HTR-",
@@ -134,27 +129,38 @@ PIN_LABELS = {
         "1": "+12V_IN",
         "2": "GND",
     },
-    "J2": {
-        "1": "EXT_ALM+",
-        "2": "EXT_ALM-",
-    },
     "J3": {
-        "1": "3V3",
-        "2": "TX",
-        "3": "RX",
-        "4": "GND",
+        "1": "GND",
+        "2": "+3V3",
+        "3": "TX",
+        "4": "RX",
     },
     "J4": {
         "1": "GND",
-        "2": "3V3",
+        "2": "+3V3",
         "3": "SCL",
         "4": "SDA",
     },
+    "J_BAT": {
+        "1": "VBAT",
+        "2": "BAT_PROT",
+    },
     "Q1": {"1": "G", "2": "S", "3": "D"},
-    "Q2": {"1": "G", "2": "S", "3": "D"},
-    "Q3": {"1": "D", "2": "S", "3": "G"},
-    "Q4": {"1": "G", "2": "S", "3": "D"},
+    "Q4": {
+        "1": "D12",
+        "2": "S1",
+        "3": "S1",
+        "4": "G1",
+        "5": "G2",
+        "6": "S2",
+        "7": "S2",
+        "8": "D12",
+    },
     "Q5": {"1": "G", "2": "S", "3": "D"},
+    "Q6": {"1": "B", "2": "E", "3": "C"},
+    "SW1": {"1": "TEST_N", "2": "GND", "3": "TEST_N", "4": "GND"},
+    "SW2": {"1": "HUSH_N", "2": "GND", "3": "HUSH_N", "4": "GND"},
+    "SW3": {"1": "MR_N", "2": "GND", "3": "MR_N", "4": "GND"},
 }
 
 # Map each footprint item name to its standard KiCad 10 library nickname
@@ -191,6 +197,10 @@ STD_FP_LIB_MAP = {
     "Winsen_ME3-CO_Socket": ("TestPoint", "TestPoint_Pad_D1.5mm"),
     "Figaro_TGS2610_TO5": ("TestPoint", "TestPoint_Pad_D1.5mm"),
     "TI_SO-PowerPAD-8_ThermalVias": ("Package_SO", "TI_SO-PowerPAD-8_ThermalVias"),
+    "SOIC-8_3.9x4.9mm_P1.27mm": ("Package_SO", "SOIC-8_3.9x4.9mm_P1.27mm"),
+    "SOT-23-6": ("Package_TO_SOT_SMD", "SOT-23-6"),
+    "JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal": ("Connector_JST", "JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"),
+    "MKDS-1,5-2-5.08_Centered": ("TerminalBlock_Phoenix", "TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"),
     "WSON-14-1EP_4.0x4.0mm_P0.5mm_EP2.6x2.6mm": (
         "Package_SON",
         "WSON-14-1EP_4.0x4.0mm_P0.5mm_EP2.6x2.6mm",
@@ -405,24 +415,44 @@ def build_lib_symbol_and_pins(ref: str, fp):
 \t\t\t\t\t(number "{pnum}" (effects (font (size 0.9 0.9))))
 \t\t\t\t)"""
             )
-            vis_conns.append((pnum, lx, ly, side, pad_nets[pnum]))
+            vis_conns.append((pnum, lx, ly, side, pad_nets.get(pnum, "")))
         ref_y = 5.08
         val_y = -5.08
 
     else:
         lbls = PIN_LABELS.get(ref, {})
         if ref == "U1":
-            left_pins = ["3", "8", "12", "13", "18", "19", "23", "26", "30", "31", "1"]
-            right_pins = ["20", "21", "16", "22", "27", "6", "5", "4", "7", "9", "10", "15", "17", "24", "25", "28", "29", "32", "33", "34", "35"]
-            stacked_on_1 = [p for p in all_pin_nums if p not in left_pins and p not in right_pins]
+            left_pins = ["3", "8", "12", "13", "18", "19", "23", "25", "26", "1"]
+            right_pins = ["5", "6", "16", "20", "21", "22", "4", "7", "9", "10", "15", "17", "24", "27", "28", "29", "30", "31", "32", "34", "35"]
+            stacked_on_1 = [p for p in all_pin_nums if p in ["2", "11", "14", "33"]]
         elif ref == "U2":
             left_pins = ["2", "3", "6", "1"]
             right_pins = ["7", "8", "5", "4"]
-            stacked_on_1 = ["9"]
-        elif ref == "U3":
-            left_pins = ["14", "13", "12", "11", "10", "9", "6", "1"]
-            right_pins = ["8", "4", "3", "2", "7", "5"]
-            stacked_on_1 = ["15"]
+            stacked_on_1 = ["9"] if "9" in all_pin_nums else []
+        elif ref == "U7":
+            left_pins = ["4", "8", "2", "1", "3"]
+            right_pins = ["5", "6", "7"]
+            stacked_on_1 = ["9"] if "9" in all_pin_nums else []
+        elif ref == "U8":
+            left_pins = ["5", "6", "2"]
+            right_pins = ["1", "3", "4"]
+            stacked_on_1 = []
+        elif ref == "U9":
+            left_pins = ["1", "3", "2"]
+            right_pins = ["5", "4"]
+            stacked_on_1 = []
+        elif ref == "Q4":
+            left_pins = ["4", "5", "2", "3", "6", "7"]
+            right_pins = ["1", "8"]
+            stacked_on_1 = []
+        elif ref == "S2":
+            left_pins = ["3", "4"]
+            right_pins = ["2", "1"]
+            stacked_on_1 = []
+        elif ref in ("J3", "J4"):
+            left_pins = ["1", "2"]
+            right_pins = ["3", "4"]
+            stacked_on_1 = []
         else:
             half = (len(all_pin_nums) + 1) // 2
             left_pins = all_pin_nums[:half]
@@ -432,7 +462,7 @@ def build_lib_symbol_and_pins(ref: str, fp):
         max_rows = max(len(left_pins), len(right_pins))
         half_h = max((max_rows * 2.54) / 2.0 + 1.27, 5.08)
         half_h = round(half_h / 1.27) * 1.27
-        box_w = 10.16 if ref in ("U1", "U2", "U3") else 6.35
+        box_w = 12.7 if ref == "U1" else (8.89 if ref in ("U2", "U7", "Q4") else 6.35)
         pin_x = box_w + 2.54
 
         gfx.append(
@@ -458,8 +488,8 @@ def build_lib_symbol_and_pins(ref: str, fp):
 \t\t\t\t\t(number "{pnum}" (effects (font (size 0.9 0.9))))
 \t\t\t\t)"""
             )
-            vis_conns.append((pnum, -pin_x, ly, "L", pad_nets[pnum]))
-            if pnum == "1":
+            vis_conns.append((pnum, -pin_x, ly, "L", pad_nets.get(pnum, "")))
+            if pnum in ("1", "3"):
                 gnd_anchor_coord = (-pin_x, ly, 0)
 
         for idx, pnum in enumerate(right_pins):
@@ -473,19 +503,20 @@ def build_lib_symbol_and_pins(ref: str, fp):
 \t\t\t\t\t(number "{pnum}" (effects (font (size 0.9 0.9))))
 \t\t\t\t)"""
             )
-            vis_conns.append((pnum, pin_x, ly, "R", pad_nets[pnum]))
+            vis_conns.append((pnum, pin_x, ly, "R", pad_nets.get(pnum, "")))
 
         for pnum in stacked_on_1:
-            ax, ay, aang = gnd_anchor_coord
-            pin_defs.append(
-                f"""\t\t\t\t(pin passive line
+            if gnd_anchor_coord:
+                ax, ay, aang = gnd_anchor_coord
+                pin_defs.append(
+                    f"""\t\t\t\t(pin passive line
 \t\t\t\t\t(at {ax} {ay} {aang})
 \t\t\t\t\t(length 2.54)
 \t\t\t\t\t(hide yes)
 \t\t\t\t\t(name "GND" (effects (font (size 1.0 1.0))))
 \t\t\t\t\t(number "{pnum}" (effects (font (size 0.9 0.9))))
 \t\t\t\t)"""
-            )
+                )
 
         ref_y = half_h + 1.27
         val_y = -half_h - 1.27
@@ -529,129 +560,103 @@ def snap(v: float) -> float:
     return round(round(v / 2.54) * 2.54, 2)
 
 
+# REV 4.0 FUNCTIONAL BLOCK SCHEMATIC LAYOUT
 BLOCK_LAYOUT = [
-    # --- BLOCK 1 (Top-Left): 12V Input Protection & 3.3V Buck Regulator ---
-    ("J1", 50.80, 45.72),
-    ("F1", 50.80, 63.50),
-    ("D1", 50.80, 81.28),
-    ("Q1", 50.80, 101.60),
-    ("D3", 50.80, 121.92),
-    ("R1", 50.80, 139.70),
-    ("C1", 50.80, 157.48),
-    ("C2", 50.80, 175.26),
-    ("C3", 50.80, 193.04),
-    ("C4", 50.80, 210.82),
-    ("U2", 139.70, 68.58),
-    ("R2", 139.70, 104.14),
-    ("R3", 139.70, 121.92),
-    ("C5", 139.70, 139.70),
-    ("C6", 139.70, 157.48),
-    ("D7", 139.70, 175.26),
-    ("L1", 139.70, 193.04),
-    ("R4", 139.70, 210.82),
-    ("R5", 139.70, 228.60),
-    ("C7", 228.60, 45.72),
-    ("C8", 228.60, 63.50),
-    ("C9", 228.60, 81.28),
-    ("C10", 228.60, 99.06),
-    ("C11", 228.60, 116.84),
-    ("C12", 228.60, 134.62),
-    ("TP1", 228.60, 154.94),
-    ("TP2", 228.60, 170.18),
-    ("TP11", 228.60, 185.42),
-    ("TP12", 228.60, 200.66),
+    # --- BLOCK 1: 12V DC Input Protection & TPS54302 Buck Regulator (12V -> 5V) ---
+    ("J1", 45.72, 50.80),
+    ("F1", 45.72, 73.66),
+    ("D1", 45.72, 96.52),
+    ("Q1", 45.72, 119.38),
+    ("D3", 45.72, 142.24),
+    ("R1", 45.72, 165.10),
+    ("C2", 45.72, 187.96),
+    ("C3", 45.72, 210.82),
 
-    # --- BLOCK 2 (Bottom-Left): Watchdog, Safety Interlock & 12V Solenoid Valve Driver ---
-    ("U6", 50.80, 312.42),
-    ("C23", 50.80, 342.90),
-    ("R18", 50.80, 360.68),
-    ("U5", 50.80, 386.08),
-    ("C22", 50.80, 416.56),
-    ("R13", 50.80, 434.34),
-    ("R14", 50.80, 452.12),
-    ("R15", 50.80, 469.90),
-    ("Q2", 139.70, 312.42),
-    ("D2", 139.70, 335.28),
-    ("C24", 139.70, 353.06),
-    ("J2", 139.70, 370.84),
-    ("R16", 139.70, 391.16),
-    ("R17", 139.70, 408.94),
-    ("C25", 139.70, 426.72),
-    ("TP4", 139.70, 447.04),
-    ("TP6", 139.70, 462.28),
-    ("TP9", 139.70, 477.52),
-    ("SW3", 139.70, 495.30),
-    ("C31", 139.70, 513.08),
-    ("D11", 139.70, 530.86),
+    ("U2", 137.16, 76.20),
+    ("R2", 137.16, 114.30),
+    ("C5", 137.16, 137.16),
+    ("C6", 137.16, 160.02),
+    ("L1", 137.16, 182.88),
+    ("R4", 137.16, 205.74),
+    ("R5", 137.16, 228.60),
 
-    # --- BLOCK 3 (Top-Right): Winsen ME3-CO Sensor, LMP91000 AFE & Figaro TGS2610-C00 LPG Sensor ---
-    ("S1", 469.90, 55.88),
-    ("Q3", 469.90, 83.82),
-    ("R12", 469.90, 106.68),
-    ("C21", 469.90, 124.46),
-    ("U3", 469.90, 165.10),
-    ("R11", 469.90, 210.82),
-    ("C18", 469.90, 228.60),
-    ("FB1", 571.50, 45.72),
-    ("C13", 571.50, 63.50),
-    ("C14", 571.50, 81.28),
-    ("U4", 571.50, 104.14),
-    ("C19", 571.50, 127.00),
-    ("C20", 571.50, 144.78),
-    ("NT1", 571.50, 165.10),
-    ("TP3", 571.50, 185.42),
-    ("TP5", 571.50, 200.66),
-    ("TP7", 571.50, 215.90),
-    ("TP8", 571.50, 231.14),
-    ("S2", 685.80, 55.88),
-    ("R27", 685.80, 86.36),
-    ("C29", 685.80, 104.14),
-    ("R28", 685.80, 121.92),
-    ("R29", 685.80, 139.70),
-    ("C28", 685.80, 157.48),
-    ("J4", 685.80, 185.42),
+    ("C8", 218.44, 63.50),
+    ("C9", 218.44, 88.90),
+    ("TP1", 218.44, 127.00),
+    ("TP2", 218.44, 152.40),
 
-    # --- BLOCK 4 (Bottom-Right): ESP32-C3-MINI-1 MCU, Buzzer, LEDs, Buttons & UART ---
-    ("U1", 469.90, 355.60),
-    ("C15", 469.90, 439.42),
-    ("C16", 469.90, 457.20),
-    ("R6", 469.90, 474.98),
-    ("C17", 469.90, 492.76),
-    ("J3", 469.90, 518.16),
-    ("R7", 584.20, 299.72),
-    ("R8", 584.20, 317.50),
-    ("R9", 584.20, 335.28),
-    ("R10", 584.20, 353.06),
-    ("SW1", 584.20, 370.84),
-    ("SW2", 584.20, 388.62),
-    ("C26", 584.20, 406.40),
-    ("C27", 584.20, 424.18),
-    ("D4", 584.20, 441.96),
-    ("R19", 584.20, 459.74),
-    ("D5", 584.20, 477.52),
-    ("R20", 584.20, 495.30),
-    ("D6", 584.20, 513.08),
-    ("R25", 584.20, 530.86),
-    ("D8", 584.20, 548.64),
-    ("Q4", 685.80, 304.80),
-    ("R21", 685.80, 327.66),
-    ("R22", 685.80, 345.44),
-    ("R26", 685.80, 363.22),
-    ("Q5", 685.80, 386.08),
-    ("R23", 685.80, 408.94),
-    ("R24", 685.80, 426.72),
-    ("LS1", 685.80, 447.04),
-    ("TP10", 685.80, 467.36),
-    ("R30", 685.80, 485.14),
-    ("H1", 685.80, 502.92),
-    ("H2", 685.80, 518.16),
-    ("H3", 685.80, 533.40),
-    ("H4", 685.80, 548.64),
-    ("C30", 736.60, 467.36),
-    ("D9", 736.60, 431.80),
-    ("D10", 736.60, 449.58),
-    ("FID1", 736.60, 485.14),
-    ("FID2", 736.60, 500.38),
+    # --- BLOCK 2: Battery Charger (TP4056), BMS (DW01A+FS8205A), Power-Path & LDO & Watchdog ---
+    ("U7", 45.72, 325.12),
+    ("R_PROG", 45.72, 365.76),
+    ("C_CHG1", 45.72, 396.24),
+    ("C_CHG2", 45.72, 426.72),
+
+    ("J_BAT", 127.00, 325.12),
+    ("U8", 127.00, 365.76),
+    ("Q4", 127.00, 416.56),
+    ("R_PROT", 127.00, 467.36),
+    ("C_PROT", 127.00, 497.84),
+
+    ("Q5", 208.28, 325.12),
+    ("D2", 208.28, 355.60),
+    ("R_PULL", 208.28, 386.08),
+    ("R_B1", 208.28, 421.64),
+    ("R_B2", 208.28, 452.12),
+    ("C_B", 208.28, 482.60),
+    ("TP3", 208.28, 513.08),
+
+    ("U9", 289.56, 325.12),
+    ("C10", 289.56, 365.76),
+    ("C11", 289.56, 396.24),
+    ("TP4", 289.56, 426.72),
+    ("U5", 289.56, 467.36),
+    ("C22", 289.56, 502.92),
+    ("R13", 289.56, 528.32),
+    ("R14", 289.56, 553.72),
+    ("SW3", 289.56, 579.12),
+
+    # --- BLOCK 3: Figaro TGS2610-C00 LPG Combustible Gas Sensor & I2C OLED Display ---
+    ("S2", 469.90, 66.04),
+    ("R27", 469.90, 114.30),
+    ("C29", 469.90, 139.70),
+    ("R28", 469.90, 165.10),
+    ("R29", 469.90, 190.50),
+    ("C28", 469.90, 215.90),
+
+    ("J4", 629.92, 88.90),
+    ("R7", 629.92, 139.70),
+    ("R8", 629.92, 165.10),
+
+    # --- BLOCK 4: ESP32-C3-MINI-1 Wireless MCU, Buzzer, LEDs, Buttons & UART ---
+    ("U1", 469.90, 370.84),
+    ("C15", 469.90, 467.36),
+    ("C16", 469.90, 492.76),
+    ("R6", 469.90, 518.16),
+    ("C17", 469.90, 543.56),
+    ("J3", 469.90, 574.04),
+
+    ("LS1", 579.12, 320.04),
+    ("Q6", 579.12, 355.60),
+    ("SW1", 579.12, 396.24),
+    ("C27", 579.12, 426.72),
+    ("SW2", 579.12, 462.28),
+    ("C26", 579.12, 492.76),
+
+    ("D4", 665.48, 320.04),
+    ("R19", 665.48, 345.44),
+    ("D5", 665.48, 375.92),
+    ("R20", 665.48, 401.32),
+    ("D6", 665.48, 431.80),
+    ("R25", 665.48, 457.20),
+    ("D7", 665.48, 487.68),
+    ("R26", 665.48, 513.08),
+
+    ("H1", 741.68, 320.04),
+    ("H2", 741.68, 350.52),
+    ("H3", 741.68, 381.00),
+    ("H4", 741.68, 411.48),
+    ("FID1", 741.68, 452.12),
+    ("FID2", 741.68, 482.60),
 ]
 
 lib_symbols_sch_list = []
@@ -760,10 +765,10 @@ with open(sym_lib_path, "w", encoding="utf-8") as f:
     )
 
 block_boxes = [
-    (15.24, 25.40, 274.32, 248.92, "BLOCK 1: 12V INPUT PROTECTION & 3.3V 2A SYNCHRONOUS BUCK CONVERTER (LMR33620ADDAR)"),
-    (15.24, 279.40, 274.32, 502.92, "BLOCK 2: HARDWARE WATCHDOG (TPS3823-33), SAFETY INTERLOCK (74LVC1G08) & 12V EXTERNAL ALARM OUTPUT (J2)"),
-    (419.10, 25.40, 777.24, 254.00, "BLOCK 3: DUAL GAS SENSORS — CO (ME3-CO + LMP91000 AFE) & LPG (FIGARO TGS2610-C00) + I2C OLED (J4)"),
-    (419.10, 274.32, 777.24, 553.72, "BLOCK 4: ESP32-C3-MINI-1 WIRELESS MCU, DYNAMIC AUDIO SPEAKER (CDM-12008), LEDS, BUTTONS & UART"),
+    (15.24, 25.40, 260.00, 254.00, "BLOCK 1: 12V DC INPUT PROTECTION & 5V 3A SYNCHRONOUS BUCK REGULATOR (TPS54302)"),
+    (15.24, 279.40, 360.00, 605.00, "BLOCK 2: SMART LI-ION CHARGER (TP4056), DW01A BMS, POWER-PATH SWITCH & ME6211 3.3V LDO"),
+    (419.10, 25.40, 777.24, 254.00, "BLOCK 3: FIGARO TGS2610-C00 LPG GAS SENSOR AFE & 0.96-INCH I2C OLED DISPLAY (J4)"),
+    (419.10, 279.40, 777.24, 605.00, "BLOCK 4: ESP32-C3-MINI-1 WIRELESS MCU, 85dB PIEZO ALARM (LS1), STATUS LEDS & USER CONTROLS"),
 ]
 graphics_list = []
 for idx, (x1, y1, x2, y2, title) in enumerate(block_boxes):
@@ -792,12 +797,12 @@ sch_content = f"""(kicad_sch
 \t(uuid "{root_sch_uuid}")
 \t(paper "A1")
 \t(title_block
-\t\t(title "CO Detector & Automatic 12V Gas Shut-Off Valve Controller")
-\t\t(date "2026-11-07")
-\t\t(rev "1.0")
+\t\t(title "Smart LPG Gas Detector & Autonomous Li-ion Battery Backup Controller")
+\t\t(date "2026-11-08")
+\t\t(rev "4.0")
 \t\t(company "Antigravity Hardware Engineering")
-\t\t(comment 1 "MCU: ESP32-C3-MINI-1 | AFE: LMP91000SDE + REF3325 + Winsen ME3-CO")
-\t\t(comment 2 "Power: 12V Protected Input + LMR33620ADDAR 3.3V Buck | Safety: TPS3823-33 + 74LVC1G08 + IRLML6344")
+\t\t(comment 1 "MCU: ESP32-C3-MINI-1 | Sensor: Figaro TGS2610-C00 LPG Combustible Gas")
+\t\t(comment 2 "Power: 12V Protected Input + TPS54302 Buck + TP4056 Auto-Cutoff Charger + DW01A BMS")
 \t)
 \t(lib_symbols
 {chr(10).join(lib_symbols_sch_list)}
@@ -817,4 +822,4 @@ sch_content = f"""(kicad_sch
 with open(sch_path, "w", encoding="utf-8") as f:
     f.write(sch_content)
 
-print("Generated schematic:", sch_path)
+print("[SUCCESS] Generated Rev 4.0 schematic:", sch_path)

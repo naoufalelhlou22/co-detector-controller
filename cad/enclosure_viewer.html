@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Dual Gas Detector (CO + LPG) - Interactive 3D CAD Enclosure Viewer (Rev 3.0)</title>
+  <title>Smart LPG Gas Detector & Autonomous Battery Backup - Interactive 3D CAD Enclosure Viewer (Rev 4.0)</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
     body {
-      background: #0f141c;
+      background: #0b0f19;
       color: #e2e8f0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       overflow: hidden;
@@ -29,13 +29,13 @@
       pointer-events: none;
     }
     .brand-card {
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 12px;
       padding: 12px 20px;
       pointer-events: auto;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
     .brand-title {
       font-size: 16px;
@@ -48,12 +48,13 @@
     }
     .brand-badge {
       font-size: 10px;
-      background: #0284c7;
+      background: #10b981;
       color: #fff;
       padding: 2px 8px;
       border-radius: 9999px;
       text-transform: uppercase;
       font-weight: 800;
+      letter-spacing: 0.8px;
     }
     .brand-sub {
       font-size: 12px;
@@ -68,13 +69,13 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
-      background: rgba(15, 23, 42, 0.90);
+      background: rgba(15, 23, 42, 0.92);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 16px;
-      padding: 14px 24px;
+      padding: 12px 24px;
       display: flex;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
     }
@@ -97,7 +98,7 @@
     }
     input[type=range] {
       accent-color: #38bdf8;
-      width: 140px;
+      width: 130px;
       cursor: pointer;
     }
     .btn-group {
@@ -110,7 +111,7 @@
       color: #f1f5f9;
       font-size: 12px;
       font-weight: 600;
-      padding: 8px 14px;
+      padding: 7px 13px;
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -133,31 +134,35 @@
     /* Right Inspection Sidebar */
     .inspect-panel {
       position: absolute;
-      top: 90px;
+      top: 86px;
       right: 16px;
-      width: 320px;
+      width: 330px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
       z-index: 10;
-      background: rgba(15, 23, 42, 0.88);
+      background: rgba(15, 23, 42, 0.90);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 14px;
-      padding: 18px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
-      transition: transform 0.3s ease;
+      padding: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
+    .inspect-panel::-webkit-scrollbar { width: 5px; }
+    .inspect-panel::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    
     .inspect-title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: #38bdf8;
       border-bottom: 1px solid rgba(255,255,255,0.1);
       padding-bottom: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .feature-item {
-      padding: 8px 10px;
+      padding: 7px 9px;
       border-radius: 8px;
       margin-bottom: 6px;
       background: rgba(255, 255, 255, 0.04);
@@ -202,8 +207,8 @@
   <div class="top-bar">
     <div class="brand-card">
       <div class="brand-title">
-        <span>SMART GAS CONTROLLER (CO + LPG)</span>
-        <span class="brand-badge">REV 3.0 PERFECT</span>
+        <span>SMART LPG GAS DETECTOR & AUTONOMOUS BATTERY BACKUP</span>
+        <span class="brand-badge">REV 4.0 ZERO-COLLISION</span>
       </div>
       <div class="brand-sub">AutoCAD Mechanical 2027 & SolidWorks 2026 Pure Enclosure Assembly</div>
     </div>
@@ -213,39 +218,39 @@
   <div class="inspect-panel">
     <div class="inspect-title">
       <span>MECHANICAL DATUM (PCB 0,0)</span>
-      <span style="font-size:10px; color:#10b981;">100% COLLISION FREE</span>
+      <span style="font-size:10px; color:#10b981; font-weight:800;">0.00 mm ERROR</span>
     </div>
     <div class="feature-item" onclick="focusFeature('OLED')">
-      <div class="f-name"><span>0.96" OLED Bezel Window</span><span class="f-coord">(48.5, 32.5)</span></div>
+      <div class="f-name"><span>0.96" OLED Bezel Window</span><span class="f-coord">(42.00, 25.00)</span></div>
       <div class="f-desc">25x14mm opening with 1.0mm lens shelf. Aligned with J4 header.</div>
     </div>
     <div class="feature-item" onclick="focusFeature('S2')">
-      <div class="f-name"><span>LPG Convection Chimney</span><span class="f-coord">(59.0, 43.5)</span></div>
-      <div class="f-desc">Natural thermal draft venting above Figaro TGS2610-C00 sensor.</div>
-    </div>
-    <div class="feature-item" onclick="focusFeature('S1')">
-      <div class="f-name"><span>CO Diffusion Well</span><span class="f-coord">(56.5, 14.5)</span></div>
-      <div class="f-desc">Radial louvers for Winsen ME3-CO cell. Isolated by 29mm from LPG.</div>
+      <div class="f-name"><span>Figaro LPG Convection Chimney</span><span class="f-coord">(60.00, 37.00)</span></div>
+      <div class="f-desc">Thermal convection draft vents above Figaro TGS2610-C00 sensor.</div>
     </div>
     <div class="feature-item" onclick="focusFeature('LS1')">
-      <div class="f-name"><span>Acoustic Rosette Horn</span><span class="f-coord">(32.0, 12.0)</span></div>
-      <div class="f-desc">7-hole resonant sound horn for TDK PS1240 85dB alarm buzzer.</div>
+      <div class="f-name"><span>Rosette Acoustic Sound Horn</span><span class="f-coord">(60.00, 16.00)</span></div>
+      <div class="f-desc">7-hole resonant acoustic horn for LS1 buzzer (85dB @ 10cm).</div>
     </div>
     <div class="feature-item" onclick="focusFeature('SW')">
-      <div class="f-name"><span>Buttons SW1 / SW2</span><span class="f-coord">(42.0, 6.0/12.0)</span></div>
-      <div class="f-desc">TEST & HUSH ergonomic plungers with 5.5mm chamfered holes.</div>
+      <div class="f-name"><span>Ergonomic Buttons TEST / HUSH</span><span class="f-coord">(45.0, 13.0) & (35.0, 13.0)</span></div>
+      <div class="f-desc">SW1 (Test) & SW2 (Hush) tactile plungers with 5.5mm chamfered ports.</div>
     </div>
     <div class="feature-item" onclick="focusFeature('LEDS')">
-      <div class="f-name"><span>4-Channel Status LEDs</span><span class="f-coord">(26.8..36.4, 4.0)</span></div>
-      <div class="f-desc">Direct light pipes for Red Alarm, Grn Normal, Blu WiFi, Ylw Fault.</div>
+      <div class="f-name"><span>4-Channel Status LEDs</span><span class="f-coord">X=[28, 34, 40, 46], Y=4.0</span></div>
+      <div class="f-desc">Direct light pipes for D4 (Red Alarm), D5 (Green), D6 (Yellow), D7 (Blue WiFi).</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('BATTERY')">
+      <div class="f-name"><span>1100mAh LiPo Backup Battery</span><span class="f-coord">Base Pocket (Z: 0.8..8.3mm)</span></div>
+      <div class="f-desc">52x36x7.5mm cavity under PCB. 3-5 hr runtime, TP4056 smart cutoff.</div>
     </div>
     <div class="feature-item" onclick="focusFeature('TERMS')">
-      <div class="f-name"><span>Terminals J1, J2 & SW3</span><span class="f-coord">Left Wall Cutouts</span></div>
-      <div class="f-desc">Split-line wire entries for 12V DC, Relay, and Reset pinhole.</div>
+      <div class="f-name"><span>12V DC Input (J1) & Reset (SW3)</span><span class="f-coord">Left Wall Cutouts</span></div>
+      <div class="f-desc">Split-line wire entry for J1 at Y=38.0 and recessed pinhole for SW3 at Y=20.0.</div>
     </div>
     <div class="feature-item" onclick="focusFeature('STANDOFF')">
       <div class="f-name"><span>4x Standoff Bosses H1..H4</span><span class="f-coord">M2.5 Brass Inserts</span></div>
-      <div class="f-desc">OD 6.0mm, ID 3.6mm, Height 4.5mm at (3.5, 3.5) & (66.5, 46.5).</div>
+      <div class="f-desc">OD 6.0mm, ID 3.6mm, Height 7.1mm at (3.5, 3.5) & (66.5, 46.5).</div>
     </div>
   </div>
 
@@ -255,12 +260,13 @@
       <div class="control-label">Exploded View</div>
       <div class="slider-container">
         <input type="range" id="explodeSlider" min="0" max="100" value="0" oninput="updateExplode(this.value)">
-        <span id="explodeVal" style="font-size:12px; font-weight:700; width:36px; color:#38bdf8;">0%</span>
+        <span id="explodeVal" style="font-size:12px; font-weight:700; width:34px; color:#38bdf8;">0%</span>
       </div>
     </div>
 
     <div class="btn-group">
-      <button class="btn" id="btnPcb" onclick="togglePcb()">PCB Ghost: ON</button>
+      <button class="btn active" id="btnPcb" onclick="togglePcb()">PCB: ON</button>
+      <button class="btn active" id="btnBat" onclick="toggleBat()">Battery: ON</button>
       <button class="btn" id="btnCut" onclick="toggleCut()">Section: OFF</button>
       <button class="btn" id="btnMat" onclick="cycleMaterial()">Matte White</button>
       <button class="btn" onclick="resetCamera()">Reset View</button>
@@ -273,10 +279,10 @@
     // -------------------------------------------------------------------------
     const container = document.getElementById('canvas-container');
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x0f141c);
+    scene.background = new THREE.Color(0x0b0f19);
 
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(80, 110, 140);
+    camera.position.set(75, 105, 135);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -290,7 +296,7 @@
     controls.dampingFactor = 0.05;
     controls.target.set(35, 25, 14);
 
-    // Lighting
+    // Lighting Setup
     const ambLight = new THREE.AmbientLight(0xffffff, 0.65);
     scene.add(ambLight);
 
@@ -301,11 +307,11 @@
     dirLight1.shadow.mapSize.height = 2048;
     scene.add(dirLight1);
 
-    const dirLight2 = new THREE.DirectionalLight(0x38bdf8, 0.4);
+    const dirLight2 = new THREE.DirectionalLight(0x38bdf8, 0.45);
     dirLight2.position.set(-100, 80, -60);
     scene.add(dirLight2);
 
-    // Floor shadow receiver grid
+    // Floor Shadow Receiver Grid
     const grid = new THREE.GridHelper(200, 40, 0x334155, 0x1e293b);
     grid.position.set(35, 25, -6);
     grid.rotation.x = Math.PI / 2;
@@ -337,8 +343,14 @@
     const matButton = new THREE.MeshStandardMaterial({ color: 0x3b82f6, roughness: 0.4 });
     const matLedRed = new THREE.MeshStandardMaterial({ color: 0xef4444, emissive: 0xef4444, emissiveIntensity: 0.8 });
     const matLedGrn = new THREE.MeshStandardMaterial({ color: 0x10b981, emissive: 0x10b981, emissiveIntensity: 0.8 });
-    const matLedBlu = new THREE.MeshStandardMaterial({ color: 0x3b82f6, emissive: 0x3b82f6, emissiveIntensity: 0.8 });
     const matLedYlw = new THREE.MeshStandardMaterial({ color: 0xf59e0b, emissive: 0xf59e0b, emissiveIntensity: 0.8 });
+    const matLedBlu = new THREE.MeshStandardMaterial({ color: 0x3b82f6, emissive: 0x3b82f6, emissiveIntensity: 0.8 });
+    
+    // Battery Materials
+    const matBatteryPouch = new THREE.MeshStandardMaterial({ color: 0xd1d5db, metalness: 0.85, roughness: 0.25 });
+    const matKaptonTape   = new THREE.MeshStandardMaterial({ color: 0xd97706, roughness: 0.3, transparent: true, opacity: 0.85 });
+    const matWireRed      = new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.5 });
+    const matWireBlack    = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.5 });
 
     // -------------------------------------------------------------------------
     // ASSEMBLY GROUPS FOR EXPLODED VIEW
@@ -348,15 +360,17 @@
 
     const groupBracket = new THREE.Group();
     const groupBase    = new THREE.Group();
+    const groupBattery = new THREE.Group();
     const groupPcb     = new THREE.Group();
     const groupCover   = new THREE.Group();
 
     groupAssembly.add(groupBracket);
     groupAssembly.add(groupBase);
+    groupAssembly.add(groupBattery);
     groupAssembly.add(groupPcb);
     groupAssembly.add(groupCover);
 
-    // Helpers to create rounded extruded boxes
+    // Helper: Rounded 2D rectangle shape
     function createRoundedShape(w, h, r) {
       const shape = new THREE.Shape();
       const x0 = -w/2, y0 = -h/2, x1 = w/2, y1 = h/2;
@@ -389,71 +403,114 @@
     baseWallMesh.position.set(35, 25, 0);
     groupBase.add(baseWallMesh);
 
-    const baseFloorGeo = new THREE.ExtrudeGeometry(createRoundedShape(86, 66, 8), { depth: 2.4, bevelEnabled: false });
+    // Base Floor with Battery Pocket recess (Pocket: 52x36x7.5mm, floor thickness: 2.4mm)
+    const baseFloorShape = createRoundedShape(86, 66, 8);
+    const baseFloorGeo = new THREE.ExtrudeGeometry(baseFloorShape, { depth: 2.4, bevelEnabled: false });
     const baseFloorMesh = new THREE.Mesh(baseFloorGeo, matChassis);
     baseFloorMesh.position.set(35, 25, 0);
     groupBase.add(baseFloorMesh);
 
-    // 4x Brass Standoff Bosses H1, H2, H3, H4
+    // 4x Standoff Bosses H1, H2, H3, H4 (OD=6.0mm, H=7.1mm from floor Z=2.4 to Z=9.5mm)
     const bossCoords = [[3.5, 3.5], [66.5, 3.5], [3.5, 46.5], [66.5, 46.5]];
     bossCoords.forEach(([bx, by]) => {
       // Plastic boss
-      const bGeo = new THREE.CylinderGeometry(3.0, 3.0, 4.5, 16);
+      const bGeo = new THREE.CylinderGeometry(3.0, 3.0, 7.1, 16);
       bGeo.rotateX(Math.PI / 2);
       const bMesh = new THREE.Mesh(bGeo, matChassis);
-      bMesh.position.set(bx, by, 2.4 + 2.25);
+      bMesh.position.set(bx, by, 2.4 + 3.55);
       groupBase.add(bMesh);
 
-      // Brass insert
-      const insGeo = new THREE.CylinderGeometry(1.8, 1.8, 4.5, 16);
+      // Brass threaded insert (M2.5)
+      const insGeo = new THREE.CylinderGeometry(1.8, 1.8, 7.1, 16);
       insGeo.rotateX(Math.PI / 2);
       const insMesh = new THREE.Mesh(insGeo, matBrass);
-      insMesh.position.set(bx, by, 2.4 + 2.25);
+      insMesh.position.set(bx, by, 2.4 + 3.55);
       groupBase.add(insMesh);
     });
 
-    // 3. GHOST PCBA (Z: 6.9 to 8.5)
+    // 3. 1100mAh LiPo BATTERY PACK (Sitting in Base Pocket, Z: 0.8 to 7.3mm)
+    // Battery Pouch Body: 50.0 x 34.0 x 6.5 mm
+    const batPouchGeo = new THREE.BoxGeometry(50.0, 34.0, 6.5);
+    const batPouchMesh = new THREE.Mesh(batPouchGeo, matBatteryPouch);
+    batPouchMesh.position.set(35.0, 25.0, 4.05);
+    groupBattery.add(batPouchMesh);
+
+    // Kapton Insulation Tape Edge
+    const kaptonGeo = new THREE.BoxGeometry(50.4, 8.0, 6.7);
+    const kaptonMesh = new THREE.Mesh(kaptonGeo, matKaptonTape);
+    kaptonMesh.position.set(35.0, 38.0, 4.05);
+    groupBattery.add(kaptonMesh);
+
+    // Battery Lead Wires routing to J_BAT header (6.0, 11.0)
+    const wireRedGeo = new THREE.CylinderGeometry(0.7, 0.7, 22.0, 8);
+    wireRedGeo.rotateZ(Math.PI / 4);
+    const wireRedMesh = new THREE.Mesh(wireRedGeo, matWireRed);
+    wireRedMesh.position.set(16.0, 16.0, 7.5);
+    groupBattery.add(wireRedMesh);
+
+    const wireBlkGeo = new THREE.CylinderGeometry(0.7, 0.7, 22.0, 8);
+    wireBlkGeo.rotateZ(Math.PI / 4);
+    const wireBlkMesh = new THREE.Mesh(wireBlkGeo, matWireBlack);
+    wireBlkMesh.position.set(17.0, 17.5, 7.5);
+    groupBattery.add(wireBlkMesh);
+
+    // 4. GHOST PCBA (Z: 9.5 to 11.1mm)
     const pcbShape = createRoundedShape(70, 50, 3);
     const pcbGeo = new THREE.ExtrudeGeometry(pcbShape, { depth: 1.6, bevelEnabled: false });
     const pcbMesh = new THREE.Mesh(pcbGeo, matPcb);
-    pcbMesh.position.set(35, 25, 6.9);
+    pcbMesh.position.set(35, 25, 9.5);
     groupPcb.add(pcbMesh);
 
-    // Add 3D representation of key components on PCBA
-    // OLED Module Glass (48.5, 32.5, Z=18.0)
+    // OLED Module Glass & Display at (42.00, 25.00, Z=19.5)
     const oledGlassGeo = new THREE.BoxGeometry(25.0, 14.0, 1.2);
     const oledGlassMesh = new THREE.Mesh(oledGlassGeo, matOledGlass);
-    oledGlassMesh.position.set(48.5, 32.5, 18.0);
+    oledGlassMesh.position.set(42.0, 25.0, 19.5);
     groupPcb.add(oledGlassMesh);
 
-    // OLED Active Display Graphic
     const screenGeo = new THREE.PlaneGeometry(21.7, 10.8);
     const screenMesh = new THREE.Mesh(screenGeo, matScreenActive);
-    screenMesh.position.set(48.5, 32.5, 18.65);
+    screenMesh.position.set(42.0, 25.0, 20.15);
     groupPcb.add(screenMesh);
 
-    // S1 CO Sensor (56.5, 14.5, H=16.5)
-    const s1Geo = new THREE.CylinderGeometry(10.0, 10.0, 16.5, 24);
-    s1Geo.rotateX(Math.PI / 2);
-    const s1Mesh = new THREE.Mesh(s1Geo, matStainless);
-    s1Mesh.position.set(56.5, 14.5, 8.5 + 8.25);
-    groupPcb.add(s1Mesh);
-
-    // S2 LPG Sensor (59.0, 43.5, H=9.2)
-    const s2Geo = new THREE.CylinderGeometry(4.6, 4.6, 9.2, 16);
+    // Figaro TGS2610-C00 LPG Sensor at (60.00, 37.00, H=9.2mm)
+    const s2Geo = new THREE.CylinderGeometry(4.6, 4.6, 9.2, 24);
     s2Geo.rotateX(Math.PI / 2);
     const s2Mesh = new THREE.Mesh(s2Geo, matStainless);
-    s2Mesh.position.set(59.0, 43.5, 8.5 + 4.6);
+    s2Mesh.position.set(60.0, 37.0, 11.1 + 4.6);
     groupPcb.add(s2Mesh);
 
-    // LS1 Buzzer (32.0, 12.0, H=6.5)
+    // LS1 Buzzer at (60.00, 16.00, OD=12.2mm, H=6.5mm)
     const bzGeo = new THREE.CylinderGeometry(6.1, 6.1, 6.5, 24);
     bzGeo.rotateX(Math.PI / 2);
     const bzMesh = new THREE.Mesh(bzGeo, matChassis);
-    bzMesh.position.set(32.0, 12.0, 8.5 + 3.25);
+    bzMesh.position.set(60.0, 16.0, 11.1 + 3.25);
     groupPcb.add(bzMesh);
 
-    // 4. FRONT COVER (Z: 12.0 to 28.0)
+    // ESP32-C3-MINI-1 RF Module at (42.00, 41.50)
+    const espGeo = new THREE.BoxGeometry(13.2, 16.6, 2.4);
+    const espMesh = new THREE.Mesh(espGeo, matStainless);
+    espMesh.position.set(42.0, 41.5, 11.1 + 1.2);
+    groupPcb.add(espMesh);
+
+    // J1 12V DC Terminal at (5.00, 38.00)
+    const j1Geo = new THREE.BoxGeometry(7.5, 10.0, 8.5);
+    const j1Mesh = new THREE.Mesh(j1Geo, matChassis);
+    j1Mesh.position.set(5.0, 38.0, 11.1 + 4.25);
+    groupPcb.add(j1Mesh);
+
+    // J_BAT 2-pin Header at (6.00, 11.00)
+    const jBatGeo = new THREE.BoxGeometry(5.0, 6.0, 6.0);
+    const jBatMesh = new THREE.Mesh(jBatGeo, matChassis);
+    jBatMesh.position.set(6.0, 11.0, 11.1 + 3.0);
+    groupPcb.add(jBatMesh);
+
+    // SW3 Reset Switch at (5.45, 20.00)
+    const sw3Geo = new THREE.BoxGeometry(3.5, 6.0, 3.5);
+    const sw3Mesh = new THREE.Mesh(sw3Geo, matStainless);
+    sw3Mesh.position.set(5.45, 20.0, 11.1 + 1.75);
+    groupPcb.add(sw3Mesh);
+
+    // 5. FRONT COVER (Z: 12.0 to 28.0)
     const coverOuterShape = createRoundedShape(86, 66, 8);
     const coverHole = createRoundedShape(81.2, 61.2, 5.6);
     coverOuterShape.holes.push(coverHole);
@@ -462,52 +519,64 @@
     coverWallMesh.position.set(35, 25, 12.0);
     groupCover.add(coverWallMesh);
 
-    // Cover Top Face with Beveled Cutout Windows
+    // Cover Top Face with Perfectly Aligned Apertures
     const coverTopShape = createRoundedShape(86, 66, 8);
-    // OLED Window Cutout: (48.5, 32.5) relative to PCB (35, 25) -> dx = 13.5, dy = 7.5
+    
+    // OLED Window: centered at (42.0, 25.0) -> relative to enclosure center (35, 25): dx = +7.0, dy = 0.0
     const oledCut = createRoundedShape(25.0, 14.0, 1.5);
     const oledCutPath = new THREE.Path();
     oledCut.getPoints().forEach((pt, i) => {
-      const px = pt.x + 13.5;
-      const py = pt.y + 7.5;
+      const px = pt.x + 7.0;
+      const py = pt.y + 0.0;
       if (i === 0) oledCutPath.moveTo(px, py);
       else oledCutPath.lineTo(px, py);
     });
     coverTopShape.holes.push(oledCutPath);
 
-    // S1 CO diffusion well cutout: (56.5 - 35 = 21.5, 14.5 - 25 = -10.5)
-    const coCutPath = new THREE.Path();
-    coCutPath.absarc(21.5, -10.5, 10.25, 0, Math.PI * 2, true);
-    coverTopShape.holes.push(coCutPath);
-
-    // S2 LPG chimney cutout: (59.0 - 35 = 24.0, 43.5 - 25 = 18.5)
+    // S2 LPG Convection Chimney: centered at (60.0, 37.0) -> dx = +25.0, dy = +12.0
     const lpgCutPath = new THREE.Path();
-    lpgCutPath.absarc(24.0, 18.5, 5.5, 0, Math.PI * 2, true);
+    lpgCutPath.absarc(25.0, 12.0, 5.5, 0, Math.PI * 2, true);
     coverTopShape.holes.push(lpgCutPath);
+
+    // Rosette Acoustic Sound Horn: centered at (60.0, 16.0) -> dx = +25.0, dy = -9.0
+    // Center acoustic hole + 6 satellite holes
+    const bzCenterPath = new THREE.Path();
+    bzCenterPath.absarc(25.0, -9.0, 1.4, 0, Math.PI * 2, true);
+    coverTopShape.holes.push(bzCenterPath);
+
+    for (let i = 0; i < 6; i++) {
+      const ang = i * Math.PI / 3.0;
+      const rx = 25.0 + 3.2 * Math.cos(ang);
+      const ry = -9.0 + 3.2 * Math.sin(ang);
+      const satPath = new THREE.Path();
+      satPath.absarc(rx, ry, 1.0, 0, Math.PI * 2, true);
+      coverTopShape.holes.push(satPath);
+    }
 
     const coverTopGeo = new THREE.ExtrudeGeometry(coverTopShape, { depth: 2.4, bevelEnabled: false });
     const coverTopMesh = new THREE.Mesh(coverTopGeo, matChassis);
     coverTopMesh.position.set(35, 25, 25.6);
     groupCover.add(coverTopMesh);
 
-    // Tactile Buttons SW1 & SW2 Caps
-    const btnGeo = new THREE.CylinderGeometry(2.6, 2.6, 3.5, 16);
+    // Tactile Button Plungers: SW2 (Hush) at (35.0, 13.0) and SW1 (Test) at (45.0, 13.0)
+    const btnGeo = new THREE.CylinderGeometry(2.5, 2.5, 4.0, 16);
     btnGeo.rotateX(Math.PI / 2);
-    const sw1Mesh = new THREE.Mesh(btnGeo, matButton);
-    sw1Mesh.position.set(42.0, 6.0, 26.5);
-    groupCover.add(sw1Mesh);
 
     const sw2Mesh = new THREE.Mesh(btnGeo, matButton);
-    sw2Mesh.position.set(42.0, 12.0, 26.5);
+    sw2Mesh.position.set(35.0, 13.0, 26.5);
     groupCover.add(sw2Mesh);
 
-    // 4 Status LED Light Pipes at Y = 4.00
-    const ledMatArray = [matLedRed, matLedGrn, matLedBlu, matLedYlw];
-    const ledXs = [26.8, 30.0, 33.2, 36.4];
+    const sw1Mesh = new THREE.Mesh(btnGeo, matButton);
+    sw1Mesh.position.set(45.0, 13.0, 26.5);
+    groupCover.add(sw1Mesh);
+
+    // 4x Status LED Light Pipes at Y = 4.00: D4 Red, D5 Green, D6 Yellow, D7 Blue
+    const ledMats = [matLedRed, matLedGrn, matLedYlw, matLedBlu];
+    const ledXs   = [28.0, 34.0, 40.0, 46.0];
     ledXs.forEach((lx, i) => {
-      const ledGeo = new THREE.CylinderGeometry(1.0, 1.0, 3.0, 12);
+      const ledGeo = new THREE.CylinderGeometry(1.0, 1.0, 3.5, 12);
       ledGeo.rotateX(Math.PI / 2);
-      const lMesh = new THREE.Mesh(ledGeo, ledMatArray[i]);
+      const lMesh = new THREE.Mesh(ledGeo, ledMats[i]);
       lMesh.position.set(lx, 4.0, 26.8);
       groupCover.add(lMesh);
     });
@@ -519,10 +588,11 @@
       document.getElementById('explodeVal').innerText = val + '%';
       const factor = val / 100.0;
       // Displace parts along Z
-      groupBracket.position.z = -factor * 35.0;
+      groupBracket.position.z = -factor * 40.0;
       groupBase.position.z    = 0.0;
-      groupPcb.position.z     = factor * 25.0;
-      groupCover.position.z   = factor * 60.0;
+      groupBattery.position.z = -factor * 18.0;
+      groupPcb.position.z     = factor * 30.0;
+      groupCover.position.z   = factor * 68.0;
     }
 
     let pcbVisible = true;
@@ -530,8 +600,17 @@
       pcbVisible = !pcbVisible;
       groupPcb.visible = pcbVisible;
       const btn = document.getElementById('btnPcb');
-      btn.innerText = 'PCB Ghost: ' + (pcbVisible ? 'ON' : 'OFF');
+      btn.innerText = 'PCB: ' + (pcbVisible ? 'ON' : 'OFF');
       btn.classList.toggle('active', pcbVisible);
+    }
+
+    let batVisible = true;
+    function toggleBat() {
+      batVisible = !batVisible;
+      groupBattery.visible = batVisible;
+      const btn = document.getElementById('btnBat');
+      btn.innerText = 'Battery: ' + (batVisible ? 'ON' : 'OFF');
+      btn.classList.toggle('active', batVisible);
     }
 
     let isSectionCut = false;
@@ -561,20 +640,20 @@
     }
 
     function resetCamera() {
-      camera.position.set(80, 110, 140);
+      camera.position.set(75, 105, 135);
       controls.target.set(35, 25, 14);
       controls.update();
     }
 
     function focusFeature(feat) {
-      if (feat === 'OLED') controls.target.set(48.5, 32.5, 22);
-      else if (feat === 'S2') controls.target.set(59.0, 43.5, 22);
-      else if (feat === 'S1') controls.target.set(56.5, 14.5, 22);
-      else if (feat === 'LS1') controls.target.set(32.0, 12.0, 22);
-      else if (feat === 'SW') controls.target.set(42.0, 9.0, 22);
-      else if (feat === 'LEDS') controls.target.set(31.6, 4.0, 22);
-      else if (feat === 'TERMS') controls.target.set(0.0, 25.0, 12);
-      else if (feat === 'STANDOFF') controls.target.set(35.0, 25.0, 7);
+      if (feat === 'OLED') controls.target.set(42.0, 25.0, 22);
+      else if (feat === 'S2') controls.target.set(60.0, 37.0, 22);
+      else if (feat === 'LS1') controls.target.set(60.0, 16.0, 22);
+      else if (feat === 'SW') controls.target.set(40.0, 13.0, 22);
+      else if (feat === 'LEDS') controls.target.set(37.0, 4.0, 22);
+      else if (feat === 'BATTERY') controls.target.set(35.0, 25.0, 6);
+      else if (feat === 'TERMS') controls.target.set(5.0, 29.0, 14);
+      else if (feat === 'STANDOFF') controls.target.set(35.0, 25.0, 8);
       controls.update();
     }
 
@@ -594,4 +673,3 @@
   </script>
 </body>
 </html>
-

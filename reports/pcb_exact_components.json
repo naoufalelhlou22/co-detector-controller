@@ -1,61 +1,9 @@
 [
   {
-    "ref": "C1",
-    "val": "47uF_35V",
-    "x": 8.0,
-    "y": 23.5,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 9.45,
-    "bbox_h": 7.15,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/CP_Elec_6.3x7.7.step"
-    ]
-  },
-  {
     "ref": "C10",
-    "val": "22uF_10V",
-    "x": 29.5,
-    "y": 26.0,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 4.65,
-    "bbox_h": 2.35,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_1206_3216Metric.step"
-    ]
-  },
-  {
-    "ref": "C11",
-    "val": "22uF_10V",
-    "x": 29.5,
-    "y": 28.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 4.65,
-    "bbox_h": 2.35,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_1206_3216Metric.step"
-    ]
-  },
-  {
-    "ref": "C12",
-    "val": "100nF",
-    "x": 28.2,
-    "y": 15.6,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C13",
-    "val": "10uF_10V",
-    "x": 55.2,
-    "y": 13.2,
+    "val": "10uF",
+    "x": 28.5,
+    "y": 24.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.45,
@@ -65,23 +13,23 @@
     ]
   },
   {
-    "ref": "C14",
-    "val": "100nF",
-    "x": 55.2,
-    "y": 15.8,
+    "ref": "C11",
+    "val": "22uF",
+    "x": 28.5,
+    "y": 16.0,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
+    "bbox_w": 3.45,
+    "bbox_h": 2.01,
     "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
+      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
     ]
   },
   {
     "ref": "C15",
-    "val": "10uF_10V",
-    "x": 27.0,
-    "y": 11.0,
+    "val": "10uF",
+    "x": 33.5,
+    "y": 8.5,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.45,
@@ -93,8 +41,8 @@
   {
     "ref": "C16",
     "val": "100nF",
-    "x": 27.2,
-    "y": 8.8,
+    "x": 33.5,
+    "y": 5.5,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -106,34 +54,8 @@
   {
     "ref": "C17",
     "val": "100nF",
-    "x": 31.2,
-    "y": 19.2,
-    "rot": -90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C18",
-    "val": "100nF",
-    "x": 55.2,
-    "y": 18.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C19",
-    "val": "100nF",
-    "x": 63.2,
-    "y": 18.5,
+    "x": 30.5,
+    "y": 3.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -145,8 +67,8 @@
   {
     "ref": "C2",
     "val": "10uF_50V",
-    "x": 21.5,
-    "y": 5.5,
+    "x": 23.0,
+    "y": 6.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 4.65,
@@ -156,75 +78,10 @@
     ]
   },
   {
-    "ref": "C20",
-    "val": "100nF",
-    "x": 63.2,
-    "y": 24.5,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C21",
-    "val": "1uF",
-    "x": 52.0,
-    "y": 22.2,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
     "ref": "C22",
     "val": "100nF",
-    "x": 15.0,
-    "y": 29.7,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C23",
-    "val": "100nF",
-    "x": 19.0,
-    "y": 26.8,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C24",
-    "val": "100nF_50V",
-    "x": 10.7,
-    "y": 33.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C25",
-    "val": "100nF",
-    "x": 19.0,
-    "y": 42.8,
+    "x": 33.5,
+    "y": 24.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -235,9 +92,9 @@
   },
   {
     "ref": "C26",
-    "val": "100nF_50V",
-    "x": 24.5,
-    "y": 31.5,
+    "val": "100nF",
+    "x": 35.0,
+    "y": 42.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -249,8 +106,8 @@
   {
     "ref": "C27",
     "val": "100nF",
-    "x": 44.8,
-    "y": 28.6,
+    "x": 45.0,
+    "y": 42.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -262,8 +119,8 @@
   {
     "ref": "C28",
     "val": "100nF",
-    "x": 45.0,
-    "y": 8.4,
+    "x": 53.0,
+    "y": 20.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -275,9 +132,9 @@
   {
     "ref": "C29",
     "val": "100nF",
-    "x": 52.0,
-    "y": 10.0,
-    "rot": 180.0,
+    "x": 53.0,
+    "y": 11.0,
+    "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
     "bbox_h": 1.51,
@@ -288,8 +145,8 @@
   {
     "ref": "C3",
     "val": "10uF_50V",
-    "x": 21.5,
-    "y": 9.2,
+    "x": 23.0,
+    "y": 11.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 4.65,
@@ -299,49 +156,10 @@
     ]
   },
   {
-    "ref": "C30",
-    "val": "100nF",
-    "x": 44.25,
-    "y": 33.7,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C31",
-    "val": "100nF",
-    "x": 10.0,
-    "y": 29.8,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C4",
-    "val": "100nF",
-    "x": 14.2,
-    "y": 14.8,
-    "rot": -90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
     "ref": "C5",
     "val": "100nF",
-    "x": 25.4,
-    "y": 13.2,
+    "x": 10.5,
+    "y": 23.5,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -353,21 +171,8 @@
   {
     "ref": "C6",
     "val": "1uF",
-    "x": 25.4,
-    "y": 15.6,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "C7",
-    "val": "DNP",
-    "x": 19.5,
-    "y": 22.8,
+    "x": 10.5,
+    "y": 26.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -379,7 +184,7 @@
   {
     "ref": "C8",
     "val": "22uF_10V",
-    "x": 24.5,
+    "x": 22.5,
     "y": 26.0,
     "rot": 0.0,
     "layer": "F.Cu",
@@ -392,8 +197,8 @@
   {
     "ref": "C9",
     "val": "22uF_10V",
-    "x": 24.5,
-    "y": 28.8,
+    "x": 22.5,
+    "y": 30.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 4.65,
@@ -403,10 +208,62 @@
     ]
   },
   {
+    "ref": "C_B",
+    "val": "100nF",
+    "x": 26.0,
+    "y": 32.5,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
+    ]
+  },
+  {
+    "ref": "C_CHG1",
+    "val": "10uF",
+    "x": 13.5,
+    "y": 31.5,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.45,
+    "bbox_h": 2.01,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
+    ]
+  },
+  {
+    "ref": "C_CHG2",
+    "val": "10uF",
+    "x": 17.5,
+    "y": 31.5,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.45,
+    "bbox_h": 2.01,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
+    ]
+  },
+  {
+    "ref": "C_PROT",
+    "val": "100nF",
+    "x": 11.5,
+    "y": 47.0,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
+    ]
+  },
+  {
     "ref": "D1",
     "val": "SMBJ15CA",
-    "x": 10.3,
-    "y": 14.5,
+    "x": 14.0,
+    "y": 14.0,
     "rot": -90.0,
     "layer": "F.Cu",
     "bbox_w": 4.55,
@@ -416,49 +273,23 @@
     ]
   },
   {
-    "ref": "D10",
-    "val": "TVS_3V3_ESD",
-    "x": 42.55,
-    "y": 33.7,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.59,
-    "bbox_h": 3.05,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Diode_SMD.3dshapes/D_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "D11",
-    "val": "TVS_3V3_ESD",
-    "x": 11.8,
-    "y": 29.8,
-    "rot": -90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.59,
-    "bbox_h": 3.05,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Diode_SMD.3dshapes/D_0603_1608Metric.step"
-    ]
-  },
-  {
     "ref": "D2",
-    "val": "B240A",
-    "x": 10.2,
-    "y": 38.0,
-    "rot": 90.0,
+    "val": "B5819W",
+    "x": 22.0,
+    "y": 39.5,
+    "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 3.55,
-    "bbox_h": 7.095,
+    "bbox_w": 4.795,
+    "bbox_h": 2.35,
     "models": [
-      "${KICAD10_3DMODEL_DIR}/Diode_SMD.3dshapes/D_SMA.step"
+      "${KICAD10_3DMODEL_DIR}/Diode_SMD.3dshapes/D_SOD-123.step"
     ]
   },
   {
     "ref": "D3",
     "val": "BZT52C15",
-    "x": 16.5,
-    "y": 4.2,
+    "x": 18.0,
+    "y": 10.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 4.795,
@@ -469,128 +300,89 @@
   },
   {
     "ref": "D4",
-    "val": "RED_ALARM",
-    "x": 26.8,
+    "val": "LED_PWR_CHRG",
+    "x": 28.0,
     "y": 46.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.05,
     "bbox_h": 1.59,
     "models": [
-      "${KIPRJMOD}/3dmodels/LED_0603_Red.wrl"
+      "${KICAD10_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0603_1608Metric.step"
     ]
   },
   {
     "ref": "D5",
-    "val": "GRN_OK",
-    "x": 30.0,
+    "val": "LED_LPG_OK",
+    "x": 34.0,
     "y": 46.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.05,
     "bbox_h": 1.59,
     "models": [
-      "${KIPRJMOD}/3dmodels/LED_0603_Green.wrl"
+      "${KICAD10_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0603_1608Metric.step"
     ]
   },
   {
     "ref": "D6",
-    "val": "BLU_WIFI",
-    "x": 33.2,
+    "val": "LED_LPG_ALM",
+    "x": 40.0,
     "y": 46.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.05,
     "bbox_h": 1.59,
     "models": [
-      "${KIPRJMOD}/3dmodels/LED_0603_Blue.wrl"
+      "${KICAD10_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0603_1608Metric.step"
     ]
   },
   {
     "ref": "D7",
-    "val": "1N4148W",
-    "x": 30.0,
-    "y": 22.0,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 4.795,
-    "bbox_h": 2.35,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Diode_SMD.3dshapes/D_SOD-123.step"
-    ]
-  },
-  {
-    "ref": "D8",
-    "val": "YLW_FAULT",
-    "x": 36.4,
+    "val": "LED_WIFI",
+    "x": 46.0,
     "y": 46.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.05,
     "bbox_h": 1.59,
     "models": [
-      "${KIPRJMOD}/3dmodels/LED_0603_Yellow.wrl"
-    ]
-  },
-  {
-    "ref": "D9",
-    "val": "TVS_3V3_ESD",
-    "x": 48.2,
-    "y": 44.0,
-    "rot": -90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.59,
-    "bbox_h": 3.05,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Diode_SMD.3dshapes/D_0603_1608Metric.step"
+      "${KICAD10_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0603_1608Metric.step"
     ]
   },
   {
     "ref": "F1",
     "val": "1.5A_PTC",
-    "x": 11.2,
-    "y": 4.8,
+    "x": 11.5,
+    "y": 5.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 5.95,
     "bbox_h": 3.95,
     "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_1812_4532Metric.step"
-    ]
-  },
-  {
-    "ref": "FB1",
-    "val": "220R_100MHz",
-    "x": 51.0,
-    "y": 13.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Inductor_SMD.3dshapes/L_0603_1608Metric.step"
+      "${KICAD10_3DMODEL_DIR}/Fuse.3dshapes/Fuse_1812_4532Metric.step"
     ]
   },
   {
     "ref": "FID1",
-    "val": "FID_BL",
-    "x": 7.8,
-    "y": 46.0,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 2.35,
-    "bbox_h": 2.35,
-    "models": []
-  },
-  {
-    "ref": "FID2",
     "val": "FID_TR",
     "x": 66.5,
     "y": 9.0,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 2.35,
-    "bbox_h": 2.35,
+    "bbox_w": 2.55,
+    "bbox_h": 2.55,
+    "models": []
+  },
+  {
+    "ref": "FID2",
+    "val": "FID_BR",
+    "x": 60.0,
+    "y": 46.0,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 2.55,
+    "bbox_h": 2.55,
     "models": []
   },
   {
@@ -600,8 +392,8 @@
     "y": 46.5,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 6.25,
-    "bbox_h": 6.25,
+    "bbox_w": 6.95,
+    "bbox_h": 6.95,
     "models": []
   },
   {
@@ -611,8 +403,8 @@
     "y": 46.5,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 6.25,
-    "bbox_h": 6.25,
+    "bbox_w": 6.95,
+    "bbox_h": 6.95,
     "models": []
   },
   {
@@ -622,8 +414,8 @@
     "y": 3.5,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 6.25,
-    "bbox_h": 6.25,
+    "bbox_w": 6.95,
+    "bbox_h": 6.95,
     "models": []
   },
   {
@@ -633,14 +425,14 @@
     "y": 3.5,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 6.25,
-    "bbox_h": 6.25,
+    "bbox_w": 6.95,
+    "bbox_h": 6.95,
     "models": []
   },
   {
     "ref": "J1",
     "val": "12V_IN",
-    "x": 4.3,
+    "x": 5.0,
     "y": 12.0,
     "rot": -90.0,
     "layer": "F.Cu",
@@ -651,23 +443,10 @@
     ]
   },
   {
-    "ref": "J2",
-    "val": "EXT_ALARM_12V",
-    "x": 4.5,
-    "y": 38.0,
-    "rot": -90.0,
-    "layer": "F.Cu",
-    "bbox_w": 9.9,
-    "bbox_h": 10.26,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal.step"
-    ]
-  },
-  {
     "ref": "J3",
-    "val": "UART_HDR",
-    "x": 23.0,
-    "y": 42.0,
+    "val": "PROG_UART",
+    "x": 28.0,
+    "y": 8.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 2.88,
@@ -679,21 +458,34 @@
   {
     "ref": "J4",
     "val": "OLED_I2C",
-    "x": 48.5,
-    "y": 3.8,
-    "rot": 90.0,
+    "x": 42.0,
+    "y": 25.0,
+    "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 10.5,
-    "bbox_h": 2.88,
+    "bbox_w": 2.88,
+    "bbox_h": 10.5,
     "models": [
       "${KICAD10_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.step"
     ]
   },
   {
+    "ref": "J_BAT",
+    "val": "3.7V_LiPo",
+    "x": 6.0,
+    "y": 39.0,
+    "rot": -90.0,
+    "layer": "F.Cu",
+    "bbox_w": 8.65,
+    "bbox_h": 6.95,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Connector_JST.3dshapes/JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal.step"
+    ]
+  },
+  {
     "ref": "L1",
     "val": "6.8uH",
-    "x": 24.5,
-    "y": 21.0,
+    "x": 22.5,
+    "y": 20.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 6.03,
@@ -704,59 +496,22 @@
   },
   {
     "ref": "LS1",
-    "val": "PS1240_OR_SPKR",
-    "x": 32.0,
-    "y": 38.0,
+    "val": "PS1240P02BT",
+    "x": 60.0,
+    "y": 34.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 12.35,
     "bbox_h": 12.35,
     "models": [
-      "${KIPRJMOD}/3dmodels/CUI_CDM-12008_Speaker.wrl"
+      "${KICAD10_3DMODEL_DIR}/Buzzer_Beeper.3dshapes/Buzzer_TDK_PS1240P02BT_D12.2mm_H6.5mm.step"
     ]
-  },
-  {
-    "ref": "NT1",
-    "val": "NetTie_AGND_GND",
-    "x": 59.0,
-    "y": 18.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.75,
-    "bbox_h": 1.75,
-    "models": []
   },
   {
     "ref": "Q1",
     "val": "AO3407A",
-    "x": 15.2,
-    "y": 9.0,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.91,
-    "bbox_h": 3.45,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
-    ]
-  },
-  {
-    "ref": "Q2",
-    "val": "IRLML6344",
-    "x": 14.5,
-    "y": 39.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.91,
-    "bbox_h": 3.45,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
-    ]
-  },
-  {
-    "ref": "Q3",
-    "val": "MMBFJ177_DNP",
-    "x": 49.0,
-    "y": 26.2,
+    "x": 17.5,
+    "y": 6.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.91,
@@ -767,9 +522,22 @@
   },
   {
     "ref": "Q4",
-    "val": "2N7002",
-    "x": 40.5,
-    "y": 27.5,
+    "val": "FS8205A",
+    "x": 17.0,
+    "y": 44.5,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 7.45,
+    "bbox_h": 5.585,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
+    ]
+  },
+  {
+    "ref": "Q5",
+    "val": "AO3401A",
+    "x": 22.0,
+    "y": 36.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.91,
@@ -779,10 +547,10 @@
     ]
   },
   {
-    "ref": "Q5",
-    "val": "AO3400A",
-    "x": 35.5,
-    "y": 30.0,
+    "ref": "Q6",
+    "val": "MMBT3904",
+    "x": 54.5,
+    "y": 26.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.91,
@@ -794,51 +562,12 @@
   {
     "ref": "R1",
     "val": "10k",
-    "x": 14.4,
-    "y": 11.8,
+    "x": 18.0,
+    "y": 14.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
     "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R10",
-    "val": "4.7k",
-    "x": 38.2,
-    "y": 19.2,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R11",
-    "val": "1k",
-    "x": 51.5,
-    "y": 18.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R12",
-    "val": "DNP",
-    "x": 49.2,
-    "y": 22.2,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
     "models": [
       "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
     ]
@@ -846,73 +575,21 @@
   {
     "ref": "R13",
     "val": "10k",
-    "x": 19.0,
-    "y": 32.5,
-    "rot": 90.0,
+    "x": 33.5,
+    "y": 16.0,
+    "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
     "models": [
       "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
     ]
   },
   {
     "ref": "R14",
-    "val": "100R",
-    "x": 14.5,
-    "y": 36.5,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R15",
-    "val": "100k",
-    "x": 14.5,
-    "y": 43.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R16",
-    "val": "100k",
-    "x": 19.0,
-    "y": 38.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R17",
-    "val": "15k",
-    "x": 19.0,
-    "y": 40.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R18",
-    "val": "DNP",
-    "x": 19.0,
-    "y": 29.7,
+    "val": "10k",
+    "x": 33.5,
+    "y": 13.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -923,9 +600,9 @@
   },
   {
     "ref": "R19",
-    "val": "270R",
-    "x": 26.8,
-    "y": 43.8,
+    "val": "1k",
+    "x": 28.0,
+    "y": 43.5,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -937,8 +614,8 @@
   {
     "ref": "R2",
     "val": "100k",
-    "x": 14.2,
-    "y": 18.0,
+    "x": 10.5,
+    "y": 20.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -949,62 +626,10 @@
   },
   {
     "ref": "R20",
-    "val": "330R",
-    "x": 38.0,
-    "y": 32.5,
+    "val": "1k",
+    "x": 34.0,
+    "y": 43.5,
     "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R21",
-    "val": "2.2k",
-    "x": 40.5,
-    "y": 30.5,
-    "rot": 180.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R22",
-    "val": "100k",
-    "x": 40.5,
-    "y": 24.5,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R23",
-    "val": "100R",
-    "x": 34.8,
-    "y": 26.6,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R24",
-    "val": "10k",
-    "x": 34.8,
-    "y": 24.2,
-    "rot": 180.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
     "bbox_h": 1.51,
@@ -1014,9 +639,9 @@
   },
   {
     "ref": "R25",
-    "val": "2.2k",
-    "x": 29.5,
-    "y": 30.8,
+    "val": "470R",
+    "x": 40.0,
+    "y": 43.5,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -1027,9 +652,9 @@
   },
   {
     "ref": "R26",
-    "val": "10k",
-    "x": 44.8,
-    "y": 31.2,
+    "val": "1k",
+    "x": 46.0,
+    "y": 43.5,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -1040,9 +665,9 @@
   },
   {
     "ref": "R27",
-    "val": "0R_OR_5V",
-    "x": 52.0,
-    "y": 7.4,
+    "val": "0R_5V",
+    "x": 53.0,
+    "y": 8.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -1054,9 +679,9 @@
   {
     "ref": "R28",
     "val": "4.7k",
-    "x": 48.2,
-    "y": 7.4,
-    "rot": 180.0,
+    "x": 53.0,
+    "y": 14.0,
+    "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
     "bbox_h": 1.51,
@@ -1067,34 +692,8 @@
   {
     "ref": "R29",
     "val": "1k",
-    "x": 48.2,
-    "y": 9.8,
-    "rot": 180.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R3",
-    "val": "DNP",
-    "x": 14.2,
-    "y": 20.0,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.01,
-    "bbox_h": 1.51,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R30",
-    "val": "330R",
-    "x": 44.8,
-    "y": 26.2,
+    "x": 53.0,
+    "y": 17.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -1106,8 +705,8 @@
   {
     "ref": "R4",
     "val": "100k",
-    "x": 19.5,
-    "y": 18.8,
+    "x": 16.0,
+    "y": 25.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -1118,9 +717,9 @@
   },
   {
     "ref": "R5",
-    "val": "43.2k",
-    "x": 19.5,
-    "y": 20.8,
+    "val": "13.3k",
+    "x": 16.0,
+    "y": 27.5,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -1131,9 +730,9 @@
   },
   {
     "ref": "R6",
-    "val": "10k_DNP",
-    "x": 27.2,
-    "y": 6.8,
+    "val": "10k",
+    "x": 33.5,
+    "y": 3.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 3.01,
@@ -1144,297 +743,220 @@
   },
   {
     "ref": "R7",
-    "val": "10k",
-    "x": 40.4,
-    "y": 19.2,
-    "rot": 90.0,
+    "val": "4.7k",
+    "x": 49.0,
+    "y": 23.5,
+    "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
     "models": [
       "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
     ]
   },
   {
     "ref": "R8",
-    "val": "10k",
-    "x": 42.6,
-    "y": 19.2,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "R9",
     "val": "4.7k",
-    "x": 36.0,
-    "y": 19.2,
-    "rot": 90.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.51,
-    "bbox_h": 3.01,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
-    ]
-  },
-  {
-    "ref": "S1",
-    "val": "ME3-CO",
-    "x": 56.5,
-    "y": 35.5,
+    "x": 49.0,
+    "y": 26.5,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 20.15,
-    "bbox_h": 20.15,
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
     "models": [
-      "${KIPRJMOD}/3dmodels/Winsen_ME3-CO.wrl"
+      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+    ]
+  },
+  {
+    "ref": "R_B1",
+    "val": "470k",
+    "x": 26.0,
+    "y": 36.0,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+    ]
+  },
+  {
+    "ref": "R_B2",
+    "val": "470k",
+    "x": 26.0,
+    "y": 39.5,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+    ]
+  },
+  {
+    "ref": "R_PROG",
+    "val": "2.4k",
+    "x": 13.5,
+    "y": 28.5,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+    ]
+  },
+  {
+    "ref": "R_PROT",
+    "val": "100R",
+    "x": 8.5,
+    "y": 47.0,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+    ]
+  },
+  {
+    "ref": "R_PULL",
+    "val": "100k",
+    "x": 22.0,
+    "y": 43.0,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 3.01,
+    "bbox_h": 1.51,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
     ]
   },
   {
     "ref": "S2",
     "val": "TGS2610-C00",
-    "x": 59.0,
-    "y": 6.5,
+    "x": 60.0,
+    "y": 13.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 9.35,
     "bbox_h": 9.35,
-    "models": [
-      "${KIPRJMOD}/3dmodels/Figaro_TGS2610_LPG.wrl"
-    ]
+    "models": []
   },
   {
     "ref": "SW1",
-    "val": "TEST_SELF_CHECK",
-    "x": 42.0,
-    "y": 44.0,
+    "val": "TEST_CHECK",
+    "x": 45.0,
+    "y": 37.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 7.35,
     "bbox_h": 5.45,
     "models": [
-      "${KIPRJMOD}/3dmodels/SW_PTS647_Yellow.wrl"
+      "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_SPST_PTS647Sx50.step"
     ]
   },
   {
     "ref": "SW2",
     "val": "HUSH_OLED",
-    "x": 42.0,
-    "y": 38.0,
+    "x": 35.0,
+    "y": 37.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 7.35,
     "bbox_h": 5.45,
     "models": [
-      "${KIPRJMOD}/3dmodels/SW_PTS647_Blue.wrl"
+      "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_SPST_PTS647Sx50.step"
     ]
   },
   {
     "ref": "SW3",
-    "val": "HW_MASTER_RST",
+    "val": "HW_RST",
     "x": 5.45,
-    "y": 29.8,
+    "y": 30.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 7.35,
     "bbox_h": 5.45,
     "models": [
-      "${KIPRJMOD}/3dmodels/SW_PTS647_Red.wrl"
+      "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_SPST_PTS647Sx50.step"
     ]
   },
   {
     "ref": "TP1",
     "val": "+12V",
-    "x": 25.0,
-    "y": 3.5,
+    "x": 8.0,
+    "y": 18.0,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP10",
-    "val": "BOOT_PAD",
-    "x": 44.8,
-    "y": 23.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP11",
-    "val": "LPG_ADC",
-    "x": 27.2,
-    "y": 3.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP12",
-    "val": "NRST",
-    "x": 15.0,
-    "y": 23.5,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
+    "bbox_w": 2.55,
+    "bbox_h": 2.55,
     "models": []
   },
   {
     "ref": "TP2",
-    "val": "+3V3",
-    "x": 28.8,
-    "y": 18.8,
+    "val": "+5V",
+    "x": 26.5,
+    "y": 30.0,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
+    "bbox_w": 2.55,
+    "bbox_h": 2.55,
     "models": []
   },
   {
     "ref": "TP3",
-    "val": "AVDD",
-    "x": 59.5,
-    "y": 13.2,
+    "val": "VBAT",
+    "x": 17.5,
+    "y": 39.0,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
+    "bbox_w": 2.55,
+    "bbox_h": 2.55,
     "models": []
   },
   {
     "ref": "TP4",
-    "val": "GND",
-    "x": 19.2,
-    "y": 35.8,
+    "val": "+3V3",
+    "x": 25.0,
+    "y": 14.0,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP5",
-    "val": "VOUT",
-    "x": 47.5,
-    "y": 18.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP6",
-    "val": "VALVE_GATE",
-    "x": 10.2,
-    "y": 43.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP7",
-    "val": "I2C_SDA",
-    "x": 45.8,
-    "y": 15.5,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP8",
-    "val": "I2C_SCL",
-    "x": 45.8,
-    "y": 20.2,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
-    "models": []
-  },
-  {
-    "ref": "TP9",
-    "val": "EN_PAD",
-    "x": 23.0,
-    "y": 34.8,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 1.85,
-    "bbox_h": 1.85,
+    "bbox_w": 2.55,
+    "bbox_h": 2.55,
     "models": []
   },
   {
     "ref": "U1",
     "val": "ESP32-C3-MINI-1",
-    "x": 36.0,
-    "y": 9.0,
+    "x": 42.0,
+    "y": 8.5,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 13.7,
+    "bbox_w": 13.45,
     "bbox_h": 16.725,
     "models": [
-      "${KIPRJMOD}/3dmodels/ESP32-C3-MINI-1.wrl"
+      "${KICAD10_3DMODEL_DIR}/RF_Module.3dshapes/ESP32-C6-MINI-1.step"
     ]
   },
   {
     "ref": "U2",
-    "val": "LMR33620ADDAR",
-    "x": 19.8,
-    "y": 14.5,
+    "val": "TPS54302DDAR",
+    "x": 16.0,
+    "y": 20.0,
     "rot": 0.0,
     "layer": "F.Cu",
-    "bbox_w": 7.55,
-    "bbox_h": 5.665,
+    "bbox_w": 7.45,
+    "bbox_h": 5.585,
     "models": [
-      "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/HTSOP-8-1EP_3.9x4.9mm_P1.27mm.step"
-    ]
-  },
-  {
-    "ref": "U3",
-    "val": "LMP91000SDE",
-    "x": 56.5,
-    "y": 22.2,
-    "rot": -90.0,
-    "layer": "F.Cu",
-    "bbox_w": 4.705,
-    "bbox_h": 5.155,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Package_SON.3dshapes/WSON-14-1EP_4.0x4.0mm_P0.5mm_EP2.6x2.6mm.step"
-    ]
-  },
-  {
-    "ref": "U4",
-    "val": "REF3325",
-    "x": 63.2,
-    "y": 21.5,
-    "rot": 0.0,
-    "layer": "F.Cu",
-    "bbox_w": 3.91,
-    "bbox_h": 3.45,
-    "models": [
-      "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
+      "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
     ]
   },
   {
     "ref": "U5",
-    "val": "74LVC1G08",
-    "x": 15.0,
-    "y": 32.5,
+    "val": "TPS3823-33",
+    "x": 33.5,
+    "y": 20.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 4.15,
@@ -1444,10 +966,36 @@
     ]
   },
   {
-    "ref": "U6",
-    "val": "TPS3823-33",
-    "x": 15.0,
-    "y": 26.8,
+    "ref": "U7",
+    "val": "TP4056",
+    "x": 13.5,
+    "y": 36.0,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 7.45,
+    "bbox_h": 5.585,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
+    ]
+  },
+  {
+    "ref": "U8",
+    "val": "DW01A",
+    "x": 11.5,
+    "y": 44.5,
+    "rot": 0.0,
+    "layer": "F.Cu",
+    "bbox_w": 4.15,
+    "bbox_h": 3.625,
+    "models": [
+      "${KICAD10_3DMODEL_DIR}/Package_TO_SOT_SMD.3dshapes/SOT-23-6.step"
+    ]
+  },
+  {
+    "ref": "U9",
+    "val": "ME6211C33",
+    "x": 28.5,
+    "y": 20.0,
     "rot": 0.0,
     "layer": "F.Cu",
     "bbox_w": 4.15,
