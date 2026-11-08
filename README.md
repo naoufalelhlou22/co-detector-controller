@@ -10,7 +10,7 @@
 Production-grade, 4-layer smart dual-gas detector hardware platform designed around the **ESP32-C3** Wi-Fi/BLE microcontroller. Integrates precision analog front-ends for simultaneous monitoring of **Carbon Monoxide (CO)** and **Combustible Liquefied Petroleum Gas (LPG)**.
 
 <p align="center">
-  <img src="cad/render_enclosure_technical.png" alt="Smart Dual Gas Detector 3D Enclosure Blueprint" width="760"/>
+  <img src="cad/smart_dual_gas_detector_render.png" alt="Smart Dual Gas Detector Photorealistic Product Render" width="760"/>
 </p>
 
 > [!TIP]
@@ -103,6 +103,10 @@ co_detector_controller/
 ## Mechanical Enclosure & Industrial Design
 
 The enclosure is engineered specifically for automated injection molding in **Flame-Retardant PC/ABS (UL 94-V0)** and designed in both **AutoCAD Mechanical** and **SolidWorks**.
+
+<p align="center">
+  <img src="cad/render_enclosure_technical.png" alt="Technical 4-View Engineering Blueprint" width="760"/>
+</p>
 
 ### Enclosure Specifications & Thermal Physics (Rev 3.0)
 
