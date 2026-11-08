@@ -2,11 +2,15 @@
 
 [![KiCad](https://img.shields.io/badge/KiCad-10.0-blue.svg)](https://www.kicad.org/)
 [![Hardware](https://img.shields.io/badge/Hardware-Rev%202.0%20(Stage%205)-brightgreen.svg)]()
+[![Release](https://img.shields.io/badge/Release-v2.0.0-blue.svg)](https://github.com/naoufalelhlou22/co-detector-controller/releases/tag/v2.0.0)
 [![DRC](https://img.shields.io/badge/KiCad%20DRC-0%20Errors-success.svg)]()
 [![ERC](https://img.shields.io/badge/KiCad%20ERC-0%20Errors-success.svg)]()
 [![JLCPCB Ready](https://img.shields.io/badge/PCBA-JLCPCB%20Ready-orange.svg)](README_JLCPCB.md)
 
 Production-grade, 4-layer smart dual-gas detector hardware platform designed around the **ESP32-C3** Wi-Fi/BLE microcontroller. Integrates precision analog front-ends for simultaneous monitoring of **Carbon Monoxide (CO)** and **Combustible Liquefied Petroleum Gas (LPG)**.
+
+> [!TIP]
+> Ready-to-manufacture Gerbers, schematic PDF, BOM, and CPL files are attached directly to the [v2.0.0 Release](https://github.com/naoufalelhlou22/co-detector-controller/releases/tag/v2.0.0).
 
 ---
 
@@ -102,3 +106,4 @@ For complete step-by-step instructions on ordering boards and PCBA through JLCPC
 ## License
 
 This project is open-source hardware licensed under the [MIT License](LICENSE) (or CERN-OHL-P / user preferred license).
+
