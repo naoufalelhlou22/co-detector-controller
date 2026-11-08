@@ -1,0 +1,20 @@
+; AutoCAD Mechanical Script: Import 3D Solid Enclosure Components
+; Usage: In AutoCAD Mechanical, type SCRIPT and select this file.
+
+; 1. Set 3D View to Isometric
+VPOINT 1,-1,1
+
+; 2. Import Wall Mount Bracket Solid
+IMPORT "C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/cad/solidworks/CO_Enclosure_Wall_Bracket.step"
+
+; 3. Import Rear Chassis Base Solid
+IMPORT "C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/cad/solidworks/CO_Enclosure_Chassis_Base.step"
+
+; 4. Import Front Housing Cover Solid
+IMPORT "C:/Users/Mr_X/.gemini/antigravity/scratch/co_detector_controller/cad/solidworks/CO_Enclosure_Front_Cover.step"
+
+; 5. Set Visual Style to Shaded with Edges
+VSMINCURRENT SHADEDWITHEDGES
+
+; 6. Zoom Extents
+ZOOM E
