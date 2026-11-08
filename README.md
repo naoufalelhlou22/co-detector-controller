@@ -9,8 +9,14 @@
 
 Production-grade, 4-layer smart dual-gas detector hardware platform designed around the **ESP32-C3** Wi-Fi/BLE microcontroller. Integrates precision analog front-ends for simultaneous monitoring of **Carbon Monoxide (CO)** and **Combustible Liquefied Petroleum Gas (LPG)**.
 
+<p align="center">
+  <img src="cad/smart_dual_gas_detector_render.jpg" alt="Smart Dual Gas Detector 3D Enclosure Render" width="720"/>
+</p>
+
 > [!TIP]
-> Ready-to-manufacture Gerbers, schematic PDF, BOM, and CPL files are attached directly to the [v2.0.0 Release](https://github.com/naoufalelhlou22/co-detector-controller/releases/tag/v2.0.0).
+> - **PCBA Manufacturing:** Ready-to-order Gerbers, schematic PDF, BOM, and CPL files are attached to the [v2.0.0 Release](https://github.com/naoufalelhlou22/co-detector-controller/releases/tag/v2.0.0).
+> - **Interactive 3D Viewer:** Preview the enclosure with real-time 3D rotation, exploded view, and thermal airflow in [cad/enclosure_viewer.html](cad/enclosure_viewer.html).
+> - **AutoCAD & SolidWorks:** Complete mechanical blueprints and 3D solid models are available in the [`cad/`](cad/) folder.
 
 ---
 
@@ -91,6 +97,42 @@ co_detector_controller/
 │
 └── 3dmodels/                           # 3D CAD models (VRML / STEP)
 ```
+
+---
+
+## Mechanical Enclosure & Industrial Design
+
+The enclosure is engineered specifically for automated injection molding in **Flame-Retardant PC/ABS (UL 94-V0)** and designed in both **AutoCAD Mechanical** and **SolidWorks**.
+
+<p align="center">
+  <img src="cad/render_enclosure_technical.png" alt="Technical 3D CAD Exploded Architecture" width="720"/>
+</p>
+
+### Enclosure Specifications & Thermal Physics
+
+| Parameter | Specification | Engineering Function |
+| :--- | :--- | :--- |
+| **Dimensions** | $92.0\text{ mm} \times 72.0\text{ mm} \times 28.0\text{ mm}$ | Compact European squircle ($R = 10\text{ mm}$) |
+| **Wall Thickness** | $2.20\text{ mm} \pm 0.15\text{ mm}$ | Uniform injection molding nominal thickness |
+| **Housing Material** | **PC/ABS UL 94-V0** (e.g. Sabic Cycoloy) | High impact strength & fire-safety certification |
+| **Acoustic Horn** | Helmholtz Resonator ($V = 692.7\text{ mm}^3$) | 7-hole radial rosette tuned to $4.2\text{ kHz}$ ($>85\text{ dBA}$ @ 3m) |
+| **Thermal Barrier** | Molded Transverse Rib ($X = 17.0\text{ mm}$, $t = 1.4\text{ mm}$) | Isolates TGS2610 $280\text{ mW}$ heater ($\Delta T < 0.7^\circ\text{C}$ at CO cell) |
+| **PCB Mounting** | 4x M2.5 Standoff Bosses ($H = 4.5\text{ mm}$, pitch $63\times43\text{ mm}$) | Sized for Ruthex M2.5 heat-set brass inserts |
+| **Wall Bracket** | Quick-Mount Bayonet Slide Plate | Universal EU $60\text{ mm}$ & US $83.5\text{ mm}$ junction box keyholes |
+
+### CAD Deliverables Directory (`cad/`)
+- **Interactive 3D Web Viewer:** [`cad/enclosure_viewer.html`](cad/enclosure_viewer.html) (open in any web browser).
+- **AutoCAD Mechanical Package (`cad/autocad/`):**
+  - Master Assembly Blueprint (ISO A3): [`co_detector_enclosure_drawing.dxf`](cad/autocad/co_detector_enclosure_drawing.dxf)
+  - Detail Drawings (ISO A4): [`detail_front_cover.dxf`](cad/autocad/detail_front_cover.dxf), [`detail_rear_chassis.dxf`](cad/autocad/detail_rear_chassis.dxf), [`detail_wall_bracket.dxf`](cad/autocad/detail_wall_bracket.dxf)
+  - AutoLISP Drawing Routine: [`build_enclosure_drawing.lsp`](cad/autocad/build_enclosure_drawing.lsp)
+  - 3D STEP Batch Importer: [`import_3d_enclosure.scr`](cad/autocad/import_3d_enclosure.scr)
+  - Mechanical Hardware BOM: [`MECHANICAL_BOM.csv`](cad/autocad/MECHANICAL_BOM.csv)
+- **SolidWorks Package (`cad/solidworks/`):**
+  - Native Part Models: `CO_Enclosure_Chassis_Base.SLDPRT`, `CO_Enclosure_Front_Cover.SLDPRT`, `CO_Enclosure_Wall_Bracket.SLDPRT`
+  - Native Assembly: `CO_Enclosure_Assembly.SLDASM`
+  - B-Rep Solid STEP Files: `CO_Enclosure_*.step`
+  - SolidWorks Automation Macro: `SolidWorks_Enclosure_Builder.vba`
 
 ---
 
