@@ -302,6 +302,66 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "C1_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C1"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "47uF_35V"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C1_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C1_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "C2_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
@@ -422,6 +482,66 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "C4_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C4"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C4_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C4_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "U2_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
@@ -432,11 +552,11 @@
 				(at 0 7.62 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "TPS54302DDAR"
+			(property "Value" "LMR33620ADDAR"
 				(at 0 -7.62 0)
 				(effects (font (size 1.1 1.1)))
 			)
-			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(property "Footprint" "Package_SO:TI_SO-PowerPAD-8_ThermalVias"
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
@@ -446,60 +566,67 @@
 			)
 			(symbol "U2_SYM_0_1"
 				(rectangle
-					(start -8.89 6.35)
-					(end 8.89 -6.35)
+					(start -10.16 6.35)
+					(end 10.16 -6.35)
 					(stroke (width 0.254) (type default))
 					(fill (type background))
 				)
 			)
 			(symbol "U2_SYM_1_1"
 				(pin passive line
-					(at -11.43 5.08 0)
+					(at -12.7 5.08 0)
 					(length 2.54)
 					(name "VIN" (effects (font (size 1.0 1.0))))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -11.43 2.54 0)
+					(at -12.7 2.54 0)
 					(length 2.54)
 					(name "EN" (effects (font (size 1.0 1.0))))
 					(number "3" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -11.43 0.0 0)
+					(at -12.7 0.0 0)
 					(length 2.54)
 					(name "VCC" (effects (font (size 1.0 1.0))))
 					(number "6" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -11.43 -2.54 0)
+					(at -12.7 -2.54 0)
 					(length 2.54)
-					(name "GND" (effects (font (size 1.0 1.0))))
+					(name "PGND" (effects (font (size 1.0 1.0))))
 					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 11.43 5.08 180)
+					(at 12.7 5.08 180)
 					(length 2.54)
 					(name "BOOT" (effects (font (size 1.0 1.0))))
 					(number "7" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 11.43 2.54 180)
+					(at 12.7 2.54 180)
 					(length 2.54)
 					(name "SW" (effects (font (size 1.0 1.0))))
 					(number "8" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 11.43 0.0 180)
+					(at 12.7 0.0 180)
 					(length 2.54)
 					(name "FB" (effects (font (size 1.0 1.0))))
 					(number "5" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 11.43 -2.54 180)
+					(at 12.7 -2.54 180)
 					(length 2.54)
-					(name "NC" (effects (font (size 1.0 1.0))))
+					(name "PG" (effects (font (size 1.0 1.0))))
 					(number "4" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 -2.54 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "9" (effects (font (size 0.9 0.9))))
 				)
 			)
 			(embedded_fonts no)
@@ -535,6 +662,52 @@
 				)
 			)
 			(symbol "R2_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R3_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R3"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "DNP"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R3_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R3_SYM_1_1"
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -670,6 +843,61 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "D7_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D7"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "1N4148W"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Diode_SMD:D_SOD-123"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "D7_SYM_0_1"
+				(polyline
+					(pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -1.27 -1.27) (xy -1.27 1.27))
+					(stroke (width 0.3) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy 2.54 0))
+					(stroke (width 0.2) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "D7_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "L1_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
@@ -772,7 +1000,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "13.3k"
+			(property "Value" "43.2k"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -793,6 +1021,66 @@
 				)
 			)
 			(symbol "R5_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C7_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C7"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "DNP"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C7_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C7_SYM_1_1"
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -928,1047 +1216,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "TP1_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "TP1"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "+12V"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "TP1_SYM_0_1"
-				(circle
-					(center 1.27 0)
-					(radius 1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "TP1_SYM_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 2.54)
-					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
-					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "TP2_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "TP2"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "+5V"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "TP2_SYM_0_1"
-				(circle
-					(center 1.27 0)
-					(radius 1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "TP2_SYM_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 2.54)
-					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
-					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "U7_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U7"
-				(at 0 8.89 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "TP4056"
-				(at 0 -8.89 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "U7_SYM_0_1"
-				(rectangle
-					(start -8.89 7.62)
-					(end 8.89 -7.62)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "U7_SYM_1_1"
-				(pin passive line
-					(at -11.43 5.08 0)
-					(length 2.54)
-					(name "VCC" (effects (font (size 1.0 1.0))))
-					(number "4" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 2.54 0)
-					(length 2.54)
-					(name "CE" (effects (font (size 1.0 1.0))))
-					(number "8" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 0.0 0)
-					(length 2.54)
-					(name "PROG" (effects (font (size 1.0 1.0))))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 -2.54 0)
-					(length 2.54)
-					(name "TEMP" (effects (font (size 1.0 1.0))))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 -5.08 0)
-					(length 2.54)
-					(name "GND" (effects (font (size 1.0 1.0))))
-					(number "3" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 11.43 5.08 180)
-					(length 2.54)
-					(name "BAT" (effects (font (size 1.0 1.0))))
-					(number "5" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 11.43 2.54 180)
-					(length 2.54)
-					(name "STDBY" (effects (font (size 1.0 1.0))))
-					(number "6" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 11.43 0.0 180)
-					(length 2.54)
-					(name "CHRG" (effects (font (size 1.0 1.0))))
-					(number "7" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "R_PROG_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R_PROG"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "2.4k"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "R_PROG_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "R_PROG_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "C_CHG1_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C_CHG1"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "10uF"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "C_CHG1_SYM_0_1"
-				(polyline
-					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy -2.54 0) (xy -0.635 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 0) (xy 2.54 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "C_CHG1_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "C_CHG2_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C_CHG2"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "10uF"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "C_CHG2_SYM_0_1"
-				(polyline
-					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy -2.54 0) (xy -0.635 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 0) (xy 2.54 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "C_CHG2_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "J_BAT_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J_BAT"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "3.7V_LiPo"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "J_BAT_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "J_BAT_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "VBAT" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "BAT_PROT" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "U8_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U8"
-				(at 0 6.35 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "DW01A"
-				(at 0 -6.35 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "U8_SYM_0_1"
-				(rectangle
-					(start -6.35 5.08)
-					(end 6.35 -5.08)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "U8_SYM_1_1"
-				(pin passive line
-					(at -8.89 2.54 0)
-					(length 2.54)
-					(name "VCC" (effects (font (size 1.0 1.0))))
-					(number "5" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -8.89 0.0 0)
-					(length 2.54)
-					(name "GND" (effects (font (size 1.0 1.0))))
-					(number "6" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -8.89 -2.54 0)
-					(length 2.54)
-					(name "CS" (effects (font (size 1.0 1.0))))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 8.89 2.54 180)
-					(length 2.54)
-					(name "OD" (effects (font (size 1.0 1.0))))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 8.89 0.0 180)
-					(length 2.54)
-					(name "OC" (effects (font (size 1.0 1.0))))
-					(number "3" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 8.89 -2.54 180)
-					(length 2.54)
-					(name "TD" (effects (font (size 1.0 1.0))))
-					(number "4" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Q4_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q4"
-				(at 0 10.16 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "FS8205A"
-				(at 0 -10.16 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "Q4_SYM_0_1"
-				(rectangle
-					(start -8.89 8.89)
-					(end 8.89 -8.89)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "Q4_SYM_1_1"
-				(pin passive line
-					(at -11.43 5.08 0)
-					(length 2.54)
-					(name "G1" (effects (font (size 1.0 1.0))))
-					(number "4" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 2.54 0)
-					(length 2.54)
-					(name "G2" (effects (font (size 1.0 1.0))))
-					(number "5" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 0.0 0)
-					(length 2.54)
-					(name "S1" (effects (font (size 1.0 1.0))))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 -2.54 0)
-					(length 2.54)
-					(name "S1" (effects (font (size 1.0 1.0))))
-					(number "3" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 -5.08 0)
-					(length 2.54)
-					(name "S2" (effects (font (size 1.0 1.0))))
-					(number "6" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -11.43 -7.62 0)
-					(length 2.54)
-					(name "S2" (effects (font (size 1.0 1.0))))
-					(number "7" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 11.43 5.08 180)
-					(length 2.54)
-					(name "D12" (effects (font (size 1.0 1.0))))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 11.43 2.54 180)
-					(length 2.54)
-					(name "D12" (effects (font (size 1.0 1.0))))
-					(number "8" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "R_PROT_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R_PROT"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "100R"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "R_PROT_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "R_PROT_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "C_PROT_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C_PROT"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "100nF"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "C_PROT_SYM_0_1"
-				(polyline
-					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy -2.54 0) (xy -0.635 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 0) (xy 2.54 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "C_PROT_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Q5_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q5"
-				(at 0 5.08 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "AO3401A"
-				(at 0 -5.08 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "Q5_SYM_0_1"
-				(rectangle
-					(start -3.81 3.81)
-					(end 3.81 -3.81)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "Q5_SYM_1_1"
-				(pin passive line
-					(at -6.35 0.0 0)
-					(length 2.54)
-					(name "G" (effects (font (size 1.0 1.0))))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 6.35 2.54 180)
-					(length 2.54)
-					(name "D" (effects (font (size 1.0 1.0))))
-					(number "3" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 6.35 -2.54 180)
-					(length 2.54)
-					(name "S" (effects (font (size 1.0 1.0))))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "D2_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "D2"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "B5819W"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Diode_SMD:D_SOD-123"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "D2_SYM_0_1"
-				(polyline
-					(pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy -1.27 -1.27) (xy -1.27 1.27))
-					(stroke (width 0.3) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy -2.54 0) (xy 2.54 0))
-					(stroke (width 0.2) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "D2_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "R_PULL_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R_PULL"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "100k"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "R_PULL_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "R_PULL_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "R_B1_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R_B1"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "470k"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "R_B1_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "R_B1_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "R_B2_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R_B2"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "470k"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "R_B2_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "R_B2_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "C_B_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C_B"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "100nF"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "C_B_SYM_0_1"
-				(polyline
-					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy -2.54 0) (xy -0.635 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 0) (xy 2.54 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "C_B_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "TP3_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "TP3"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "VBAT"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "TP3_SYM_0_1"
-				(circle
-					(center 1.27 0)
-					(radius 1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "TP3_SYM_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 2.54)
-					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
-					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "U9_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U9"
-				(at 0 6.35 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "ME6211C33"
-				(at 0 -6.35 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "U9_SYM_0_1"
-				(rectangle
-					(start -6.35 5.08)
-					(end 6.35 -5.08)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "U9_SYM_1_1"
-				(pin passive line
-					(at -8.89 2.54 0)
-					(length 2.54)
-					(name "VIN" (effects (font (size 1.0 1.0))))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -8.89 0.0 0)
-					(length 2.54)
-					(name "EN" (effects (font (size 1.0 1.0))))
-					(number "3" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -8.89 -2.54 0)
-					(length 2.54)
-					(name "GND" (effects (font (size 1.0 1.0))))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 8.89 2.54 180)
-					(length 2.54)
-					(name "VOUT" (effects (font (size 1.0 1.0))))
-					(number "5" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 8.89 0.0 180)
-					(length 2.54)
-					(name "NC" (effects (font (size 1.0 1.0))))
-					(number "4" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "C10_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
@@ -1979,11 +1226,11 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "10uF"
+			(property "Value" "22uF_10V"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
-			(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
@@ -2039,11 +1286,11 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "22uF"
+			(property "Value" "22uF_10V"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
-			(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
@@ -2089,13 +1336,113 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "TP4_SYM"
+		(symbol "C12_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C12"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C12_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C12_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP1_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "TP4"
+			(property "Reference" "TP1"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "+12V"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP1_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP1_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP2_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP2"
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
@@ -2111,7 +1458,7 @@
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
-			(symbol "TP4_SYM_0_1"
+			(symbol "TP2_SYM_0_1"
 				(circle
 					(center 1.27 0)
 					(radius 1.27)
@@ -2119,12 +1466,262 @@
 					(fill (type none))
 				)
 			)
-			(symbol "TP4_SYM_1_1"
+			(symbol "TP2_SYM_1_1"
 				(pin passive line
 					(at -2.54 0 0)
 					(length 2.54)
 					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
 					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP11_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP11"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "LPG_ADC"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP11_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP11_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP12_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP12"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "NRST"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP12_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP12_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "U6_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U6"
+				(at 0 6.35 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "TPS3823-33"
+				(at 0 -6.35 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "U6_SYM_0_1"
+				(rectangle
+					(start -6.35 5.08)
+					(end 6.35 -5.08)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "U6_SYM_1_1"
+				(pin passive line
+					(at -8.89 2.54 0)
+					(length 2.54)
+					(name "~{RESET}" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -8.89 0.0 0)
+					(length 2.54)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -8.89 -2.54 0)
+					(length 2.54)
+					(name "~{MR}" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 8.89 2.54 180)
+					(length 2.54)
+					(name "WDI" (effects (font (size 1.0 1.0))))
+					(number "4" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 8.89 0.0 180)
+					(length 2.54)
+					(name "VDD" (effects (font (size 1.0 1.0))))
+					(number "5" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C23_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C23"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C23_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C23_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R18_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R18"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "DNP"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R18_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R18_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
 				)
 			)
 			(embedded_fonts no)
@@ -2139,7 +1736,7 @@
 				(at 0 6.35 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "TPS3823-33"
+			(property "Value" "74LVC1G08"
 				(at 0 -6.35 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -2163,31 +1760,31 @@
 				(pin passive line
 					(at -8.89 2.54 0)
 					(length 2.54)
-					(name "~{MR}" (effects (font (size 1.0 1.0))))
+					(name "A" (effects (font (size 1.0 1.0))))
 					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at -8.89 0.0 0)
 					(length 2.54)
-					(name "GND" (effects (font (size 1.0 1.0))))
+					(name "B" (effects (font (size 1.0 1.0))))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at -8.89 -2.54 0)
 					(length 2.54)
-					(name "WDI" (effects (font (size 1.0 1.0))))
+					(name "GND" (effects (font (size 1.0 1.0))))
 					(number "3" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at 8.89 2.54 180)
 					(length 2.54)
-					(name "VDD" (effects (font (size 1.0 1.0))))
+					(name "Y" (effects (font (size 1.0 1.0))))
 					(number "4" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at 8.89 0.0 180)
 					(length 2.54)
-					(name "~{RESET}" (effects (font (size 1.0 1.0))))
+					(name "VCC" (effects (font (size 1.0 1.0))))
 					(number "5" (effects (font (size 0.9 0.9))))
 				)
 			)
@@ -2309,7 +1906,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "10k"
+			(property "Value" "100R"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -2345,6 +1942,537 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "R15_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R15"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R15_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R15_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Q2_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q2"
+				(at 0 5.08 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "IRLML6344"
+				(at 0 -5.08 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "Q2_SYM_0_1"
+				(rectangle
+					(start -3.81 3.81)
+					(end 3.81 -3.81)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "Q2_SYM_1_1"
+				(pin passive line
+					(at -6.35 0.0 0)
+					(length 2.54)
+					(name "G" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 2.54 180)
+					(length 2.54)
+					(name "D" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 -2.54 180)
+					(length 2.54)
+					(name "S" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "D2_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D2"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "B240A"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Diode_SMD:D_SMA"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "D2_SYM_0_1"
+				(polyline
+					(pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -1.27 -1.27) (xy -1.27 1.27))
+					(stroke (width 0.3) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy 2.54 0))
+					(stroke (width 0.2) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "D2_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C24_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C24"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF_50V"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C24_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C24_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "J2_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J2"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "EXT_ALARM_12V"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "J2_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "J2_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "EXT_ALM+" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "EXT_ALM-" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R16_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R16"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R16_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R16_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R17_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R17"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "15k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R17_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R17_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C25_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C25"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C25_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C25_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP4_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP4"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "GND"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP4_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP4_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP6_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP6"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "VALVE_GATE"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP6_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP6_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP9_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP9"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "EN_PAD"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP9_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP9_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "SW3_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
@@ -2355,7 +2483,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "HW_RST"
+			(property "Value" "HW_MASTER_RST"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -2379,14 +2507,1114 @@
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
-					(name "MR_N" (effects (font (size 0.9 0.9)) (hide yes)))
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
 					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
-					(name "GND" (effects (font (size 0.9 0.9)) (hide yes)))
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
 					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C31_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C31"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C31_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C31_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "D11_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D11"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "TVS_3V3_ESD"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Diode_SMD:D_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "D11_SYM_0_1"
+				(polyline
+					(pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -1.27 -1.27) (xy -1.27 1.27))
+					(stroke (width 0.3) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy 2.54 0))
+					(stroke (width 0.2) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "D11_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "S1_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "S1"
+				(at 0 5.08 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "ME3-CO"
+				(at 0 -5.08 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "S1_SYM_0_1"
+				(rectangle
+					(start -3.81 3.81)
+					(end 3.81 -3.81)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "S1_SYM_1_1"
+				(pin passive line
+					(at -6.35 0.0 0)
+					(length 2.54)
+					(name "WE" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 2.54 180)
+					(length 2.54)
+					(name "CE" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 -2.54 180)
+					(length 2.54)
+					(name "RE" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Q3_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q3"
+				(at 0 5.08 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "MMBFJ177_DNP"
+				(at 0 -5.08 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "Q3_SYM_0_1"
+				(rectangle
+					(start -3.81 3.81)
+					(end 3.81 -3.81)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "Q3_SYM_1_1"
+				(pin passive line
+					(at -6.35 0.0 0)
+					(length 2.54)
+					(name "D" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 2.54 180)
+					(length 2.54)
+					(name "G" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 -2.54 180)
+					(length 2.54)
+					(name "S" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R12_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R12"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "DNP"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R12_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R12_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C21_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C21"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "1uF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C21_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C21_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "U3_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U3"
+				(at 0 12.70 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "LMP91000SDE"
+				(at 0 -12.70 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Package_SON:WSON-14-1EP_4.0x4.0mm_P0.5mm_EP2.6x2.6mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "U3_SYM_0_1"
+				(rectangle
+					(start -10.16 11.43)
+					(end 10.16 -11.43)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "U3_SYM_1_1"
+				(pin passive line
+					(at -12.7 10.16 0)
+					(length 2.54)
+					(name "CE" (effects (font (size 1.0 1.0))))
+					(number "14" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 7.62 0)
+					(length 2.54)
+					(name "RE" (effects (font (size 1.0 1.0))))
+					(number "13" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 5.08 0)
+					(length 2.54)
+					(name "WE" (effects (font (size 1.0 1.0))))
+					(number "12" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 2.54 0)
+					(length 2.54)
+					(name "VREF" (effects (font (size 1.0 1.0))))
+					(number "11" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(name "C1" (effects (font (size 1.0 1.0))))
+					(number "10" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 -2.54 0)
+					(length 2.54)
+					(name "C2" (effects (font (size 1.0 1.0))))
+					(number "9" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 -5.08 0)
+					(length 2.54)
+					(name "VDD" (effects (font (size 1.0 1.0))))
+					(number "6" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 -7.62 0)
+					(length 2.54)
+					(name "DGND" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 10.16 180)
+					(length 2.54)
+					(name "VOUT" (effects (font (size 1.0 1.0))))
+					(number "8" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 7.62 180)
+					(length 2.54)
+					(name "SDA" (effects (font (size 1.0 1.0))))
+					(number "4" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 5.08 180)
+					(length 2.54)
+					(name "SCL" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 2.54 180)
+					(length 2.54)
+					(name "MENB" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 0.0 180)
+					(length 2.54)
+					(name "AGND" (effects (font (size 1.0 1.0))))
+					(number "7" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 -2.54 180)
+					(length 2.54)
+					(name "NC" (effects (font (size 1.0 1.0))))
+					(number "5" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 -7.62 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "15" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R11_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R11"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "1k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R11_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R11_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C18_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C18"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C18_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C18_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "FB1_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "FB1"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "220R_100MHz"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "FB1_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "FB1_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C13_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C13"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "10uF_10V"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C13_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C13_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C14_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C14"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C14_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C14_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "U4_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U4"
+				(at 0 5.08 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "REF3325"
+				(at 0 -5.08 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "U4_SYM_0_1"
+				(rectangle
+					(start -3.81 3.81)
+					(end 3.81 -3.81)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "U4_SYM_1_1"
+				(pin passive line
+					(at -6.35 0.0 0)
+					(length 2.54)
+					(name "IN" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 2.54 180)
+					(length 2.54)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 -2.54 180)
+					(length 2.54)
+					(name "OUT" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C19_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C19"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C19_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C19_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C20_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C20"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C20_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C20_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "NT1_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "NT1"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "NetTie_AGND_GND"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "NetTie:NetTie-2_SMD_Pad0.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "NT1_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "NT1_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP3_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP3"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "AVDD"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP3_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP3_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP5_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP5"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "VOUT"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP5_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP5_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP7_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP7"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "I2C_SDA"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP7_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP7_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP8_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP8"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "I2C_SCL"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP8_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP8_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
 				)
 			)
 			(embedded_fonts no)
@@ -2425,26 +3653,26 @@
 				(pin passive line
 					(at -8.89 0.0 0)
 					(length 2.54)
-					(name "SNS+" (effects (font (size 1.0 1.0))))
-					(number "3" (effects (font (size 0.9 0.9))))
+					(name "HTR-" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at -8.89 -2.54 0)
-					(length 2.54)
-					(name "HTR+" (effects (font (size 1.0 1.0))))
-					(number "4" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 8.89 0.0 180)
 					(length 2.54)
 					(name "SNS-" (effects (font (size 1.0 1.0))))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
+					(at 8.89 0.0 180)
+					(length 2.54)
+					(name "SNS+" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
 					(at 8.89 -2.54 180)
 					(length 2.54)
-					(name "HTR-" (effects (font (size 1.0 1.0))))
-					(number "1" (effects (font (size 0.9 0.9))))
+					(name "HTR+" (effects (font (size 1.0 1.0))))
+					(number "4" (effects (font (size 0.9 0.9))))
 				)
 			)
 			(embedded_fonts no)
@@ -2459,7 +3687,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "0R_5V"
+			(property "Value" "0R_OR_5V"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -2747,7 +3975,7 @@
 				(pin passive line
 					(at -8.89 -2.54 0)
 					(length 2.54)
-					(name "+3V3" (effects (font (size 1.0 1.0))))
+					(name "3V3" (effects (font (size 1.0 1.0))))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
@@ -2761,98 +3989,6 @@
 					(length 2.54)
 					(name "SDA" (effects (font (size 1.0 1.0))))
 					(number "4" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "R7_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R7"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "4.7k"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "R7_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "R7_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "R8_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R8"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "4.7k"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "R8_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "R8_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
 				)
 			)
 			(embedded_fonts no)
@@ -2881,226 +4017,351 @@
 			)
 			(symbol "U1_SYM_0_1"
 				(rectangle
-					(start -12.7 27.94)
-					(end 12.7 -27.94)
+					(start -10.16 27.94)
+					(end 10.16 -27.94)
 					(stroke (width 0.254) (type default))
 					(fill (type background))
 				)
 			)
 			(symbol "U1_SYM_1_1"
 				(pin passive line
-					(at -15.239999999999998 25.4 0)
+					(at -12.7 25.4 0)
 					(length 2.54)
-					(name "+3V3" (effects (font (size 1.0 1.0))))
+					(name "3V3" (effects (font (size 1.0 1.0))))
 					(number "3" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 22.86 0)
+					(at -12.7 22.86 0)
 					(length 2.54)
 					(name "EN_NRST" (effects (font (size 1.0 1.0))))
 					(number "8" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 20.32 0)
+					(at -12.7 20.32 0)
 					(length 2.54)
-					(name "IO0_VBAT_ADC" (effects (font (size 1.0 1.0))))
+					(name "IO0_VOUT_ADC" (effects (font (size 1.0 1.0))))
 					(number "12" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 17.78 0)
+					(at -12.7 17.78 0)
 					(length 2.54)
-					(name "IO1_LED_OK" (effects (font (size 1.0 1.0))))
+					(name "IO1_VALVE_SNS" (effects (font (size 1.0 1.0))))
 					(number "13" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 15.24 0)
+					(at -12.7 15.24 0)
 					(length 2.54)
 					(name "IO4_SDA" (effects (font (size 1.0 1.0))))
 					(number "18" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 12.7 0)
+					(at -12.7 12.7 0)
 					(length 2.54)
 					(name "IO5_SCL" (effects (font (size 1.0 1.0))))
 					(number "19" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 10.16 0)
+					(at -12.7 10.16 0)
 					(length 2.54)
-					(name "IO9_LED_WIFI" (effects (font (size 1.0 1.0))))
+					(name "IO9_BOOT_N" (effects (font (size 1.0 1.0))))
 					(number "23" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 7.62 0)
+					(at -12.7 7.62 0)
 					(length 2.54)
-					(name "IO19_RXD0" (effects (font (size 1.0 1.0))))
-					(number "25" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at -15.239999999999998 5.08 0)
-					(length 2.54)
-					(name "IO18_TXD0" (effects (font (size 1.0 1.0))))
+					(name "IO18_LED_RED" (effects (font (size 1.0 1.0))))
 					(number "26" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 2.54 0)
+					(at -12.7 5.08 0)
+					(length 2.54)
+					(name "RXD0" (effects (font (size 1.0 1.0))))
+					(number "30" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 2.54 0)
+					(length 2.54)
+					(name "TXD0" (effects (font (size 1.0 1.0))))
+					(number "31" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
 					(length 2.54)
 					(name "GND" (effects (font (size 1.0 1.0))))
 					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 25.4 180)
+					(at 12.7 25.4 180)
 					(length 2.54)
-					(name "IO2_LPG_ADC" (effects (font (size 1.0 1.0))))
-					(number "5" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 15.239999999999998 22.86 180)
-					(length 2.54)
-					(name "IO3_BUZZER" (effects (font (size 1.0 1.0))))
-					(number "6" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 15.239999999999998 20.32 180)
-					(length 2.54)
-					(name "IO10_TEST_N" (effects (font (size 1.0 1.0))))
-					(number "16" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 15.239999999999998 17.78 180)
-					(length 2.54)
-					(name "IO6_LED_ALM" (effects (font (size 1.0 1.0))))
+					(name "IO6_VALVE_EN" (effects (font (size 1.0 1.0))))
 					(number "20" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 15.24 180)
+					(at 12.7 22.86 180)
 					(length 2.54)
 					(name "IO7_WDI" (effects (font (size 1.0 1.0))))
 					(number "21" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 12.7 180)
+					(at 12.7 20.32 180)
+					(length 2.54)
+					(name "IO10_TEST_N" (effects (font (size 1.0 1.0))))
+					(number "16" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 17.78 180)
 					(length 2.54)
 					(name "IO8_HUSH_N" (effects (font (size 1.0 1.0))))
 					(number "22" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 10.16 180)
+					(at 12.7 15.24 180)
+					(length 2.54)
+					(name "IO19_LED_BLU" (effects (font (size 1.0 1.0))))
+					(number "27" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 12.7 180)
+					(length 2.54)
+					(name "IO3_BUZZER" (effects (font (size 1.0 1.0))))
+					(number "6" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 10.16 180)
+					(length 2.54)
+					(name "IO2_LPG_ADC" (effects (font (size 1.0 1.0))))
+					(number "5" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 7.62 180)
 					(length 2.54)
 					(name "NC_4" (effects (font (size 1.0 1.0))))
 					(number "4" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 7.62 180)
+					(at 12.7 5.08 180)
 					(length 2.54)
 					(name "NC_7" (effects (font (size 1.0 1.0))))
 					(number "7" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 5.08 180)
+					(at 12.7 2.54 180)
 					(length 2.54)
 					(name "NC_9" (effects (font (size 1.0 1.0))))
 					(number "9" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 2.54 180)
+					(at 12.7 0.0 180)
 					(length 2.54)
 					(name "NC_10" (effects (font (size 1.0 1.0))))
 					(number "10" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 0.0 180)
+					(at 12.7 -2.54 180)
 					(length 2.54)
 					(name "NC_15" (effects (font (size 1.0 1.0))))
 					(number "15" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -2.54 180)
+					(at 12.7 -5.08 180)
 					(length 2.54)
 					(name "NC_17" (effects (font (size 1.0 1.0))))
 					(number "17" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -5.08 180)
+					(at 12.7 -7.62 180)
 					(length 2.54)
 					(name "NC_24" (effects (font (size 1.0 1.0))))
 					(number "24" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -7.62 180)
+					(at 12.7 -10.16 180)
 					(length 2.54)
-					(name "NC_27" (effects (font (size 1.0 1.0))))
-					(number "27" (effects (font (size 0.9 0.9))))
+					(name "NC_25" (effects (font (size 1.0 1.0))))
+					(number "25" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -10.16 180)
+					(at 12.7 -12.7 180)
 					(length 2.54)
 					(name "NC_28" (effects (font (size 1.0 1.0))))
 					(number "28" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -12.7 180)
+					(at 12.7 -15.24 180)
 					(length 2.54)
 					(name "NC_29" (effects (font (size 1.0 1.0))))
 					(number "29" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -15.24 180)
-					(length 2.54)
-					(name "NC_30" (effects (font (size 1.0 1.0))))
-					(number "30" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 15.239999999999998 -17.78 180)
-					(length 2.54)
-					(name "NC_31" (effects (font (size 1.0 1.0))))
-					(number "31" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 15.239999999999998 -20.32 180)
+					(at 12.7 -17.78 180)
 					(length 2.54)
 					(name "NC_32" (effects (font (size 1.0 1.0))))
 					(number "32" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -22.86 180)
+					(at 12.7 -20.32 180)
+					(length 2.54)
+					(name "NC_33" (effects (font (size 1.0 1.0))))
+					(number "33" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 12.7 -22.86 180)
 					(length 2.54)
 					(name "NC_34" (effects (font (size 1.0 1.0))))
 					(number "34" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 15.239999999999998 -25.4 180)
+					(at 12.7 -25.4 180)
 					(length 2.54)
 					(name "NC_35" (effects (font (size 1.0 1.0))))
 					(number "35" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 2.54 0)
+					(at -12.7 0.0 0)
 					(length 2.54)
 					(hide yes)
 					(name "GND" (effects (font (size 1.0 1.0))))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 2.54 0)
+					(at -12.7 0.0 0)
 					(length 2.54)
 					(hide yes)
 					(name "GND" (effects (font (size 1.0 1.0))))
 					(number "11" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 2.54 0)
+					(at -12.7 0.0 0)
 					(length 2.54)
 					(hide yes)
 					(name "GND" (effects (font (size 1.0 1.0))))
 					(number "14" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at -15.239999999999998 2.54 0)
+					(at -12.7 0.0 0)
 					(length 2.54)
 					(hide yes)
 					(name "GND" (effects (font (size 1.0 1.0))))
-					(number "33" (effects (font (size 0.9 0.9))))
+					(number "36" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "37" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "38" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "39" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "40" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "41" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "42" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "43" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "44" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "45" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "46" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "47" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "48" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "49" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "50" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "51" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "52" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at -12.7 0.0 0)
+					(length 2.54)
+					(hide yes)
+					(name "GND" (effects (font (size 1.0 1.0))))
+					(number "53" (effects (font (size 0.9 0.9))))
 				)
 			)
 			(embedded_fonts no)
@@ -3115,7 +4376,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "10uF"
+			(property "Value" "10uF_10V"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3235,7 +4496,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "10k"
+			(property "Value" "10k_DNP"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3341,7 +4602,7 @@
 				(at 0 6.35 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "PROG_UART"
+			(property "Value" "UART_HDR"
 				(at 0 -6.35 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3365,45 +4626,45 @@
 				(pin passive line
 					(at -8.89 0.0 0)
 					(length 2.54)
-					(name "GND" (effects (font (size 1.0 1.0))))
+					(name "3V3" (effects (font (size 1.0 1.0))))
 					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at -8.89 -2.54 0)
 					(length 2.54)
-					(name "+3V3" (effects (font (size 1.0 1.0))))
+					(name "TX" (effects (font (size 1.0 1.0))))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at 8.89 0.0 180)
 					(length 2.54)
-					(name "TX" (effects (font (size 1.0 1.0))))
+					(name "RX" (effects (font (size 1.0 1.0))))
 					(number "3" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at 8.89 -2.54 180)
 					(length 2.54)
-					(name "RX" (effects (font (size 1.0 1.0))))
+					(name "GND" (effects (font (size 1.0 1.0))))
 					(number "4" (effects (font (size 0.9 0.9))))
 				)
 			)
 			(embedded_fonts no)
 		)
-		(symbol "LS1_SYM"
+		(symbol "R7_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "LS1"
+			(property "Reference" "R7"
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "PS1240P02BT"
+			(property "Value" "10k"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
-			(property "Footprint" "Buzzer_Beeper:Buzzer_TDK_PS1240P02BT_D12.2mm_H6.5mm"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
@@ -3411,7 +4672,7 @@
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
-			(symbol "LS1_SYM_0_1"
+			(symbol "R7_SYM_0_1"
 				(rectangle
 					(start -2.54 1.27)
 					(end 2.54 -1.27)
@@ -3419,7 +4680,7 @@
 					(fill (type background))
 				)
 			)
-			(symbol "LS1_SYM_1_1"
+			(symbol "R7_SYM_1_1"
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -3435,21 +4696,21 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Q6_SYM"
+		(symbol "R8_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Q6"
-				(at 0 5.08 0)
+			(property "Reference" "R8"
+				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "MMBT3904"
-				(at 0 -5.08 0)
+			(property "Value" "10k"
+				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
@@ -3457,31 +4718,117 @@
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
-			(symbol "Q6_SYM_0_1"
+			(symbol "R8_SYM_0_1"
 				(rectangle
-					(start -3.81 3.81)
-					(end 3.81 -3.81)
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
 					(stroke (width 0.254) (type default))
 					(fill (type background))
 				)
 			)
-			(symbol "Q6_SYM_1_1"
+			(symbol "R8_SYM_1_1"
 				(pin passive line
-					(at -6.35 0.0 0)
+					(at -5.08 0 0)
 					(length 2.54)
-					(name "B" (effects (font (size 1.0 1.0))))
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
 					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 6.35 2.54 180)
+					(at 5.08 0 180)
 					(length 2.54)
-					(name "C" (effects (font (size 1.0 1.0))))
-					(number "3" (effects (font (size 0.9 0.9))))
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R9_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R9"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "4.7k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R9_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R9_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
-					(at 6.35 -2.54 180)
+					(at 5.08 0 180)
 					(length 2.54)
-					(name "E" (effects (font (size 1.0 1.0))))
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R10_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R10"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "4.7k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R10_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R10_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 			)
@@ -3497,7 +4844,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "TEST_CHECK"
+			(property "Value" "TEST_SELF_CHECK"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3521,13 +4868,119 @@
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
-					(name "TEST_N" (effects (font (size 0.9 0.9)) (hide yes)))
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
 					(number "1" (effects (font (size 0.9 0.9))))
 				)
 				(pin passive line
 					(at 5.08 0 180)
 					(length 2.54)
-					(name "GND" (effects (font (size 0.9 0.9)) (hide yes)))
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "SW2_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "SW2"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "HUSH_OLED"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Button_Switch_SMD:SW_SPST_PTS647_Sx50"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" "https://www.ckswitches.com/media/2567/pts647.pdf"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "SW2_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "SW2_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "C26_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C26"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF_50V"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C26_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C26_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
 					(number "2" (effects (font (size 0.9 0.9))))
 				)
 			)
@@ -3593,112 +5046,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "SW2_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "SW2"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "HUSH_OLED"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Button_Switch_SMD:SW_SPST_PTS647_Sx50"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" "https://www.ckswitches.com/media/2567/pts647.pdf"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "SW2_SYM_0_1"
-				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
-					(stroke (width 0.254) (type default))
-					(fill (type background))
-				)
-			)
-			(symbol "SW2_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "HUSH_N" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "GND" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "C26_SYM"
-			(pin_names (offset 1.016))
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "C26"
-				(at 0 2.54 0)
-				(effects (font (size 1.27 1.27)))
-			)
-			(property "Value" "100nF"
-				(at 0 -2.54 0)
-				(effects (font (size 1.1 1.1)))
-			)
-			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects (font (size 1.0 1.0)) (hide yes))
-			)
-			(symbol "C26_SYM_0_1"
-				(polyline
-					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
-					(stroke (width 0.35) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy -2.54 0) (xy -0.635 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-				(polyline
-					(pts (xy 0.635 0) (xy 2.54 0))
-					(stroke (width 0.254) (type default))
-					(fill (type none))
-				)
-			)
-			(symbol "C26_SYM_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "1" (effects (font (size 0.9 0.9))))
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
-					(number "2" (effects (font (size 0.9 0.9))))
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "D4_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
@@ -3709,7 +5056,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "LED_PWR_CHRG"
+			(property "Value" "RED_ALARM"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3764,7 +5111,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "1k"
+			(property "Value" "270R"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3810,7 +5157,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "LED_LPG_OK"
+			(property "Value" "GRN_OK"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3865,7 +5212,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "1k"
+			(property "Value" "330R"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3911,7 +5258,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "LED_LPG_ALM"
+			(property "Value" "BLU_WIFI"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -3966,7 +5313,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "470R"
+			(property "Value" "2.2k"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -4002,17 +5349,17 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "D7_SYM"
+		(symbol "D8_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "D7"
+			(property "Reference" "D8"
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "LED_WIFI"
+			(property "Value" "YLW_FAULT"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -4024,7 +5371,7 @@
 				(at 0 0 0)
 				(effects (font (size 1.0 1.0)) (hide yes))
 			)
-			(symbol "D7_SYM_0_1"
+			(symbol "D8_SYM_0_1"
 				(polyline
 					(pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
 					(stroke (width 0.254) (type default))
@@ -4041,7 +5388,151 @@
 					(fill (type none))
 				)
 			)
-			(symbol "D7_SYM_1_1"
+			(symbol "D8_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Q4_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q4"
+				(at 0 5.08 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "2N7002"
+				(at 0 -5.08 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "Q4_SYM_0_1"
+				(rectangle
+					(start -3.81 3.81)
+					(end 3.81 -3.81)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "Q4_SYM_1_1"
+				(pin passive line
+					(at -6.35 0.0 0)
+					(length 2.54)
+					(name "G" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 2.54 180)
+					(length 2.54)
+					(name "D" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 -2.54 180)
+					(length 2.54)
+					(name "S" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R21_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R21"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "2.2k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R21_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R21_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R22_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R22"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R22_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R22_SYM_1_1"
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -4067,7 +5558,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "1k"
+			(property "Value" "10k"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -4088,6 +5579,282 @@
 				)
 			)
 			(symbol "R26_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Q5_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q5"
+				(at 0 5.08 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "AO3400A"
+				(at 0 -5.08 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "Q5_SYM_0_1"
+				(rectangle
+					(start -3.81 3.81)
+					(end 3.81 -3.81)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "Q5_SYM_1_1"
+				(pin passive line
+					(at -6.35 0.0 0)
+					(length 2.54)
+					(name "G" (effects (font (size 1.0 1.0))))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 2.54 180)
+					(length 2.54)
+					(name "D" (effects (font (size 1.0 1.0))))
+					(number "3" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 6.35 -2.54 180)
+					(length 2.54)
+					(name "S" (effects (font (size 1.0 1.0))))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R23_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R23"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100R"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R23_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R23_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R24_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R24"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "10k"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R24_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R24_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "LS1_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "LS1"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "PS1240_OR_SPKR"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Buzzer_Beeper:Buzzer_TDK_PS1240P02BT_D12.2mm_H6.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "LS1_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "LS1_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TP10_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "TP10"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "BOOT_PAD"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "TestPoint:TestPoint_Pad_D1.5mm"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "TP10_SYM_0_1"
+				(circle
+					(center 1.27 0)
+					(radius 1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "TP10_SYM_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 2.54)
+					(name "TP" (effects (font (size 1.0 1.0)) (hide yes)))
+					(number "1" (effects (font (size 1.0 1.0)) (hide yes)))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "R30_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R30"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "330R"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "R30_SYM_0_1"
+				(rectangle
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
+					(stroke (width 0.254) (type default))
+					(fill (type background))
+				)
+			)
+			(symbol "R30_SYM_1_1"
 				(pin passive line
 					(at -5.08 0 0)
 					(length 2.54)
@@ -4243,6 +6010,176 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "C30_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C30"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "100nF"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "C30_SYM_0_1"
+				(polyline
+					(pts (xy -0.635 -2.032) (xy -0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 -2.032) (xy 0.635 2.032))
+					(stroke (width 0.35) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy -0.635 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy 0.635 0) (xy 2.54 0))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "C30_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "D9_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D9"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "TVS_3V3_ESD"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Diode_SMD:D_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "D9_SYM_0_1"
+				(polyline
+					(pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -1.27 -1.27) (xy -1.27 1.27))
+					(stroke (width 0.3) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy 2.54 0))
+					(stroke (width 0.2) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "D9_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "D10_SYM"
+			(pin_names (offset 1.016))
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D10"
+				(at 0 2.54 0)
+				(effects (font (size 1.27 1.27)))
+			)
+			(property "Value" "TVS_3V3_ESD"
+				(at 0 -2.54 0)
+				(effects (font (size 1.1 1.1)))
+			)
+			(property "Footprint" "Diode_SMD:D_0603_1608Metric"
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects (font (size 1.0 1.0)) (hide yes))
+			)
+			(symbol "D10_SYM_0_1"
+				(polyline
+					(pts (xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27))
+					(stroke (width 0.254) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -1.27 -1.27) (xy -1.27 1.27))
+					(stroke (width 0.3) (type default))
+					(fill (type none))
+				)
+				(polyline
+					(pts (xy -2.54 0) (xy 2.54 0))
+					(stroke (width 0.2) (type default))
+					(fill (type none))
+				)
+			)
+			(symbol "D10_SYM_1_1"
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "1" (effects (font (size 0.9 0.9))))
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 2.54)
+					(name "~" (effects (font (size 0.9 0.9)) (hide yes)))
+					(number "2" (effects (font (size 0.9 0.9))))
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "FID1_SYM"
 			(pin_names (offset 1.016))
 			(exclude_from_sim no)
@@ -4253,7 +6190,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "FID_TR"
+			(property "Value" "FID_BL"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)
@@ -4288,7 +6225,7 @@
 				(at 0 2.54 0)
 				(effects (font (size 1.27 1.27)))
 			)
-			(property "Value" "FID_BR"
+			(property "Value" "FID_TR"
 				(at 0 -2.54 0)
 				(effects (font (size 1.1 1.1)))
 			)

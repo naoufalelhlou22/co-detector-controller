@@ -17,6 +17,17 @@ except ImportError:
 proj_dir = r"C:\Users\Mr_X\.gemini\antigravity\scratch\co_detector_controller"
 custom_lib = os.path.join(proj_dir, "custom_lib.pretty")
 os.makedirs(custom_lib, exist_ok=True)
+_seed = os.path.join(custom_lib, "_seed.kicad_mod")
+with open(_seed, "w", encoding="utf-8") as f:
+    f.write('(footprint "_seed")')
+
+
+def safe_remove(self, item):
+    self.RemoveNative(item)
+    item.thisown = 0
+
+
+pcbnew.FOOTPRINT.Remove = safe_remove
 
 std_lib = r"C:\Program Files\KiCad\10.0\share\kicad\footprints"
 
@@ -187,6 +198,9 @@ for lib_sub, fp_name, new_name, crtyd_r in [
             fp_tmp.Remove(item)
     add_fp_circle_poly(fp_tmp, crtyd_r, pcbnew.F_CrtYd, 0.05, 32)
     pcbnew.FootprintSave(custom_lib, fp_tmp)
+
+if os.path.exists(_seed):
+    os.remove(_seed)
 
 print("All custom footprints saved to:", custom_lib)
 

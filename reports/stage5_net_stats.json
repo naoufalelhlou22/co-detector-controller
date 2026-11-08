@@ -7,7 +7,7 @@
   "nets": [
     {
       "net": "+12V",
-      "netclass": "Signal",
+      "netclass": "PWR_12V_VALVE",
       "pin_count": 17,
       "pins": "C1.1, C2.1, C24.1, C26.1, C3.1, C4.1, D2.1, D3.1, D7.1, J2.1, LS1.1, Q1.2, R2.1, R21.1, R25.1, TP1.1, U2.2",
       "layers": "B.Cu, F.Cu, In2.Cu (Plane)",
@@ -17,7 +17,7 @@
     },
     {
       "net": "+12V_F",
-      "netclass": "Signal",
+      "netclass": "PWR_12V_VALVE",
       "pin_count": 3,
       "pins": "D1.1, F1.2, Q1.3",
       "layers": "B.Cu, F.Cu",
@@ -27,7 +27,7 @@
     },
     {
       "net": "+12V_IN",
-      "netclass": "Signal",
+      "netclass": "PWR_12V_VALVE",
       "pin_count": 2,
       "pins": "F1.1, J1.1",
       "layers": "F.Cu",
@@ -37,7 +37,7 @@
     },
     {
       "net": "+3V3",
-      "netclass": "Signal",
+      "netclass": "PWR_3V3",
       "pin_count": 30,
       "pins": "C10.1, C11.1, C12.1, C15.2, C16.2, C22.2, C23.2, C29.1, C7.2, C8.1, C9.1, FB1.1, J3.1, J4.2, L1.2, R10.1, R20.2, R26.2, R27.1, R30.1, R4.2, R6.1, R7.1, R8.1, R9.1, S2.3, TP2.1, U1.3, U5.5, U6.5",
       "layers": "B.Cu, F.Cu, In2.Cu (Plane)",
@@ -47,7 +47,7 @@
     },
     {
       "net": "AGND",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 11,
       "pins": "C13.1, C14.1, C18.1, C19.2, C20.2, NT1.2, U3.1, U3.2, U3.7, U3.15, U4.3",
       "layers": "B.Cu, F.Cu",
@@ -57,7 +57,7 @@
     },
     {
       "net": "AVDD",
-      "netclass": "Signal",
+      "netclass": "PWR_3V3",
       "pin_count": 8,
       "pins": "C13.2, C14.2, C18.2, C19.1, FB1.2, TP3.1, U3.6, U4.1",
       "layers": "F.Cu",
@@ -177,7 +177,7 @@
     },
     {
       "net": "CE",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 2,
       "pins": "S1.3, U3.14",
       "layers": "F.Cu",
@@ -187,7 +187,7 @@
     },
     {
       "net": "GND",
-      "netclass": "Signal",
+      "netclass": "PWR_3V3",
       "pin_count": 76,
       "pins": "C1.2, C10.2, C11.2, C12.2, C15.1, C16.1, C17.2, C2.2, C22.1, C23.1, C24.2, C25.2, C26.2, C27.2, C28.1, C29.2, C3.2, C30.2, C31.1, C4.2, C6.2, C8.2, C9.2, D1.2, D10.2, D11.2, D4.1, D5.1, D9.2, J1.2, J3.4, J4.1, NT1.1, Q2.2, Q4.2, Q5.2, R1.2, R15.2, R17.2, R18.2, R22.2, R24.2, R28.2, R3.2, R5.2, S2.1, SW1.2, SW2.2, SW3.2, TP4.1, U2.1, U2.9, U5.3, U6.2, U1.1, U1.2, U1.11, U1.14, U1.36\u2013U1.53 (EP)",
       "layers": "F.Cu, In1.Cu (Plane)",
@@ -317,7 +317,7 @@
     },
     {
       "net": "RE",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 2,
       "pins": "S1.2, U3.13",
       "layers": "F.Cu",
@@ -347,7 +347,7 @@
     },
     {
       "net": "TIA_C1",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 3,
       "pins": "C21.1, R12.1, U3.10",
       "layers": "F.Cu",
@@ -357,7 +357,7 @@
     },
     {
       "net": "TIA_C2",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 3,
       "pins": "C21.2, R12.2, U3.9",
       "layers": "F.Cu",
@@ -417,7 +417,7 @@
     },
     {
       "net": "VALVE_NEG",
-      "netclass": "Signal",
+      "netclass": "PWR_12V_VALVE",
       "pin_count": 4,
       "pins": "D2.2, J2.2, Q2.3, R16.1",
       "layers": "B.Cu, F.Cu",
@@ -437,7 +437,7 @@
     },
     {
       "net": "VOUT",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 3,
       "pins": "R11.2, TP5.1, U3.8",
       "layers": "F.Cu",
@@ -447,7 +447,7 @@
     },
     {
       "net": "VOUT_ADC",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 3,
       "pins": "C17.1, R11.1, U1.12",
       "layers": "F.Cu",
@@ -457,7 +457,7 @@
     },
     {
       "net": "VREF",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 3,
       "pins": "C20.1, U3.11, U4.2",
       "layers": "B.Cu, F.Cu",
@@ -477,7 +477,7 @@
     },
     {
       "net": "WE",
-      "netclass": "Signal",
+      "netclass": "ANALOG_AFE",
       "pin_count": 2,
       "pins": "S1.1, U3.12",
       "layers": "F.Cu",

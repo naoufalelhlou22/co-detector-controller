@@ -22,9 +22,10 @@ except ImportError:
 
 proj_dir = r"C:\Users\Mr_X\.gemini\antigravity\scratch\co_detector_controller"
 pcb_path = os.path.join(proj_dir, "co_detector_controller.kicad_pcb")
+reports_dir = os.path.join(proj_dir, "reports")
 pro_path = os.path.join(proj_dir, "co_detector_controller.kicad_pro")
-drc5_path = os.path.join(proj_dir, "drc_stage5.json")
-drc4_path = os.path.join(proj_dir, "drc_stage4.json")
+drc5_path = os.path.join(reports_dir, "drc_stage5.json")
+drc4_path = os.path.join(reports_dir, "drc_stage4.json")
 fab_dir = os.path.join(proj_dir, "fab_jlcpcb")
 gerber_dir = os.path.join(fab_dir, "gerbers")
 art_dir = r"C:\Users\Mr_X\.gemini\antigravity\brain\e65fff31-e4f5-4319-9c2a-44fb72c09462"
@@ -112,7 +113,7 @@ for net in sorted(pads_by_net.keys()):
         "vias": vias_by_net[net],
     })
 
-stats_out = os.path.join(proj_dir, "stage5_net_stats.json")
+stats_out = os.path.join(reports_dir, "stage5_net_stats.json")
 with open(stats_out, "w", encoding="utf-8") as f:
     json.dump({
         "total_nets": len(net_rows),
@@ -192,4 +193,4 @@ subprocess.run([
 
 print(f"Exported {len(net_rows)} nets, {total_tracks} track segments, {total_vias} tented vias.")
 print("Gerber ZIP:", zip_path)
-print("CPL CSV:", pos_path)
+print("Fabrication package complete.")

@@ -5,7 +5,7 @@ import subprocess
 proj_dir = r"C:\Users\Mr_X\.gemini\antigravity\scratch\co_detector_controller"
 pro_path = os.path.join(proj_dir, "co_detector_controller.kicad_pro")
 pcb_path = os.path.join(proj_dir, "co_detector_controller.kicad_pcb")
-drc_path = os.path.join(proj_dir, "drc_stage5.json")
+drc_path = os.path.join(proj_dir, "reports", "drc_stage5.json")
 
 with open(pro_path, "r", encoding="utf-8") as f:
     pro = json.load(f)
