@@ -1,11 +1,15 @@
 [tool.pyrefly]
 python-interpreter = "C:/Program Files/KiCad/10.0/bin/python.exe"
 search-path = [
-    "C:/Program Files/KiCad/10.0/bin/Lib/site-packages"
+    "C:/Program Files/KiCad/10.0/bin/Lib/site-packages",
+    "C:/Users/Mr_X/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages",
+    "C:/Users/Mr_X/Documents/KiCad/10.0/3rdparty/Python311/site-packages"
 ]
 
 [tool.pyright]
 extraPaths = [
-    "C:/Program Files/KiCad/10.0/bin/Lib/site-packages"
+    "C:/Program Files/KiCad/10.0/bin/Lib/site-packages",
+    "C:/Users/Mr_X/AppData/Local/Python/pythoncore-3.14-64/Lib/site-packages",
+    "C:/Users/Mr_X/Documents/KiCad/10.0/3rdparty/Python311/site-packages"
 ]
 
