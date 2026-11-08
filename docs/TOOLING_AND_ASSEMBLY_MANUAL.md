@@ -1,116 +1,53 @@
-# Smart Dual Gas Detector (CO + LPG) - Enclosure Tooling & Assembly Manual
-**Engineering Document Ref:** `DOC-MAN-ENC-001`  
-**Revision:** 2.0 (Stage 5 Architecture)  
-**Applicable Standards:** ISO 20430, ISO 2768-mK, UL 94-V0, UL 2034, EN 50291
+# Smart Dual Gas Detector (CO + LPG) - Tooling & Production Assembly Manual
+**Revision:** 3.0 (Ground-Truth PCBA Aligned)  
+**Document ID:** AGY-DOC-PROD-301  
+**Target Manufacturing Process:** Automated Multi-Cavity Plastic Injection Molding & SMT Integration  
 
 ---
 
-## 1. Tooling & Injection Mold Specifications
+## 1. Tooling Specifications (Injection Mold Design)
 
-```
-                     +---------------------------------------+
-                     |         INJECTION MOLD DESIGN         |
-                     |  - Steel: 1.2343 / H13 (48-52 HRC)    |
-                     |  - 2-Plate Mold with 2 Side Lifters   |
-                     |  - Hot Runner Valve Gate (Pin Point)  |
-                     +-------------------+-------------------+
-                                         |
-                                         v
-                     +---------------------------------------+
-                     |          CAVITY & CORE INSERTS        |
-                     |  Cavity 1: Front Housing Bezel        |
-                     |  Cavity 2: Rear Chassis Base          |
-                     |  Cavity 3: Wall Mounting Bracket      |
-                     +-------------------+-------------------+
-                                         |
-                                         v
-                     +---------------------------------------+
-                     |           SIDE ACTIONS (SLIDES)       |
-                     |  Slide 1: Terminal Cutout J1 (-X)     |
-                     |  Slide 2: Terminal Cutout J2 (-X)     |
-                     |  Core Pull Angle: 15° Angle Pin       |
-                     +---------------------------------------+
-```
-
-### 1.1 Mold Parameters
-
-| Parameter | Specification | Notes / Rationale |
+| Mold Parameter | Engineering Value | Notes |
 | :--- | :--- | :--- |
-| **Mold Type** | 2-Plate Family Mold with Side Actions | Cavity 1: Front Bezel, Cavity 2: Rear Chassis |
-| **Tool Steel (Cavity/Core)** | **DIN 1.2343 (H13 ESR)** Hardened | 48–52 HRC; high thermal conductivity & polishability |
-| **Mold Base** | HASCO / DME Standard (1.1730 steel) | Standard interchangeability for European tool rooms |
-| **Gating System** | Hot Runner with Single Valve Pin Gate | Gated on non-cosmetic interior bottom face |
-| **Side Pull Slides** | 2x Mechanical Angle-Pin Slides (15°) | Forms horizontal side cutouts for terminal blocks `J1` & `J2` |
-| **Ejection System** | $\varnothing 4.0\text{ mm}$ Hardened Ejector Pins | Located directly under the 4 PCB standoff bosses |
-| **Cooling Channels** | $\varnothing 8.0\text{ mm}$ Conformal Water Circuits | Balanced flow maintaining core temp within $\pm 2^\circ\text{C}$ |
-| **Molding Shrinkage** | **0.45%** (volumetric) | Tailored specifically for flame-retardant PC/ABS |
-| **Expected Tool Life** | $\ge 500,000\text{ shots}$ | Class 101 production tooling |
+| **Resin Material** | Sabic Cycoloy FR15 (PC/ABS blend) | Flame-retardant UL94 V-0, high impact toughness |
+| **Mold Steel (Cavity/Core)**| DIN 1.2343 (AISI H11 ESR) hardened to 50-52 HRC | High polishability & wear resistance |
+| **Number of Cavities** | 2 + 2 Family Mold (Base, Cover, Bracket, Lens) | Balanced hot-runner system with submarine gates |
+| **Nominal Wall Thickness** | $2.40\text{ mm} \pm 0.10\text{ mm}$ uniform | Prevents sink marks, warpage, and internal voids |
+| **Draft Angles** | $1.5^\circ$ nominal on all vertical shutoff surfaces | $0.5^\circ$ minimum on shallow internal ribs |
+| **Shrinkage Factor** | $0.5\% - 0.7\%$ ($0.005 - 0.007\text{ mm/mm}$) | Compensated in primary tooling electrode EDM |
+| **Surface Finish** | VDI 27 (Exterior Matte) / SPI-A2 (Light Pipes) | Glare reduction on front face; mirror finish on optics |
 
 ---
 
-## 2. Resin & CMF (Color, Material, Finish) Specifications
+## 2. Fastening & Mechanical Assembly Sequence
 
-### 2.1 Material: Flame-Retardant PC/ABS (UL 94-V0)
-- **Trade Names:** Sabic Cycoloy C2950 / Covestro Bayblend FR3010
-- **Flammability Rating:** **UL 94-V0** at $1.5\text{ mm}$ thickness (Mandatory for household safety gas detectors)
-- **Melt Temperature:** $250^\circ\text{C} - 270^\circ\text{C}$
-- **Mold Temperature:** $60^\circ\text{C} - 80^\circ\text{C}$
-- **Injection Pressure:** $80 - 120\text{ MPa}$
-- **Pre-Drying:** $100^\circ\text{C}$ for $3 - 4\text{ hours}$ (Moisture content $< 0.02\%$)
+```mermaid
+flowchart TD
+    Step1["1. Install 4x Ruthex M2.5 Brass Inserts into Lower Base Bosses (210°C Heat Stake)"]
+    Step2["2. Seat 0.96-inch OLED PMMA Protective Lens into Front Cover Bezel Shelf (UV Cured)"]
+    Step3["3. Drop PCBA into Lower Chassis Base (Locating onto 4x H1..H4 Alignment Bosses)"]
+    Step4["4. Fasten PCBA with 4x M2.5 x 6mm Stainless Steel Pan Head Screws (0.35 Nm)"]
+    Step5["5. Insert Tactile Button Plungers & 4-Channel Optical Light Pipe into Front Cover"]
+    Step6["6. Mate Front Cover Tongue into Base Groove (Perimeter Tongue-and-Groove Seal)"]
+    Step7["7. Drive 4x M3 x 16mm Countersunk Housing Machine Screws from Rear Face (0.5 Nm)"]
+    Step8["8. Slide Enclosure onto Pre-Mounted Wall Bracket (Audible Snap Latch Engagement)"]
 
-### 2.2 Surface Texture & Color
-- **Front Outer Face:** **Mold-Tech MT-11010 / VDI 24** (Refined micro-spark matte texture, hides finger smudges)
-- **Internal Faces:** VDI 30 (Standard EDM finish for clean release)
-- **Color:** Clean Architectural Off-White (Pantone Cool Grey 1C / RAL 9003 Signal White)
-- **Light Pipe:** Clear Optical Grade Polycarbonate (Makrolon 2807 / Lexan OQ), SPI A-2 diamond polish on lens faces.
-
----
-
-## 3. Factory Assembly Standard Operating Procedure (SOP)
-
-```
-  STEP 1: Brass Inserts      STEP 2: Gaskets & Filters     STEP 3: PCBA Installation    STEP 4: Cover Assembly
- +---------------------+    +-------------------------+    +-----------------------+    +---------------------+
- | Thermal Heat-Set    |    | EPDM Ring on LS1 Buzzer |    | Drop PCB on 4 Bosses  |    | Mate Front Cover    |
- | 4x M2.5x5.7 Inserts | -> | ePTFE Mesh in CO Well   | -> | 4x M2.5x6 Torx Screws | -> | 4x Screws or Snaps  |
- | 280°C, 1.5s Dwell   |    | Light Pipe in Pocket    |    | Torque: 0.35 N*m      |    | Test Acoustic/Gas   |
- +---------------------+    +-------------------------+    +-----------------------+    +---------------------+
+    Step1 --> Step2 --> Step3 --> Step4 --> Step5 --> Step6 --> Step7 --> Step8
 ```
 
-### Step 1: Heat-Set Brass Insert Installation
-1. Place the molded Rear Chassis Base in an alignment fixture.
-2. Using a temperature-controlled thermal insertion press fitted with an M2.5 conical tip:
-   - **Temperature:** Set to $280^\circ\text{C} \pm 5^\circ\text{C}$.
-   - **Part:** 4x Ruthex `RX-M2.5x5.7` knurled brass inserts.
-   - **Insert Speed:** Smooth downward stroke ($1.5\text{ s}$ dwell time).
-   - **Flushness:** Verify insert top face is flush or recessed $0.1\text{ mm}$ below the boss top surface. Zero melt flashing.
-
-### Step 2: Gaskets, Filters & Light Pipe Insertion
-1. **Acoustic Seal:** Place an annular EPDM foam O-ring ($OD = 12.0\text{ mm}, ID = 9.0\text{ mm}, t = 1.5\text{ mm}$) into the cylindrical shroud on the inside of the front cover.
-2. **CO Gas Filter:** Ultrasonic weld (or peel-and-stick 3M 9471 adhesive) the hydrophobic ePTFE dust membrane ($16.0\text{ mm} \times 16.0\text{ mm}$) over the inside face of the CO diffusion louvers.
-3. **Optical Light Guide:** Snap the 4-channel clear polycarbonate light pipe into the front housing retention clips. Ensure the 4 lower convex lenses align directly with the PCB LED centers.
-
-### Step 3: PCBA Installation
-1. Verify that both **Winsen ME3-CO** and **Figaro TGS2610** sensors are installed in their respective sockets/pads.
-2. Lower the PCB ($70.0\text{ mm} \times 50.0\text{ mm}$) into the rear chassis base:
-   - Ensure the two Phoenix terminal blocks (`J1`, `J2`) fit snugly into the left wall cutouts.
-   - Align the 4 PCB mounting holes (`H1..H4`) with the 4 brass insert bosses.
-3. Drive 4x **M2.5 $\times$ 6.0 mm Pan-Head Torx (T8)** black stainless steel machine screws:
-   - **Torque Limit:** **$0.35\text{ N}\cdot\text{m} \pm 0.05\text{ N}\cdot\text{m}$** using an electric torque screwdriver.
-
-### Step 4: Front Cover Closure & Final Inspection
-1. Align the front cover stepped lip over the rear chassis base.
-2. Ensure the internal thermal barrier rib seats cleanly into the separation gap between Zone D and Zone F without pinching any component leads.
-3. Fasten perimeter screws or engage the 4 snap-tabs with an audible tactile click.
-
 ---
 
-## 4. Quality Control & Compliance Verification Tests
+## 3. Ground-Truth PCBA Interface Alignment Table
 
-| Test Item | Standard | Test Method / Requirement | Pass Criteria |
+| Enclosure Aperture | Connected PCB Component | CAD Center $(X, Y)$ [mm] | Clearance |
 | :--- | :--- | :--- | :--- |
-| **Acoustic Sound Level** | **UL 2034 § 36** | Measure sound pressure level at $3.0\text{ meters}$ in anechoic chamber. | **$\ge 85\text{ dBA}$** continuous / pulsed |
-| **Thermal Isolation** | In-House Protocol | Run Figaro TGS2610 at full $280\text{ mW}$ heater power for $24\text{ hours}$. | **$\Delta T \le 0.7^\circ\text{C}$** at CO sensor body |
-| **Drop & Shock Resistance** | **UL 2034 § 40** | Drop unit 3 times from $1.0\text{ meter}$ height onto concrete floor. | Zero cracks, no loose parts, normal function |
-| **Environmental Ingress** | **IEC 60529** | Talcum powder dust chamber and vertical water drip. | **IP52** (Protected against dust & dripping water) |
-| **Flammability** | **UL 94** | 50W vertical flame test on 5 specimens ($t = 1.5\text{ mm}$). | **V-0** (Burning stops within 10s, no flaming drips) |
+| **OLED Bezel Window** | J4 Header / 0.96" OLED Module | $(48.50, 32.50)$ | $25.0 \times 14.0\text{ mm}$ ($+0.5\text{ mm}$ float) |
+| **SW2 Button (Hush)** | PTS647 Tactile Switch | $(42.00, 12.00)$ | $\varnothing 5.5\text{ mm}$ ($+0.5\text{ mm}$ stem radial) |
+| **SW1 Button (Test)** | PTS647 Tactile Switch | $(42.00, 6.00)$ | $\varnothing 5.5\text{ mm}$ ($+0.5\text{ mm}$ stem radial) |
+| **Optical Status LEDs**| D4, D5, D6, D8 (Alarm/Pwr/WiFi/Flt)| $Y = 4.00, X \in [26.8..36.4]$ | 4x $\varnothing 2.0\text{ mm}$ light guide ports |
+| **Acoustic Rosette Horn**| LS1 Piezo Buzzer 85dB | $(32.00, 12.00)$ | 7-hole radial acoustic port array |
+| **CO Diffusion Grille** | Winsen ME3-CO Electrochemical Cell | $(56.50, 14.50)$ | Concentric louvers $\varnothing 20.5\text{ mm}$ |
+| **LPG Thermal Chimney**| Figaro TGS2610-C00 Sensor | $(59.00, 43.50)$ | Upward natural convection venting slots |
+| **Terminal J1 Cutout** | 12V DC Power Screw Terminal | Left Wall $(Y = 38.00)$ | $12.0 \times 10.5\text{ mm}$ split opening |
+| **Terminal J2 Cutout** | External Relay Alarm Terminal | Left Wall $(Y = 12.00)$ | $12.0 \times 10.5\text{ mm}$ split opening |
+| **Reset SW3 Pinhole** | Hardware Master Reset Switch | Left Wall $(Y = 20.20)$ | $\varnothing 2.5\text{ mm}$ recessed access |

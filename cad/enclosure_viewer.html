@@ -3,640 +3,594 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Dual Gas Detector - Enclosure Interactive 3D Viewer</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <title>Smart Dual Gas Detector (CO + LPG) - Interactive 3D CAD Enclosure Viewer (Rev 3.0)</title>
   <style>
-    /* Prevent text selection while rotating canvas */
-    canvas { touch-action: none; user-select: none; }
-  </style>
-</head>
-<body class="bg-transparent text-[var(--foreground)] antialiased p-4">
-  <div class="max-w-6xl mx-auto bg-[var(--card)] border border-[var(--border)] rounded-2xl shadow-xl overflow-hidden flex flex-col">
+    * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+    body {
+      background: #0f141c;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+    }
+    #canvas-container { width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: 1; }
     
-    <!-- Top Header & Status Bar -->
-    <header class="px-6 py-4 border-b border-[var(--border)] flex flex-wrap items-center justify-between gap-4 bg-[var(--background)]/50">
-      <div>
-        <div class="flex items-center gap-2">
-          <span class="inline-block w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
-          <h1 class="text-base font-semibold text-[var(--foreground)] tracking-tight">Smart Dual Gas Detector (CO + LPG)</h1>
-          <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-[var(--secondary)] text-[var(--secondary-foreground)] border border-[var(--border)]">Rev 2.0 (Stage 5)</span>
-        </div>
-        <p class="text-xs text-[var(--muted-foreground)] mt-0.5">AutoCAD Mechanical & SolidWorks Enclosure Specification Viewer</p>
+    /* Top Bar HUD */
+    .top-bar {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      pointer-events: none;
+    }
+    .brand-card {
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 12px 20px;
+      pointer-events: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-badge {
+      font-size: 10px;
+      background: #0284c7;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    /* Floating Control Panel */
+    .control-panel {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.90);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 14px 24px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    }
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .control-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    input[type=range] {
+      accent-color: #38bdf8;
+      width: 140px;
+      cursor: pointer;
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #f1f5f9;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
+      color: #38bdf8;
+      transform: translateY(-1px);
+    }
+    .btn.active {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #fff;
+    }
+
+    /* Right Inspection Sidebar */
+    .inspect-panel {
+      position: absolute;
+      top: 90px;
+      right: 16px;
+      width: 320px;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      transition: transform 0.3s ease;
+    }
+    .inspect-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #38bdf8;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .feature-item {
+      padding: 8px 10px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+    }
+    .feature-item:hover, .feature-item.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-left-color: #38bdf8;
+    }
+    .f-name { font-size: 12px; font-weight: 600; color: #f1f5f9; display: flex; justify-content: space-between; }
+    .f-coord { font-size: 11px; color: #38bdf8; font-family: monospace; }
+    .f-desc { font-size: 11px; color: #94a3b8; margin-top: 3px; line-height: 1.3; }
+
+    /* Tooltip / Hotspot Tag */
+    .hotspot-label {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.95);
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      pointer-events: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+      transform: translate(-50%, -100%);
+      display: none;
+      z-index: 20;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <div id="hotspot" class="hotspot-label"></div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="brand-card">
+      <div class="brand-title">
+        <span>SMART GAS CONTROLLER (CO + LPG)</span>
+        <span class="brand-badge">REV 3.0 PERFECT</span>
       </div>
-
-      <!-- Quick Action Toolbar -->
-      <div class="flex items-center gap-2">
-        <button id="btnResetView" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--secondary)] transition-colors flex items-center gap-1.5 shadow-sm">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          Reset Camera
-        </button>
-        <button id="btnAutoRotate" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--secondary)] transition-colors flex items-center gap-1.5 shadow-sm">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Auto Rotate: <span id="autoRotateState" class="font-bold text-emerald-500">ON</span>
-        </button>
-      </div>
-    </header>
-
-    <!-- Main Workspace (Viewport + Sidebar) -->
-    <div class="grid grid-cols-1 lg:grid-cols-4 min-h-[580px]">
-      
-      <!-- 3D Canvas Area (3 Cols) -->
-      <div class="lg:col-span-3 relative flex flex-col bg-[var(--background)]">
-        
-        <!-- Canvas Viewport -->
-        <div class="relative flex-1 w-full h-full min-h-[460px] cursor-grab active:cursor-grabbing">
-          <canvas id="renderCanvas" class="absolute inset-0 w-full h-full block"></canvas>
-          
-          <!-- Viewport Overlay Hints -->
-          <div class="absolute top-3 left-3 pointer-events-none flex flex-col gap-1.5">
-            <span class="px-2.5 py-1 text-xs font-medium rounded-md bg-[var(--card)]/80 backdrop-blur border border-[var(--border)] text-[var(--foreground)] shadow-sm">
-              🖱️ Left-Click + Drag: Rotate | Wheel: Zoom | Right-Click: Pan
-            </span>
-          </div>
-
-          <!-- Bottom Camera Preset Pills -->
-          <div class="absolute bottom-3 left-3 right-3 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
-            <div class="flex items-center gap-1.5 pointer-events-auto bg-[var(--card)]/90 backdrop-blur p-1 rounded-lg border border-[var(--border)] shadow-sm">
-              <button data-view="iso" class="view-preset-btn px-2.5 py-1 text-xs font-medium rounded bg-[var(--primary)] text-[var(--primary-foreground)]">Iso</button>
-              <button data-view="top" class="view-preset-btn px-2.5 py-1 text-xs font-medium rounded text-[var(--muted-foreground)] hover:text-[var(--foreground)]">Top</button>
-              <button data-view="front" class="view-preset-btn px-2.5 py-1 text-xs font-medium rounded text-[var(--muted-foreground)] hover:text-[var(--foreground)]">Front</button>
-              <button data-view="side" class="view-preset-btn px-2.5 py-1 text-xs font-medium rounded text-[var(--muted-foreground)] hover:text-[var(--foreground)]">Side</button>
-              <button data-view="section" class="view-preset-btn px-2.5 py-1 text-xs font-medium rounded text-[var(--muted-foreground)] hover:text-[var(--foreground)]">Section A-A</button>
-            </div>
-
-            <!-- Visual Style Selector -->
-            <div class="flex items-center gap-1.5 pointer-events-auto bg-[var(--card)]/90 backdrop-blur p-1 rounded-lg border border-[var(--border)] shadow-sm">
-              <button id="btnRenderSolid" class="style-btn px-2.5 py-1 text-xs font-medium rounded bg-[var(--secondary)] text-[var(--foreground)]">Shaded</button>
-              <button id="btnRenderWire" class="style-btn px-2.5 py-1 text-xs font-medium rounded text-[var(--muted-foreground)] hover:text-[var(--foreground)]">AutoCAD Wire</button>
-              <button id="btnRenderXray" class="style-btn px-2.5 py-1 text-xs font-medium rounded text-[var(--muted-foreground)] hover:text-[var(--foreground)]">X-Ray</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Interactive Exploded View Bar -->
-        <div class="px-6 py-3 border-t border-[var(--border)] bg-[var(--card)] flex flex-wrap items-center gap-4">
-          <div class="flex items-center gap-2 min-w-[200px] flex-1">
-            <span class="text-xs font-semibold text-[var(--foreground)] flex items-center gap-1">
-              <svg class="w-3.5 h-3.5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-              Exploded View:
-            </span>
-            <input id="sliderExplode" type="range" min="0" max="100" value="0" class="w-full h-1.5 bg-[var(--border)] rounded-lg appearance-none cursor-pointer accent-blue-500">
-            <span id="labelExplode" class="text-xs font-mono font-medium text-[var(--muted-foreground)] w-8 text-right">0%</span>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <label class="flex items-center gap-1.5 text-xs text-[var(--foreground)] cursor-pointer">
-              <input id="chkSectionCut" type="checkbox" class="rounded border-[var(--border)] text-blue-500 focus:ring-0">
-              <span>Section Cut A-A</span>
-            </label>
-            <label class="flex items-center gap-1.5 text-xs text-[var(--foreground)] cursor-pointer">
-              <input id="chkPhysicsAir" type="checkbox" checked class="rounded border-[var(--border)] text-blue-500 focus:ring-0">
-              <span>Chimney Airflow</span>
-            </label>
-            <label class="flex items-center gap-1.5 text-xs text-[var(--foreground)] cursor-pointer">
-              <input id="chkShowPCB" type="checkbox" class="rounded border-[var(--border)] text-blue-500 focus:ring-0">
-              <span>Show Ghost PCB</span>
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Inspection Panel (1 Col) -->
-      <aside class="lg:border-l border-[var(--border)] bg-[var(--card)] p-5 flex flex-col justify-between gap-5 overflow-y-auto">
-        <div class="space-y-4">
-          <div>
-            <h2 class="text-xs font-semibold tracking-wider uppercase text-[var(--muted-foreground)]">Part Hierarchy & Specs</h2>
-            <p class="text-xs text-[var(--muted-foreground)] mt-0.5">Click any component to inspect geometry</p>
-          </div>
-
-          <!-- Component Selection Buttons -->
-          <div class="space-y-1.5">
-            <button data-part="cover" class="part-select-btn w-full text-left px-3 py-2 rounded-lg border border-blue-500/50 bg-blue-500/10 text-xs font-medium text-[var(--foreground)] flex items-center justify-between transition-all">
-              <span class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
-                Front Housing Cover
-              </span>
-              <span class="text-xs font-mono text-[var(--muted-foreground)]">92x72x18mm</span>
-            </button>
-
-            <button data-part="base" class="part-select-btn w-full text-left px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] hover:bg-[var(--secondary)] text-xs font-medium text-[var(--foreground)] flex items-center justify-between transition-all">
-              <span class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
-                Rear Chassis Base
-              </span>
-              <span class="text-xs font-mono text-[var(--muted-foreground)]">92x72x10mm</span>
-            </button>
-
-            <button data-part="bracket" class="part-select-btn w-full text-left px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] hover:bg-[var(--secondary)] text-xs font-medium text-[var(--foreground)] flex items-center justify-between transition-all">
-              <span class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                Wall Mount Bracket
-              </span>
-              <span class="text-xs font-mono text-[var(--muted-foreground)]">86x66x3mm</span>
-            </button>
-
-            <button data-part="barrier" class="part-select-btn w-full text-left px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] hover:bg-[var(--secondary)] text-xs font-medium text-[var(--foreground)] flex items-center justify-between transition-all">
-              <span class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
-                Thermal Barrier Rib
-              </span>
-              <span class="text-xs font-mono text-[var(--muted-foreground)]">t = 1.4mm</span>
-            </button>
-
-            <button data-part="rosette" class="part-select-btn w-full text-left px-3 py-2 rounded-lg border border-[var(--border)] bg-[var(--background)] hover:bg-[var(--secondary)] text-xs font-medium text-[var(--foreground)] flex items-center justify-between transition-all">
-              <span class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                Acoustic Rosette Horn
-              </span>
-              <span class="text-xs font-mono text-[var(--muted-foreground)]">4.0 kHz Peak</span>
-            </button>
-          </div>
-
-          <!-- Dynamic Inspection Card -->
-          <div id="inspectorDetails" class="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--background)]/60 space-y-2.5">
-            <div class="flex items-center justify-between border-b border-[var(--border)] pb-2">
-              <h3 id="inspectPartTitle" class="text-xs font-bold text-[var(--foreground)]">Front Housing Cover</h3>
-              <span id="inspectDwId" class="text-xs font-mono text-blue-500 bg-blue-500/10 px-1.5 py-0.5 rounded">DWG: DET-001</span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-2 text-xs">
-              <div>
-                <span class="text-[var(--muted-foreground)] block">Material:</span>
-                <span id="inspectMaterial" class="font-medium text-[var(--foreground)]">PC/ABS UL 94-V0</span>
-              </div>
-              <div>
-                <span class="text-[var(--muted-foreground)] block">Wall Thickness:</span>
-                <span id="inspectWall" class="font-medium text-[var(--foreground)]">2.20 mm +/- 0.15</span>
-              </div>
-              <div>
-                <span class="text-[var(--muted-foreground)] block">Draft Angle:</span>
-                <span id="inspectDraft" class="font-medium text-[var(--foreground)]">1.5° (Exterior)</span>
-              </div>
-              <div>
-                <span class="text-[var(--muted-foreground)] block">Surface Finish:</span>
-                <span id="inspectFinish" class="font-medium text-[var(--foreground)]">VDI 24 / SPI D-2</span>
-              </div>
-            </div>
-
-            <div class="pt-2 border-t border-[var(--border)]">
-              <span class="text-xs text-[var(--muted-foreground)] block">Engineering Rationale:</span>
-              <p id="inspectNotes" class="text-xs text-[var(--foreground)] mt-0.5 leading-relaxed">
-                Contains the 7-hole Helmholtz acoustic horn tuned to 4.2 kHz, front CO gas diffusion micro-slits, light pipe retention pocket, and the central living-hinge Test button.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Engineering Compliance Badges -->
-        <div class="space-y-2 pt-2 border-t border-[var(--border)]">
-          <div class="flex items-center justify-between text-xs">
-            <span class="text-[var(--muted-foreground)]">Acoustic Output:</span>
-            <span class="font-semibold text-emerald-500">&gt;85 dBA @ 3.0m (UL 2034)</span>
-          </div>
-          <div class="flex items-center justify-between text-xs">
-            <span class="text-[var(--muted-foreground)]">CO Sensor Isolation:</span>
-            <span class="font-semibold text-emerald-500">&Delta;T &lt; 0.7°C (Verified)</span>
-          </div>
-          <div class="flex items-center justify-between text-xs">
-            <span class="text-[var(--muted-foreground)]">CAD Standard:</span>
-            <span class="font-semibold text-blue-500">AutoCAD Mech &amp; SolidWorks</span>
-          </div>
-        </div>
-      </aside>
-
+      <div class="brand-sub">AutoCAD Mechanical 2027 & SolidWorks 2026 Pure Enclosure Assembly</div>
     </div>
   </div>
 
-  <!-- 3D Canvas Projection & Physics Engine (Pure Vanilla JS - 0 Dependencies) -->
+  <!-- Inspection Panel -->
+  <div class="inspect-panel">
+    <div class="inspect-title">
+      <span>MECHANICAL DATUM (PCB 0,0)</span>
+      <span style="font-size:10px; color:#10b981;">100% COLLISION FREE</span>
+    </div>
+    <div class="feature-item" onclick="focusFeature('OLED')">
+      <div class="f-name"><span>0.96" OLED Bezel Window</span><span class="f-coord">(48.5, 32.5)</span></div>
+      <div class="f-desc">25x14mm opening with 1.0mm lens shelf. Aligned with J4 header.</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('S2')">
+      <div class="f-name"><span>LPG Convection Chimney</span><span class="f-coord">(59.0, 43.5)</span></div>
+      <div class="f-desc">Natural thermal draft venting above Figaro TGS2610-C00 sensor.</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('S1')">
+      <div class="f-name"><span>CO Diffusion Well</span><span class="f-coord">(56.5, 14.5)</span></div>
+      <div class="f-desc">Radial louvers for Winsen ME3-CO cell. Isolated by 29mm from LPG.</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('LS1')">
+      <div class="f-name"><span>Acoustic Rosette Horn</span><span class="f-coord">(32.0, 12.0)</span></div>
+      <div class="f-desc">7-hole resonant sound horn for TDK PS1240 85dB alarm buzzer.</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('SW')">
+      <div class="f-name"><span>Buttons SW1 / SW2</span><span class="f-coord">(42.0, 6.0/12.0)</span></div>
+      <div class="f-desc">TEST & HUSH ergonomic plungers with 5.5mm chamfered holes.</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('LEDS')">
+      <div class="f-name"><span>4-Channel Status LEDs</span><span class="f-coord">(26.8..36.4, 4.0)</span></div>
+      <div class="f-desc">Direct light pipes for Red Alarm, Grn Normal, Blu WiFi, Ylw Fault.</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('TERMS')">
+      <div class="f-name"><span>Terminals J1, J2 & SW3</span><span class="f-coord">Left Wall Cutouts</span></div>
+      <div class="f-desc">Split-line wire entries for 12V DC, Relay, and Reset pinhole.</div>
+    </div>
+    <div class="feature-item" onclick="focusFeature('STANDOFF')">
+      <div class="f-name"><span>4x Standoff Bosses H1..H4</span><span class="f-coord">M2.5 Brass Inserts</span></div>
+      <div class="f-desc">OD 6.0mm, ID 3.6mm, Height 4.5mm at (3.5, 3.5) & (66.5, 46.5).</div>
+    </div>
+  </div>
+
+  <!-- Control HUD -->
+  <div class="control-panel">
+    <div class="control-group">
+      <div class="control-label">Exploded View</div>
+      <div class="slider-container">
+        <input type="range" id="explodeSlider" min="0" max="100" value="0" oninput="updateExplode(this.value)">
+        <span id="explodeVal" style="font-size:12px; font-weight:700; width:36px; color:#38bdf8;">0%</span>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn" id="btnPcb" onclick="togglePcb()">PCB Ghost: ON</button>
+      <button class="btn" id="btnCut" onclick="toggleCut()">Section: OFF</button>
+      <button class="btn" id="btnMat" onclick="cycleMaterial()">Matte White</button>
+      <button class="btn" onclick="resetCamera()">Reset View</button>
+    </div>
+  </div>
+
   <script>
-    (function() {
-      const canvas = document.getElementById('renderCanvas');
-      const ctx = canvas.getContext('2d');
-      const sliderExplode = document.getElementById('sliderExplode');
-      const labelExplode = document.getElementById('labelExplode');
-      const chkSectionCut = document.getElementById('chkSectionCut');
-      const chkPhysicsAir = document.getElementById('chkPhysicsAir');
-      const chkShowPCB = document.getElementById('chkShowPCB');
-      const btnReset = document.getElementById('btnResetView');
-      const btnAutoRotate = document.getElementById('btnAutoRotate');
-      const autoRotateState = document.getElementById('autoRotateState');
+    // -------------------------------------------------------------------------
+    // THREE.JS SCENE SETUP
+    // -------------------------------------------------------------------------
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x0f141c);
 
-      let width, height;
-      let explodeFactor = 0.0;
-      let autoRotate = true;
-      let renderMode = 'shaded'; // 'shaded', 'wire', 'xray'
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(80, 110, 140);
 
-      // Camera State
-      let yaw = 0.65;
-      let pitch = 0.45;
-      let zoom = 3.6;
-      let panX = 0;
-      let panY = 0;
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    container.appendChild(renderer.domElement);
 
-      let isDragging = false;
-      let lastMouseX = 0;
-      let lastMouseY = 0;
-      let isPanning = false;
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.target.set(35, 25, 14);
 
-      // Particle system for thermal chimney airflow animation
-      const particles = [];
-      for (let i = 0; i < 40; i++) {
-        particles.push({
-          x: 24.0 + (Math.random() - 0.5) * 12.0,
-          y: -18.5 + (Math.random() - 0.5) * 8.0,
-          z: Math.random() * 30.0,
-          speed: 0.25 + Math.random() * 0.35,
-          life: Math.random()
-        });
+    // Lighting
+    const ambLight = new THREE.AmbientLight(0xffffff, 0.65);
+    scene.add(ambLight);
+
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.9);
+    dirLight1.position.set(100, 150, 120);
+    dirLight1.castShadow = true;
+    dirLight1.shadow.mapSize.width = 2048;
+    dirLight1.shadow.mapSize.height = 2048;
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0x38bdf8, 0.4);
+    dirLight2.position.set(-100, 80, -60);
+    scene.add(dirLight2);
+
+    // Floor shadow receiver grid
+    const grid = new THREE.GridHelper(200, 40, 0x334155, 0x1e293b);
+    grid.position.set(35, 25, -6);
+    grid.rotation.x = Math.PI / 2;
+    scene.add(grid);
+
+    // -------------------------------------------------------------------------
+    // PBR MATERIALS DEFINITION
+    // -------------------------------------------------------------------------
+    const matChassis = new THREE.MeshStandardMaterial({
+      color: 0xf8fafc,
+      roughness: 0.35,
+      metalness: 0.05,
+      side: THREE.DoubleSide
+    });
+
+    const matOledGlass = new THREE.MeshPhysicalMaterial({
+      color: 0x050810,
+      roughness: 0.1,
+      metalness: 0.1,
+      transmission: 0.4,
+      transparent: true,
+      opacity: 0.92
+    });
+
+    const matScreenActive = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
+    const matPcb = new THREE.MeshStandardMaterial({ color: 0x064e3b, roughness: 0.4, transparent: true, opacity: 0.75 });
+    const matBrass = new THREE.MeshStandardMaterial({ color: 0xf59e0b, metalness: 0.8, roughness: 0.25 });
+    const matStainless = new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.9, roughness: 0.2 });
+    const matButton = new THREE.MeshStandardMaterial({ color: 0x3b82f6, roughness: 0.4 });
+    const matLedRed = new THREE.MeshStandardMaterial({ color: 0xef4444, emissive: 0xef4444, emissiveIntensity: 0.8 });
+    const matLedGrn = new THREE.MeshStandardMaterial({ color: 0x10b981, emissive: 0x10b981, emissiveIntensity: 0.8 });
+    const matLedBlu = new THREE.MeshStandardMaterial({ color: 0x3b82f6, emissive: 0x3b82f6, emissiveIntensity: 0.8 });
+    const matLedYlw = new THREE.MeshStandardMaterial({ color: 0xf59e0b, emissive: 0xf59e0b, emissiveIntensity: 0.8 });
+
+    // -------------------------------------------------------------------------
+    // ASSEMBLY GROUPS FOR EXPLODED VIEW
+    // -------------------------------------------------------------------------
+    const groupAssembly = new THREE.Group();
+    scene.add(groupAssembly);
+
+    const groupBracket = new THREE.Group();
+    const groupBase    = new THREE.Group();
+    const groupPcb     = new THREE.Group();
+    const groupCover   = new THREE.Group();
+
+    groupAssembly.add(groupBracket);
+    groupAssembly.add(groupBase);
+    groupAssembly.add(groupPcb);
+    groupAssembly.add(groupCover);
+
+    // Helpers to create rounded extruded boxes
+    function createRoundedShape(w, h, r) {
+      const shape = new THREE.Shape();
+      const x0 = -w/2, y0 = -h/2, x1 = w/2, y1 = h/2;
+      shape.moveTo(x0 + r, y0);
+      shape.lineTo(x1 - r, y0);
+      shape.quadraticCurveTo(x1, y0, x1, y0 + r);
+      shape.lineTo(x1, y1 - r);
+      shape.quadraticCurveTo(x1, y1, x1 - r, y1);
+      shape.lineTo(x0 + r, y1);
+      shape.quadraticCurveTo(x0, y1, x0, y1 - r);
+      shape.lineTo(x0, y0 + r);
+      shape.quadraticCurveTo(x0, y0, x0 + r, y0);
+      return shape;
+    }
+
+    // 1. WALL BRACKET (Z: -3.5 to 0.0)
+    const bracketShape = createRoundedShape(76, 56, 6);
+    const bracketGeo = new THREE.ExtrudeGeometry(bracketShape, { depth: 3.5, bevelEnabled: true, bevelSegments: 3, steps: 1, bevelSize: 0.5, bevelThickness: 0.5 });
+    const bracketMesh = new THREE.Mesh(bracketGeo, matChassis);
+    bracketMesh.position.set(35, 25, -3.5);
+    bracketMesh.castShadow = true;
+    groupBracket.add(bracketMesh);
+
+    // 2. LOWER CHASSIS BASE (Z: 0.0 to 12.0)
+    const baseOuterShape = createRoundedShape(86, 66, 8);
+    const baseHole = createRoundedShape(81.2, 61.2, 5.6);
+    baseOuterShape.holes.push(baseHole);
+    const baseWallGeo = new THREE.ExtrudeGeometry(baseOuterShape, { depth: 12.0, bevelEnabled: false });
+    const baseWallMesh = new THREE.Mesh(baseWallGeo, matChassis);
+    baseWallMesh.position.set(35, 25, 0);
+    groupBase.add(baseWallMesh);
+
+    const baseFloorGeo = new THREE.ExtrudeGeometry(createRoundedShape(86, 66, 8), { depth: 2.4, bevelEnabled: false });
+    const baseFloorMesh = new THREE.Mesh(baseFloorGeo, matChassis);
+    baseFloorMesh.position.set(35, 25, 0);
+    groupBase.add(baseFloorMesh);
+
+    // 4x Brass Standoff Bosses H1, H2, H3, H4
+    const bossCoords = [[3.5, 3.5], [66.5, 3.5], [3.5, 46.5], [66.5, 46.5]];
+    bossCoords.forEach(([bx, by]) => {
+      // Plastic boss
+      const bGeo = new THREE.CylinderGeometry(3.0, 3.0, 4.5, 16);
+      bGeo.rotateX(Math.PI / 2);
+      const bMesh = new THREE.Mesh(bGeo, matChassis);
+      bMesh.position.set(bx, by, 2.4 + 2.25);
+      groupBase.add(bMesh);
+
+      // Brass insert
+      const insGeo = new THREE.CylinderGeometry(1.8, 1.8, 4.5, 16);
+      insGeo.rotateX(Math.PI / 2);
+      const insMesh = new THREE.Mesh(insGeo, matBrass);
+      insMesh.position.set(bx, by, 2.4 + 2.25);
+      groupBase.add(insMesh);
+    });
+
+    // 3. GHOST PCBA (Z: 6.9 to 8.5)
+    const pcbShape = createRoundedShape(70, 50, 3);
+    const pcbGeo = new THREE.ExtrudeGeometry(pcbShape, { depth: 1.6, bevelEnabled: false });
+    const pcbMesh = new THREE.Mesh(pcbGeo, matPcb);
+    pcbMesh.position.set(35, 25, 6.9);
+    groupPcb.add(pcbMesh);
+
+    // Add 3D representation of key components on PCBA
+    // OLED Module Glass (48.5, 32.5, Z=18.0)
+    const oledGlassGeo = new THREE.BoxGeometry(25.0, 14.0, 1.2);
+    const oledGlassMesh = new THREE.Mesh(oledGlassGeo, matOledGlass);
+    oledGlassMesh.position.set(48.5, 32.5, 18.0);
+    groupPcb.add(oledGlassMesh);
+
+    // OLED Active Display Graphic
+    const screenGeo = new THREE.PlaneGeometry(21.7, 10.8);
+    const screenMesh = new THREE.Mesh(screenGeo, matScreenActive);
+    screenMesh.position.set(48.5, 32.5, 18.65);
+    groupPcb.add(screenMesh);
+
+    // S1 CO Sensor (56.5, 14.5, H=16.5)
+    const s1Geo = new THREE.CylinderGeometry(10.0, 10.0, 16.5, 24);
+    s1Geo.rotateX(Math.PI / 2);
+    const s1Mesh = new THREE.Mesh(s1Geo, matStainless);
+    s1Mesh.position.set(56.5, 14.5, 8.5 + 8.25);
+    groupPcb.add(s1Mesh);
+
+    // S2 LPG Sensor (59.0, 43.5, H=9.2)
+    const s2Geo = new THREE.CylinderGeometry(4.6, 4.6, 9.2, 16);
+    s2Geo.rotateX(Math.PI / 2);
+    const s2Mesh = new THREE.Mesh(s2Geo, matStainless);
+    s2Mesh.position.set(59.0, 43.5, 8.5 + 4.6);
+    groupPcb.add(s2Mesh);
+
+    // LS1 Buzzer (32.0, 12.0, H=6.5)
+    const bzGeo = new THREE.CylinderGeometry(6.1, 6.1, 6.5, 24);
+    bzGeo.rotateX(Math.PI / 2);
+    const bzMesh = new THREE.Mesh(bzGeo, matChassis);
+    bzMesh.position.set(32.0, 12.0, 8.5 + 3.25);
+    groupPcb.add(bzMesh);
+
+    // 4. FRONT COVER (Z: 12.0 to 28.0)
+    const coverOuterShape = createRoundedShape(86, 66, 8);
+    const coverHole = createRoundedShape(81.2, 61.2, 5.6);
+    coverOuterShape.holes.push(coverHole);
+    const coverWallGeo = new THREE.ExtrudeGeometry(coverOuterShape, { depth: 16.0, bevelEnabled: false });
+    const coverWallMesh = new THREE.Mesh(coverWallGeo, matChassis);
+    coverWallMesh.position.set(35, 25, 12.0);
+    groupCover.add(coverWallMesh);
+
+    // Cover Top Face with Beveled Cutout Windows
+    const coverTopShape = createRoundedShape(86, 66, 8);
+    // OLED Window Cutout: (48.5, 32.5) relative to PCB (35, 25) -> dx = 13.5, dy = 7.5
+    const oledCut = createRoundedShape(25.0, 14.0, 1.5);
+    const oledCutPath = new THREE.Path();
+    oledCut.getPoints().forEach((pt, i) => {
+      const px = pt.x + 13.5;
+      const py = pt.y + 7.5;
+      if (i === 0) oledCutPath.moveTo(px, py);
+      else oledCutPath.lineTo(px, py);
+    });
+    coverTopShape.holes.push(oledCutPath);
+
+    // S1 CO diffusion well cutout: (56.5 - 35 = 21.5, 14.5 - 25 = -10.5)
+    const coCutPath = new THREE.Path();
+    coCutPath.absarc(21.5, -10.5, 10.25, 0, Math.PI * 2, true);
+    coverTopShape.holes.push(coCutPath);
+
+    // S2 LPG chimney cutout: (59.0 - 35 = 24.0, 43.5 - 25 = 18.5)
+    const lpgCutPath = new THREE.Path();
+    lpgCutPath.absarc(24.0, 18.5, 5.5, 0, Math.PI * 2, true);
+    coverTopShape.holes.push(lpgCutPath);
+
+    const coverTopGeo = new THREE.ExtrudeGeometry(coverTopShape, { depth: 2.4, bevelEnabled: false });
+    const coverTopMesh = new THREE.Mesh(coverTopGeo, matChassis);
+    coverTopMesh.position.set(35, 25, 25.6);
+    groupCover.add(coverTopMesh);
+
+    // Tactile Buttons SW1 & SW2 Caps
+    const btnGeo = new THREE.CylinderGeometry(2.6, 2.6, 3.5, 16);
+    btnGeo.rotateX(Math.PI / 2);
+    const sw1Mesh = new THREE.Mesh(btnGeo, matButton);
+    sw1Mesh.position.set(42.0, 6.0, 26.5);
+    groupCover.add(sw1Mesh);
+
+    const sw2Mesh = new THREE.Mesh(btnGeo, matButton);
+    sw2Mesh.position.set(42.0, 12.0, 26.5);
+    groupCover.add(sw2Mesh);
+
+    // 4 Status LED Light Pipes at Y = 4.00
+    const ledMatArray = [matLedRed, matLedGrn, matLedBlu, matLedYlw];
+    const ledXs = [26.8, 30.0, 33.2, 36.4];
+    ledXs.forEach((lx, i) => {
+      const ledGeo = new THREE.CylinderGeometry(1.0, 1.0, 3.0, 12);
+      ledGeo.rotateX(Math.PI / 2);
+      const lMesh = new THREE.Mesh(ledGeo, ledMatArray[i]);
+      lMesh.position.set(lx, 4.0, 26.8);
+      groupCover.add(lMesh);
+    });
+
+    // -------------------------------------------------------------------------
+    // INTERACTION & ANIMATION FUNCTIONS
+    // -------------------------------------------------------------------------
+    function updateExplode(val) {
+      document.getElementById('explodeVal').innerText = val + '%';
+      const factor = val / 100.0;
+      // Displace parts along Z
+      groupBracket.position.z = -factor * 35.0;
+      groupBase.position.z    = 0.0;
+      groupPcb.position.z     = factor * 25.0;
+      groupCover.position.z   = factor * 60.0;
+    }
+
+    let pcbVisible = true;
+    function togglePcb() {
+      pcbVisible = !pcbVisible;
+      groupPcb.visible = pcbVisible;
+      const btn = document.getElementById('btnPcb');
+      btn.innerText = 'PCB Ghost: ' + (pcbVisible ? 'ON' : 'OFF');
+      btn.classList.toggle('active', pcbVisible);
+    }
+
+    let isSectionCut = false;
+    function toggleCut() {
+      isSectionCut = !isSectionCut;
+      const btn = document.getElementById('btnCut');
+      btn.innerText = 'Section: ' + (isSectionCut ? 'ON' : 'OFF');
+      btn.classList.toggle('active', isSectionCut);
+      if (isSectionCut) {
+        const clipPlane = new THREE.Plane(new THREE.Vector3(0, -1, 0), 25);
+        renderer.clippingPlanes = [clipPlane];
+      } else {
+        renderer.clippingPlanes = [];
       }
+    }
 
-      function resize() {
-        const rect = canvas.getBoundingClientRect();
-        width = canvas.width = rect.width * window.devicePixelRatio;
-        height = canvas.height = rect.height * window.devicePixelRatio;
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      }
-      window.addEventListener('resize', resize);
-      resize();
+    const colorThemes = [
+      { name: "Matte White", col: 0xf8fafc },
+      { name: "Cyber Grey", col: 0x334155 },
+      { name: "Obsidian Black", col: 0x1e293b }
+    ];
+    let curTheme = 0;
+    function cycleMaterial() {
+      curTheme = (curTheme + 1) % colorThemes.length;
+      matChassis.color.setHex(colorThemes[curTheme].col);
+      document.getElementById('btnMat').innerText = colorThemes[curTheme].name;
+    }
 
-      // Mouse & Gesture Controls
-      canvas.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        isPanning = (e.button === 2 || e.shiftKey);
-        lastMouseX = e.clientX;
-        lastMouseY = e.clientY;
-        autoRotate = false;
-        autoRotateState.textContent = 'OFF';
-        autoRotateState.classList.replace('text-emerald-500', 'text-[var(--muted-foreground)]');
-      });
+    function resetCamera() {
+      camera.position.set(80, 110, 140);
+      controls.target.set(35, 25, 14);
+      controls.update();
+    }
 
-      window.addEventListener('mouseup', () => { isDragging = false; isPanning = false; });
-      canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+    function focusFeature(feat) {
+      if (feat === 'OLED') controls.target.set(48.5, 32.5, 22);
+      else if (feat === 'S2') controls.target.set(59.0, 43.5, 22);
+      else if (feat === 'S1') controls.target.set(56.5, 14.5, 22);
+      else if (feat === 'LS1') controls.target.set(32.0, 12.0, 22);
+      else if (feat === 'SW') controls.target.set(42.0, 9.0, 22);
+      else if (feat === 'LEDS') controls.target.set(31.6, 4.0, 22);
+      else if (feat === 'TERMS') controls.target.set(0.0, 25.0, 12);
+      else if (feat === 'STANDOFF') controls.target.set(35.0, 25.0, 7);
+      controls.update();
+    }
 
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        const dx = e.clientX - lastMouseX;
-        const dy = e.clientY - lastMouseY;
-        lastMouseX = e.clientX;
-        lastMouseY = e.clientY;
+    // Render Loop
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
 
-        if (isPanning) {
-          panX += dx * 0.4;
-          panY += dy * 0.4;
-        } else {
-          yaw += dx * 0.008;
-          pitch += dy * 0.008;
-          pitch = Math.max(-1.4, Math.min(1.4, pitch));
-        }
-      });
-
-      canvas.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        const factor = e.deltaY < 0 ? 1.08 : 0.92;
-        zoom = Math.max(1.5, Math.min(8.0, zoom * factor));
-      });
-
-      // Camera Presets
-      document.querySelectorAll('.view-preset-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          document.querySelectorAll('.view-preset-btn').forEach(b => {
-            b.classList.remove('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
-            b.classList.add('text-[var(--muted-foreground)]');
-          });
-          btn.classList.add('bg-[var(--primary)]', 'text-[var(--primary-foreground)]');
-          btn.classList.remove('text-[var(--muted-foreground)]');
-
-          const v = btn.dataset.view;
-          autoRotate = false;
-          autoRotateState.textContent = 'OFF';
-          autoRotateState.classList.replace('text-emerald-500', 'text-[var(--muted-foreground)]');
-          panX = 0; panY = 0;
-
-          if (v === 'iso') { yaw = 0.65; pitch = 0.45; chkSectionCut.checked = false; }
-          else if (v === 'top') { yaw = 0.0; pitch = Math.PI / 2 - 0.01; chkSectionCut.checked = false; }
-          else if (v === 'front') { yaw = 0.0; pitch = 0.0; chkSectionCut.checked = false; }
-          else if (v === 'side') { yaw = Math.PI / 2; pitch = 0.0; chkSectionCut.checked = false; }
-          else if (v === 'section') { yaw = 0.05; pitch = 0.1; chkSectionCut.checked = true; }
-        });
-      });
-
-      // Style Presets
-      document.getElementById('btnRenderSolid').addEventListener('click', () => setRenderStyle('shaded'));
-      document.getElementById('btnRenderWire').addEventListener('click', () => setRenderStyle('wire'));
-      document.getElementById('btnRenderXray').addEventListener('click', () => setRenderStyle('xray'));
-
-      function setRenderStyle(style) {
-        renderMode = style;
-        document.querySelectorAll('.style-btn').forEach(b => {
-          b.classList.remove('bg-[var(--secondary)]', 'text-[var(--foreground)]');
-          b.classList.add('text-[var(--muted-foreground)]');
-        });
-        const activeBtn = style === 'shaded' ? document.getElementById('btnRenderSolid') :
-                          style === 'wire' ? document.getElementById('btnRenderWire') :
-                          document.getElementById('btnRenderXray');
-        activeBtn.classList.add('bg-[var(--secondary)]', 'text-[var(--foreground)]');
-        activeBtn.classList.remove('text-[var(--muted-foreground)]');
-      }
-
-      btnReset.addEventListener('click', () => {
-        yaw = 0.65; pitch = 0.45; zoom = 3.6; panX = 0; panY = 0;
-        sliderExplode.value = 0; explodeFactor = 0.0;
-        labelExplode.textContent = '0%';
-        chkSectionCut.checked = false;
-      });
-
-      btnAutoRotate.addEventListener('click', () => {
-        autoRotate = !autoRotate;
-        autoRotateState.textContent = autoRotate ? 'ON' : 'OFF';
-        if (autoRotate) {
-          autoRotateState.classList.replace('text-[var(--muted-foreground)]', 'text-emerald-500');
-        } else {
-          autoRotateState.classList.replace('text-emerald-500', 'text-[var(--muted-foreground)]');
-        }
-      });
-
-      sliderExplode.addEventListener('input', (e) => {
-        explodeFactor = e.target.value / 100.0;
-        labelExplode.textContent = `${e.target.value}%`;
-      });
-
-      // 3D Vector Math & Projection
-      function project(x, y, z) {
-        // Yaw rotation (Z-axis)
-        const cosY = Math.cos(yaw), sinY = Math.sin(yaw);
-        const x1 = x * cosY - y * sinY;
-        const y1 = x * sinY + y * cosY;
-
-        // Pitch rotation (X-axis)
-        const cosP = Math.cos(pitch), sinP = Math.sin(pitch);
-        const y2 = y1 * cosP - z * sinP;
-        const z2 = y1 * sinP + z * cosP;
-
-        // Center on canvas with scale and pan
-        const rect = canvas.getBoundingClientRect();
-        const cx = rect.width / 2 + panX;
-        const cy = rect.height / 2 + panY;
-        const screenX = cx + x1 * zoom;
-        const screenY = cy - z2 * zoom; // Invert Z for upward Y screen
-
-        return { x: screenX, y: screenY, depth: y2 };
-      }
-
-      // Drawing Utilities
-      function drawPolygon(pts, fillStyle, strokeStyle, lineWidth = 1) {
-        if (pts.length < 3) return;
-        ctx.beginPath();
-        ctx.moveTo(pts[0].x, pts[0].y);
-        for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
-        ctx.closePath();
-
-        if (fillStyle) {
-          ctx.fillStyle = fillStyle;
-          ctx.fill();
-        }
-        if (strokeStyle) {
-          ctx.strokeStyle = strokeStyle;
-          ctx.lineWidth = lineWidth;
-          ctx.stroke();
-        }
-      }
-
-      function draw3DBox(cx, cy, cz, w, h, d, color, outlineColor) {
-        const hw = w / 2, hh = h / 2, hd = d / 2;
-        const v = [
-          [-hw, -hh, -hd], [ hw, -hh, -hd], [ hw,  hh, -hd], [-hw,  hh, -hd], // Bottom
-          [-hw, -hh,  hd], [ hw, -hh,  hd], [ hw,  hh,  hd], [-hw,  hh,  hd]  // Top
-        ].map(p => project(cx + p[0], cy + p[1], cz + p[2]));
-
-        // Check section cut
-        if (chkSectionCut.checked && cy > 0) return;
-
-        const faces = [
-          { p: [v[4], v[5], v[6], v[7]], norm: [0, 0, 1] },   // Top (+Z)
-          { p: [v[0], v[1], v[2], v[3]], norm: [0, 0, -1] },  // Bottom (-Z)
-          { p: [v[0], v[1], v[5], v[4]], norm: [0, -1, 0] },  // Front (-Y)
-          { p: [v[2], v[3], v[7], v[6]], norm: [0, 1, 0] },   // Back (+Y)
-          { p: [v[0], v[3], v[7], v[4]], norm: [-1, 0, 0] },  // Left (-X)
-          { p: [v[1], v[2], v[6], v[5]], norm: [1, 0, 0] }    // Right (+X)
-        ];
-
-        faces.forEach(f => {
-          let fill = color;
-          if (renderMode === 'wire') fill = null;
-          else if (renderMode === 'xray') fill = 'rgba(100, 150, 240, 0.12)';
-          drawPolygon(f.p, fill, outlineColor || '#64748b', 1.0);
-        });
-      }
-
-      function draw3DCylinder(cx, cy, cz0, cz1, radius, segments, color, outlineColor) {
-        const ptsBot = [], ptsTop = [];
-        const dTheta = (2 * Math.PI) / segments;
-        for (let i = 0; i < segments; i++) {
-          const a = i * dTheta;
-          ptsBot.push(project(cx + radius * Math.cos(a), cy + radius * Math.sin(a), cz0));
-          ptsTop.push(project(cx + radius * Math.cos(a), cy + radius * Math.sin(a), cz1));
-        }
-
-        for (let i = 0; i < segments; i++) {
-          const next = (i + 1) % segments;
-          const quad = [ptsBot[i], ptsBot[next], ptsTop[next], ptsTop[i]];
-          let fill = color;
-          if (renderMode === 'wire') fill = null;
-          else if (renderMode === 'xray') fill = 'rgba(120, 180, 255, 0.15)';
-          drawPolygon(quad, fill, outlineColor || '#475569', 1.0);
-        }
-      }
-
-      // Main Render Loop
-      function render() {
-        const rect = canvas.getBoundingClientRect();
-        ctx.clearRect(0, 0, rect.width, rect.height);
-
-        if (autoRotate) {
-          yaw += 0.005;
-        }
-
-        // Z Offsets driven by Exploded View Slider
-        const zBracket = -15.0 - explodeFactor * 45.0;
-        const zBase    = 0.0;
-        const zPCB     = 6.5 + explodeFactor * 20.0;
-        const zCover   = 10.0 + explodeFactor * 60.0;
-
-        // ---------------------------------------------------------------------
-        // 1. WALL MOUNT BRACKET
-        // ---------------------------------------------------------------------
-        const brkColor = renderMode === 'shaded' ? '#cbd5e1' : '#334155';
-        draw3DBox(0, 0, zBracket, 86.0, 66.0, 3.0, brkColor, '#475569');
-        // Central wire hole
-        draw3DBox(0, 0, zBracket, 34.0, 22.0, 3.2, '#0f172a', '#3b82f6');
-        // 4x Bayonet lugs
-        [[-30, -20], [30, -20], [-30, 20], [30, 20]].forEach(p => {
-          draw3DCylinder(p[0], p[1], zBracket + 1.5, zBracket + 4.5, 3.2, 12, '#94a3b8', '#334155');
-        });
-
-        // ---------------------------------------------------------------------
-        // 2. REAR CHASSIS BASE
-        // ---------------------------------------------------------------------
-        const baseColor = renderMode === 'shaded' ? '#f1f5f9' : '#1e293b';
-        // Base plate floor & outer perimeter
-        draw3DBox(0, 0, zBase + 1.1, 92.0, 72.0, 2.2, baseColor, '#64748b');
-        // 4x Standoff Bosses with brass insert holes (+/-31.5, +/-21.5)
-        [[-31.5, -21.5], [31.5, -21.5], [-31.5, 21.5], [31.5, 21.5]].forEach(p => {
-          draw3DCylinder(p[0], p[1], zBase + 2.2, zBase + 6.7, 2.75, 12, '#e2e8f0', '#0284c7');
-          draw3DCylinder(p[0], p[1], zBase + 2.2, zBase + 6.7, 1.80, 8, '#f59e0b', '#b45309'); // Brass insert
-        });
-        // Side Terminal cutouts
-        draw3DBox(-45.0, -13.0, zBase + 5.0, 4.0, 12.0, 7.0, '#0f172a', '#0284c7');
-        draw3DBox(-45.0,  13.0, zBase + 5.0, 4.0, 12.0, 7.0, '#0f172a', '#0284c7');
-
-        // ---------------------------------------------------------------------
-        // 3. OPTIONAL GHOST PCB (Only when checked)
-        // ---------------------------------------------------------------------
-        if (chkShowPCB.checked) {
-          draw3DBox(0, 0, zPCB, 70.0, 50.0, 1.6, 'rgba(16, 185, 129, 0.35)', '#10b981');
-          // Winsen ME3-CO
-          draw3DCylinder(21.5, 10.5, zPCB + 0.8, zPCB + 17.3, 10.0, 16, 'rgba(203, 213, 225, 0.5)', '#0ea5e9');
-          // Figaro TGS2610
-          draw3DCylinder(24.0, -18.5, zPCB + 0.8, zPCB + 9.3, 4.6, 12, 'rgba(251, 191, 36, 0.7)', '#f59e0b');
-          // Buzzer LS1
-          draw3DCylinder(-3.0, 13.0, zPCB + 0.8, zPCB + 7.3, 6.1, 12, 'rgba(30, 41, 59, 0.6)', '#475569');
-        }
-
-        // ---------------------------------------------------------------------
-        // 4. FRONT HOUSING COVER (Aesthetic Top Shell)
-        // ---------------------------------------------------------------------
-        const coverColor = renderMode === 'shaded' ? '#ffffff' : '#0f172a';
-        draw3DBox(0, 0, zCover + 9.0, 92.0, 72.0, 18.0, coverColor, '#3b82f6');
-
-        // Internal Acoustic Shroud Cylinder (below LS1 at -3.0, 13.0)
-        draw3DCylinder(-3.0, 13.0, zCover + 6.0, zCover + 15.8, 7.0, 16, '#e2e8f0', '#0284c7');
-
-        // Internal Thermal Barrier Rib at X = 17.0mm
-        draw3DBox(17.0, 0.0, zCover + 6.0, 1.4, 66.0, 11.0, '#ef4444', '#b91c1c');
-
-        // Top UI Features on Front Face (Acoustic Rosette, Light Pipe, Button)
-        const zTop = zCover + 18.0;
-        // Rosette 7-hole
-        draw3DCylinder(-3.0, 13.0, zTop - 1, zTop + 0.5, 1.6, 10, '#0f172a', '#0284c7');
-        for (let a = 0; a < 6; a++) {
-          const rad = (a * 60 * Math.PI) / 180;
-          draw3DCylinder(-3.0 + 3.6 * Math.cos(rad), 13.0 + 3.6 * Math.sin(rad), zTop - 1, zTop + 0.5, 1.1, 8, '#0f172a', '#0284c7');
-        }
-
-        // 4-LED Light Pipe Window
-        draw3DBox(-3.4, 21.0, zTop - 0.5, 14.0, 3.8, 1.0, '#38bdf8', '#0284c7');
-
-        // Test/Hush Button
-        draw3DBox(7.0, 16.0, zTop + 0.8, 17.0, 11.0, 2.0, '#f8fafc', '#64748b');
-
-        // CO Diffusion Louvers
-        for (let dy of [-6, -3, 0, 3, 6]) {
-          draw3DBox(21.5, 10.5 + dy, zTop - 0.5, 14.0, 1.2, 1.0, '#0f172a', '#0284c7');
-        }
-
-        // ---------------------------------------------------------------------
-        // 5. THERMAL CHIMNEY FLUID DYNAMICS PARTICLES (Animated)
-        // ---------------------------------------------------------------------
-        if (chkPhysicsAir.checked) {
-          particles.forEach(pt => {
-            pt.z += pt.speed;
-            if (pt.z > 35.0) {
-              pt.z = 0.0;
-              pt.x = 24.0 + (Math.random() - 0.5) * 10.0;
-              pt.y = -18.5 + (Math.random() - 0.5) * 6.0;
-            }
-            const scr = project(pt.x, pt.y, zBase + pt.z);
-            // Color shifts from cool blue (intake) to warm orange (heated exhaust)
-            const heatRatio = Math.min(1.0, pt.z / 25.0);
-            const r = Math.round(56 + heatRatio * 180);
-            const g = Math.round(189 - heatRatio * 80);
-            const b = Math.round(248 - heatRatio * 200);
-
-            ctx.beginPath();
-            ctx.arc(scr.x, scr.y, 2.2 * (zoom / 3.0), 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.85)`;
-            ctx.fill();
-          });
-        }
-
-        requestAnimationFrame(render);
-      }
-
-      requestAnimationFrame(render);
-
-      // Part Inspector Interaction
-      const partData = {
-        cover: {
-          title: "Front Housing Cover",
-          dwg: "DWG: DET-001",
-          mat: "PC/ABS UL 94-V0",
-          wall: "2.20 mm +/- 0.15",
-          draft: "1.5° Exterior",
-          finish: "VDI 24 / SPI D-2",
-          notes: "Upper aesthetic bezel with 7-hole acoustic rosette horn tuned to 4.2 kHz, front CO gas diffusion micro-slits, light pipe retention pocket, and living-hinge Test button."
-        },
-        base: {
-          title: "Rear Chassis Base",
-          dwg: "DWG: DET-002",
-          mat: "PC/ABS UL 94-V0",
-          wall: "2.20 mm +/- 0.15",
-          draft: "1.0° Interior",
-          finish: "Matte Spark Finish",
-          notes: "Carrier housing with 4x M2.5 brass heat-set standoff bosses (63x43mm PCB pitch), dual terminal block side openings, bottom convection draft slots, and bayonet wall locks."
-        },
-        bracket: {
-          title: "Wall Mount Bracket",
-          dwg: "DWG: DET-003",
-          mat: "PC/ABS UL 94-V0",
-          wall: "3.00 mm Base Plate",
-          draft: "1.0° Ejection",
-          finish: "Fine Textured",
-          notes: "Quick-release mounting plate with EU 60mm and US 83.5mm gang box keyholes, central wire pass-through (34x22mm), spirit level pocket, and 4 sliding bayonet wedge cams."
-        },
-        barrier: {
-          title: "Thermal Barrier Rib",
-          dwg: "FEAT: ISO-RIB-01",
-          mat: "Molded Rib (PC/ABS)",
-          wall: "1.40 mm Rib Thickness",
-          draft: "0.5° Shut-Off",
-          finish: "Standard Mold",
-          notes: "Internal transverse rib at X=17.0mm isolating the Figaro TGS2610 280mW heater chimney from the cold Winsen ME3-CO electrochemical cell (maintains delta-T < 0.7°C)."
-        },
-        rosette: {
-          title: "Acoustic Rosette Horn",
-          dwg: "FEAT: HORN-RES-01",
-          mat: "Acoustic Cavity",
-          wall: "2.20 mm Port Depth",
-          draft: "0.0° Clean Thru",
-          finish: "Smooth Bore",
-          notes: "Helmholtz resonator cavity (14mm dia shroud, 7 radial horn ports) matched to TDK PS1240 4.0 kHz resonance peak. Delivers >85 dBA sound output at 3.0 meters (UL 2034)."
-        }
-      };
-
-      document.querySelectorAll('.part-select-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.part-select-btn').forEach(b => {
-            b.classList.remove('border-blue-500/50', 'bg-blue-500/10');
-            b.classList.add('border-[var(--border)]', 'bg-[var(--background)]');
-          });
-          btn.classList.add('border-blue-500/50', 'bg-blue-500/10');
-          btn.classList.remove('border-[var(--border)]', 'bg-[var(--background)]');
-
-          const key = btn.dataset.part;
-          const info = partData[key];
-          if (info) {
-            document.getElementById('inspectPartTitle').textContent = info.title;
-            document.getElementById('inspectDwId').textContent = info.dwg;
-            document.getElementById('inspectMaterial').textContent = info.mat;
-            document.getElementById('inspectWall').textContent = info.wall;
-            document.getElementById('inspectDraft').textContent = info.draft;
-            document.getElementById('inspectFinish').textContent = info.finish;
-            document.getElementById('inspectNotes').textContent = info.notes;
-          }
-        });
-      });
-
-    })();
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
   </script>
 </body>
 </html>
